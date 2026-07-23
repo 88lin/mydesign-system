@@ -2203,7 +2203,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 ```
 
 ```css
-/* 圆点标识表 — inspired by milan morning light */
+/* 圆点标识表 */
 .dot-table {
   display: flex;
   flex-direction: column;
@@ -3508,7 +3508,7 @@ function flipStack() {
 .stack-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
 .stack-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
 .stack-tag { display: inline-block; background: var(--accent, #8b4513); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
-.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); text-align: center; margin-top: 3.5rem; font-family: 'Caveat', cursive; /* architettura-della-luce */ }
+.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); text-align: center; margin-top: 3.5rem; font-family: 'Caveat', cursive; }
 ```
 
 **使用原则**：

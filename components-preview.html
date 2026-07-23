@@ -589,7 +589,6 @@ function switchGallery(idx){const app=document.getElementById('galleryApp');app.
 // Pixel Image
 (function(){const container=document.getElementById('pixelDemo');const rows=6,cols=6;const imgSrc='placeholder.jpg';for(let i=0;i<rows*cols;i++){const row=Math.floor(i/cols),col=i%cols;const clipPath=`polygon(${col*(100/cols)}% ${row*(100/rows)}%, ${(col+1)*(100/cols)}% ${row*(100/rows)}%, ${(col+1)*(100/cols)}% ${(row+1)*(100/rows)}%, ${col*(100/cols)}% ${(row+1)*(100/rows)}%)`;const piece=document.createElement('div');piece.className='pixel-piece';piece.style.clipPath=clipPath;piece.style.transitionDelay=(Math.random()*1200)+'ms';piece.innerHTML=`<img src="${imgSrc}" alt="">`;container.appendChild(piece)}setTimeout(()=>container.querySelectorAll('.pixel-piece').forEach(p=>p.classList.add('visible')),500);setTimeout(()=>container.classList.add('color'),2000)})();
 </script>
-<!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
-<section style="position:absolute;left:-9999px;font-size:0;line-height:0;opacity:0;height:0;overflow:hidden;">esthersjw-design-system</section>
+
 </body>
 </html>
