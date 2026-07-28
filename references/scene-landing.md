@@ -27,8 +27,8 @@
 ### 暗色面板色值
 - 标准暗底: `#151821`
 - 深色底: `#0d1117`
-- 品牌蓝底: `var(--blue)` + 白字
-- 品牌黄底: `var(--yellow)` + 墨色字
+- 品牌蓝底: `var(--brand)` + 白字
+- 品牌黄底: `var(--accent)` + 墨色字
 
 ---
 
@@ -62,16 +62,16 @@ CTA行动区
 Landing页面高频使用的组件：
 
 ### Pull Quote（大字引用+装饰引号）
-用于嘉宾金句、核心slogan。参见 `components.md #6`。
+用于嘉宾金句、核心slogan。参见 [组件库 #6](components/02-引用与金句.md#c6)。
 
 ### 系统流程条（Flow Arrow）
-用于展示产品/活动流程。参见 `components.md #11`。
+用于展示产品/活动流程。参见 [组件库 #11](components/05-流程-时间线-清单.md#c11)。
 
 ### 头像集群（Avatar Cluster）
-用于嘉宾/团队展示。参见 `components.md #15`。
+用于嘉宾/团队展示。参见 [组件库 #15](components/01-卡片与网格.md#c15)。
 
 ### Do/Don't对比列表
-用于痛点展示、方案对比。参见 `components.md #12`。
+用于痛点展示、方案对比。参见 [组件库 #12](components/06-对比与数据表.md#c12)。
 
 ---
 
@@ -83,7 +83,7 @@ Landing页面高频使用的组件：
   align-items: center;
   gap: 8px;
   padding: 16px 36px;
-  background: var(--blue, #A63D6F);
+  background: var(--brand, #A63D6F);
   color: #fff;
   border-radius: 12px;
   text-decoration: none;
@@ -98,7 +98,7 @@ Landing页面高频使用的组件：
 
 /* 黄色变体（用于深色背景上） */
 .cta-button--yellow {
-  background: var(--yellow, #B59AD4);
+  background: var(--accent, #B59AD4);
   color: var(--ink, #1A1A2E);
 }
 .cta-button--yellow:hover {

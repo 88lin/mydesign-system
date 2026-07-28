@@ -84,13 +84,13 @@
 ## 🎭 装饰元素
 
 ### 可用的装饰手法
-- **虚线圆圈**: `border: 2.5px dashed var(--yellow); border-radius: 50%`，半透明，大尺寸做背景
+- **虚线圆圈**: `border: 2.5px dashed var(--accent); border-radius: 50%`，半透明，大尺寸做背景
 - **渐变光晕**: `radial-gradient(ellipse, rgba(181,154,212,0.18), transparent)` 做柔和背景
-- **分割线**: `linear-gradient(90deg, transparent, var(--yellow), transparent)` 1px渐隐线
+- **分割线**: `linear-gradient(90deg, transparent, var(--accent), transparent)` 1px渐隐线
 - **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(181,154,212,0.35) 50%)` 文字底部高亮
 - **大透明数字**: 超大字号 + `opacity: 0.12~0.2` 做section装饰
 - **SVG简笔画**: 用描边风格的简化示意图，不要写实截图
-- **底部色条**: `border-bottom: 4px solid var(--yellow/blue/red)` 给卡片加标识（禁止使用 border-left 竖线引用块）
+- **底部色条**: `border-bottom: 4px solid var(--accent)`（或 `--brand` / `--pop`）给卡片加标识。色条走**底边**，不要用 `border-left` 竖线——那是 Notion 默认引用块的样子（见 checklist R3）
 
 ### 条纹肌理分割（替代渐隐线做section divider）
 ```css
@@ -137,7 +137,7 @@
 .decorative-frame {
   position: relative;
   padding: 16px;
-  border: 2.5px dashed var(--yellow);
+  border: 2.5px dashed var(--accent);
   border-radius: 12px;
 }
 .decorative-frame::before {

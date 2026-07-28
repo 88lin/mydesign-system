@@ -127,7 +127,7 @@
   left: 22px;
   top: 40px; bottom: 40px;
   width: 2px;
-  border-left: 2px dashed var(--yellow);
+  border-left: 2px dashed var(--accent);
 }
 .step-item {
   position: relative;
@@ -137,7 +137,7 @@
   left: -60px;
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand);
   color: #fff;
   display: flex;
   align-items: center;
@@ -262,7 +262,7 @@
   top: 28px;
   left: 28px; right: 28px;
   height: 3px;
-  background: linear-gradient(90deg, var(--yellow), var(--blue));
+  background: linear-gradient(90deg, var(--accent), var(--brand));
 }
 .step-card {
   text-align: center;
@@ -271,7 +271,7 @@
 .step-dot {
   width: 56px; height: 56px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -399,7 +399,7 @@
 
 ```css
 .section-accent {
-  background: var(--blue);
+  background: var(--brand);
   color: #fff;
   padding: clamp(80px, 12vh, 160px) 0;
   position: relative;
@@ -456,7 +456,7 @@
 .timeline-card .year {
   font-family: 'Fraunces', serif;
   font-size: 1.8rem;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.6;
 }
 ```
@@ -548,8 +548,8 @@
   margin-bottom: -2px;
 }
 .tab.active {
-  border-bottom-color: var(--blue);
-  color: var(--blue);
+  border-bottom-color: var(--brand);
+  color: var(--brand);
   font-weight: 600;
 }
 .tab-content { display: none; }
@@ -666,7 +666,7 @@
   font-weight: 700;
 }
 .layout-sticky-mag .nav li.active::before {
-  color: var(--blue);
+  color: var(--brand);
   font-size: 1.8rem;
 }
 .steps-content {

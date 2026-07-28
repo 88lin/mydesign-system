@@ -1,6 +1,7 @@
 ---
-name: esther-design-system
-description: 不二的个人IP设计系统。做HTML页面、个人网站、教程页面、介绍页面、landing page等任何前端设计时自动触发。包含品牌DNA和多个场景子规范。
+name: mydesign-system
+description: 个人IP设计系统。做HTML页面、个人网站、教程页面、介绍页面、landing page等任何前端设计时自动触发。包含品牌DNA、设计令牌和多个场景子规范。
+version: 2.2.0
 ---
 
 触发条件：当用户要求制作HTML网页、个人页面、教程页面、介绍型页面、landing page、活动页面、App型页面、作品集等任何前端设计相关任务时触发。也在用户说"做图文"、"图文卡片"、"小红书图文"、"文章转卡片"、"转成图文"、"做卡片"时触发。
@@ -41,9 +42,16 @@ description: 不二的个人IP设计系统。做HTML页面、个人网站、教�
 （图文卡片模式：参考 `scene-cards.md` 中的推荐排版手法，为每页选择不同手法。）
 
 ### Step 5: 选组件填充
-从 `references/components.md` 中选取组件填入各 section。
 
-**硬规则：禁止使用任何HTML默认样式。** 所有引用块、列表、表格、卡片必须从 components.md 里选用对应组件的代码。不允许用默认 `<blockquote>`、默认 `border-left` 引用、无样式 `<ul>/<ol>`、默认 `<table>`。如果在 components.md 里找不到合适的，自己设计一个符合 brand-dna 规范的，但绝不能用浏览器默认样式。
+组件库已按功能拆成 9 个分片，**先读索引、再按需加载分片**，不要把整个组件库读进上下文：
+
+1. **必读** `references/components/00-index.md`（约 13 KB）——里面有「场景 → 组件编号」表、组件清单（含变体数和检索关键词）、以及每个组件所在的分片文件
+2. 按索引定位编号后，**只打开命中的那 1~2 个分片**（如 `references/components/02-引用与金句.md`）
+3. 复制组件代码填入 section
+
+> 为什么这么做：组件库全文 125 KB / 52 个组件。为了拿一个引用块的代码而整份读入，既挤占上下文又容易抄错成邻近组件。索引 + 单个分片通常只要 26 KB。
+
+**硬规则：禁止使用任何HTML默认样式。** 所有引用块、列表、表格、卡片必须从组件库里选用对应组件的代码。不允许用默认 `<blockquote>`、默认 `border-left` 引用、无样式 `<ul>/<ol>`、默认 `<table>`。如果组件库里找不到合适的，自己设计一个符合 brand-dna 规范的，但绝不能用浏览器默认样式。
 
 ### Step 6: 自检
 对照 `references/checklist.md` 逐条检查：
