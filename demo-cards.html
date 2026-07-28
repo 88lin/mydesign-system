@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我是怎么做出自己的Design Skill的 - Esther不二</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Fraunces:ital,wght@0,700;0,900;1,400;1,700;1,900&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Caveat:wght@400..700&family=Noto+Serif+SC:wght@300..900&family=Noto+Sans+SC:wght@300..900&family=Fira+Code:wght@400..600&display=swap" rel="stylesheet">
 <script src="html2canvas.min.js" onerror="console.error('html2canvas failed to load')"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <style>
@@ -118,7 +118,7 @@ body {
 }
 
 .export-bar button {
-  background: var(--blue);
+  background: var(--brand);
   color: #fff;
   border: none;
   padding: 10px 28px;
@@ -162,14 +162,14 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 0 60%, var(--accent) 60% 80%, var(--pop) 80% 100%);
 }
 
 .deco-bottom {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 0 60%, var(--accent) 60% 80%, var(--pop) 80% 100%);
 }
 
 .page-num {
@@ -188,7 +188,7 @@ body {
 /* ========== P1 封面 ========== */
 .p-cover {
   background: var(--cream);
-  border: 28px solid var(--yellow);
+  border: 28px solid var(--accent);
   background-image:
     linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
@@ -202,7 +202,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   color: var(--ink);
-  background: var(--yellow);
+  background: var(--accent);
   display: inline-block;
   padding: 14px 32px;
   border-radius: 8px;
@@ -220,7 +220,7 @@ body {
 }
 
 .p-cover h1 em {
-  background: var(--blue);
+  background: var(--brand);
   color: #fff;
   font-style: normal;
   padding: 4px 16px;
@@ -247,7 +247,7 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--yellow);
+  border: 4px solid var(--accent);
 }
 
 .p-cover .author-name {
@@ -270,7 +270,7 @@ body {
   padding: 100px 90px;
 }
 
-.p-problem .page-num { color: var(--yellow); }
+.p-problem .page-num { color: var(--accent); }
 
 .p-problem h2 {
   font-family: 'Noto Serif SC', serif;
@@ -281,7 +281,7 @@ body {
 }
 
 .p-problem h2 em {
-  color: var(--yellow);
+  color: var(--accent);
   font-style: normal;
 }
 
@@ -321,7 +321,7 @@ body {
   left: 90px;
   right: 90px;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  background: linear-gradient(90deg, var(--brand) 0 50%, var(--accent) 50% 100%);
   border-radius: 2px;
   opacity: 0.5;
 }
@@ -352,10 +352,10 @@ body {
 }
 
 .p-turning h2 em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
   text-decoration: underline;
-  text-decoration-color: var(--yellow);
+  text-decoration-color: var(--accent-ink);
   text-underline-offset: 12px;
   text-decoration-thickness: 6px;
 }
@@ -375,7 +375,7 @@ body {
   padding: 90px 90px;
 }
 
-.p-v1 .page-num { color: var(--blue); }
+.p-v1 .page-num { color: var(--brand); }
 
 .p-v1 h2 {
   font-family: 'Noto Serif SC', serif;
@@ -388,7 +388,7 @@ body {
 .p-v1 .label {
   font-family: 'Fira Code', monospace;
   font-size: 24px;
-  color: var(--blue);
+  color: var(--brand);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 48px;
@@ -448,12 +448,12 @@ body {
   padding: 90px 90px;
 }
 
-.p-method .page-num { color: var(--yellow); }
+.p-method .page-num { color: var(--accent); }
 
 .p-method .tag-line {
   font-family: 'Caveat', cursive;
   font-size: 32px;
-  color: var(--yellow);
+  color: var(--accent);
   margin-bottom: 16px;
 }
 
@@ -514,7 +514,7 @@ body {
 .p-quote-big .oversized-mark {
   font-family: 'Fraunces', serif;
   font-size: 280px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.1;
   line-height: 0.5;
   margin-bottom: 20px;
@@ -530,7 +530,7 @@ body {
 }
 
 .p-quote-big .quote-text em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
 }
 
@@ -550,7 +550,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-upgrade .page-num { color: var(--blue); }
+.p-upgrade .page-num { color: var(--brand); }
 
 .p-upgrade h2 {
   font-family: 'Noto Serif SC', serif;
@@ -582,7 +582,7 @@ body {
   font-family: 'Fraunces', serif;
   font-size: 56px;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.25;
   flex-shrink: 0;
   width: 72px;
@@ -597,7 +597,7 @@ body {
 }
 
 .p-upgrade .step-text strong {
-  color: var(--blue);
+  color: var(--brand);
 }
 
 .p-upgrade .flow-arrow {
@@ -607,7 +607,7 @@ body {
 
 .p-upgrade .flow-arrow span {
   font-size: 40px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.5;
 }
 
@@ -619,7 +619,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-components .page-num { color: var(--blue); }
+.p-components .page-num { color: var(--brand); }
 
 .p-components h2 {
   font-family: 'Noto Serif SC', serif;
@@ -670,7 +670,7 @@ body {
   font-family: 'Fraunces', serif;
   font-size: 52px;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--brand);
 }
 
 .p-components .data-detail {
@@ -687,7 +687,7 @@ body {
   font-size: 32px;
   color: var(--ink-light);
   line-height: 1.5;
-  border-left: 5px solid var(--blue);
+  border-left: 5px solid var(--brand);
 }
 
 /* ========== P9 文件树(代码面板) ========== */
@@ -698,7 +698,7 @@ body {
   padding: 80px 70px;
 }
 
-.p-filetree .page-num { color: var(--yellow); }
+.p-filetree .page-num { color: var(--accent); }
 
 .p-filetree h2 {
   font-family: 'Noto Serif SC', serif;
@@ -730,8 +730,8 @@ body {
   height: 14px;
   border-radius: 50%;
 }
-.p-filetree .dot:nth-child(1) { background: var(--red); }
-.p-filetree .dot:nth-child(2) { background: var(--yellow); }
+.p-filetree .dot:nth-child(1) { background: var(--pop); }
+.p-filetree .dot:nth-child(2) { background: var(--accent); }
 .p-filetree .dot:nth-child(3) { background: #4ade80; }
 
 .p-filetree .code-titlebar .filename {
@@ -757,7 +757,7 @@ body {
 .p-filetree .code-body .folder { color: #79c0ff; font-weight: 600; }
 .p-filetree .code-body .file { color: #c9d1d9; }
 .p-filetree .code-body .comment { color: #8b949e; }
-.p-filetree .code-body .highlight-file { color: var(--yellow); }
+.p-filetree .code-body .highlight-file { color: var(--accent); }
 
 /* ========== P10 核心认知(大字) ========== */
 .p-insights {
@@ -767,7 +767,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-insights .page-num { color: var(--blue); }
+.p-insights .page-num { color: var(--brand); }
 
 .p-insights h2 {
   font-family: 'Noto Serif SC', serif;
@@ -803,7 +803,7 @@ body {
 }
 
 .p-insights .insight-item .text em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
 }
 
@@ -815,7 +815,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-action .page-num { color: var(--red); opacity: 0.2; }
+.p-action .page-num { color: var(--pop-ink); opacity: 0.2; }
 
 .p-action h2 {
   font-family: 'Noto Serif SC', serif;
@@ -886,7 +886,7 @@ body {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 200px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.15;
   line-height: 0.6;
   margin-bottom: -20px;
@@ -903,10 +903,10 @@ body {
 }
 
 .p-end .quote em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
   text-decoration: underline;
-  text-decoration-color: var(--yellow);
+  text-decoration-color: var(--accent-ink);
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
 }
@@ -916,7 +916,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--yellow);
+  border: 3px solid var(--accent);
   margin-bottom: 20px;
 }
 
@@ -929,7 +929,7 @@ body {
 
 .p-end .cta {
   font-size: 32px;
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
   margin-bottom: 48px;
 }
@@ -941,7 +941,38 @@ body {
   text-align: center;
   letter-spacing: 0;
 }
-</style>
+
+    /* ds:a11y-focus */
+    /* 键盘可达性：只在键盘导航时显形，鼠标点击不出现难看的外框。
+       两层 box-shadow 保证焦点环在任何底色上都看得见（浅底靠品牌色，深底靠奶白色）。 */
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible,
+    [onclick]:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 3px;
+      border-radius: 3px;
+      box-shadow: 0 0 0 5px var(--cream), 0 0 0 7px var(--brand-soft);
+    }
+    :focus:not(:focus-visible) { outline: none; }
+  
+    /* ds:reduced-motion */
+    /* 前庭功能障碍用户会因视差/位移动效眩晕，系统开了"减少动态效果"就全部停掉。
+       用 !important + 极短时长而不是 none：保留动画的结束状态，避免元素停在起始的透明态。 */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal, [class*="reveal"] { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -1001,7 +1032,7 @@ body {
 
 <!-- ===== P4 第一版(色块交替行) ===== -->
 <div class="card p-v1" data-card="4">
-  <span class="page-num" style="color: var(--blue);">04</span>
+  <span class="page-num" style="color: var(--brand);">04</span>
   <h2>第一版内容(很薄但有用)</h2>
   <p class="label">Phase 1 · Initial Version</p>
   <div class="file-list">
