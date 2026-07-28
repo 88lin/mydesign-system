@@ -12,19 +12,11 @@
 
 用这套系统生成的真实页面：
 
-### 📖 教程型 - 分享会页面
-
-信息清晰、步骤明确、有节奏的单页科普/教程。
-
-🔗 [在线预览](https://esthersjw.github.io/cola-ob-sharing/cola-ob-sharing.html)
-
----
-
 ### 📖 教程型 - Design Skill 拆解
 
 把审美写成操作手册——从纠正AI到做出自己的Design Skill的完整过程。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-readme-tutorial.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-readme-tutorial.html)
 
 ---
 
@@ -32,7 +24,7 @@
 
 视觉冲击、深浅面板交替、强节奏感的活动邀请页。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-landing.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-landing.html)
 
 ---
 
@@ -40,7 +32,7 @@
 
 功能优先、交互感、信息密度高的应用型页面。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-app.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-app.html)
 
 ---
 
@@ -48,7 +40,7 @@
 
 3:4 比例、字大、手机可读、一键导出 PNG 的图文卡片。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-cards.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-cards.html)
 
 ---
 
@@ -56,7 +48,7 @@
 
 杂志编号风：全内联样式 + section 标签，复制粘贴进微信公众号编辑器即可。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/assets/demo-wechat.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/assets/demo-wechat.html)
 
 ---
 
@@ -64,7 +56,7 @@
 
 16种经过验证的布局模式一览。
 
-🔗 [在线预览](https://esthersjw.github.io/esther-design-system/demo-layouts.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-layouts.html)
 
 ---
 
@@ -72,7 +64,7 @@
 
 51个经过验证的可复用组件。
 
-🔗 [组件库预览](https://esthersjw.github.io/esther-design-system/components-preview.html)
+🔗 [组件库预览](https://88lin.github.io/mydesign-system/components-preview.html)
 
 ---
 
