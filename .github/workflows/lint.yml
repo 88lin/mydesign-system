@@ -1,0 +1,36 @@
+name: design-lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 三个检查器都只用标准库，不需要安装依赖
+      - name: tokens 是否与 tokens.json 同步
+        run: python scripts/build_tokens.py --check
+
+      - name: 组件分片是否与源同步
+        run: python scripts/split_components.py --check
+
+      - name: 设计规范检查（P0 必须为 0）
+        run: python scripts/lint_design.py --json lint.json --report lint-report.md
+
+      - name: 上传检查报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-lint-report
+          path: |
+            lint.json
+            lint-report.md
