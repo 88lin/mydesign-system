@@ -110,7 +110,7 @@
   font-family: 'Fraunces', serif;
   font-size: 5.5rem;
   font-weight: 900;
-  color: rgba(43, 127, 216, 0.08);
+  color: rgba(166, 61, 111, 0.08);
   line-height: 1;
   pointer-events: none;
 }
@@ -131,8 +131,8 @@
 
 **变体**: 编号颜色按品牌三色轮换（蓝/黄/红）
 ```css
-.number-card:nth-child(3n+1) .card-number { color: rgba(43, 127, 216, 0.08); }
-.number-card:nth-child(3n+2) .card-number { color: rgba(244, 215, 88, 0.15); }
+.number-card:nth-child(3n+1) .card-number { color: rgba(166, 61, 111, 0.08); }
+.number-card:nth-child(3n+2) .card-number { color: rgba(181, 154, 212, 0.15); }
 .number-card:nth-child(3n) .card-number { color: rgba(232, 74, 95, 0.1); }
 ```
 
@@ -166,8 +166,8 @@
   margin-bottom: 14px;
 }
 /* pill颜色变体 */
-.tag-card .card-pill--blue { background: rgba(43,127,216,0.1); color: var(--blue); }
-.tag-card .card-pill--yellow { background: rgba(244,215,88,0.25); color: #9a8100; }
+.tag-card .card-pill--blue { background: rgba(166,61,111,0.1); color: var(--blue); }
+.tag-card .card-pill--yellow { background: rgba(181,154,212,0.25); color: #88325B; }
 .tag-card .card-pill--red { background: rgba(232,74,95,0.1); color: var(--red); }
 .tag-card .card-title {
   font-family: 'Noto Serif SC', serif;
@@ -215,8 +215,8 @@
   font-size: 2.8rem;
 }
 /* icon区颜色变体 */
-.icon-card .card-icon-area--blue { background: rgba(43,127,216,0.06); }
-.icon-card .card-icon-area--yellow { background: rgba(244,215,88,0.12); }
+.icon-card .card-icon-area--blue { background: rgba(166,61,111,0.06); }
+.icon-card .card-icon-area--yellow { background: rgba(181,154,212,0.12); }
 .icon-card .card-icon-area--red { background: rgba(232,74,95,0.06); }
 .icon-card .card-content {
   flex: 1;
@@ -317,7 +317,7 @@
 .quote-handwrite {
   position: relative;
   padding: 28px 24px;
-  border: 2px dashed rgba(43,127,216,0.25);
+  border: 2px dashed rgba(166,61,111,0.25);
   border-radius: 12px;
   background: white;
 }
@@ -373,7 +373,7 @@
   font-weight: 900;
   margin-bottom: 12px;
   display: inline;
-  background: linear-gradient(to top, rgba(244,215,88,0.5) 45%, transparent 45%);
+  background: linear-gradient(to top, rgba(181,154,212,0.5) 45%, transparent 45%);
   line-height: 1.8;
   padding: 2px 4px;
 }
@@ -468,7 +468,7 @@
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -514,20 +514,20 @@
   margin-bottom: 2rem;
 }
 .quote-minimal .quote-body .hl {
-  background: linear-gradient(transparent 60%, rgba(244,215,88,0.3) 60%);
+  background: linear-gradient(transparent 60%, rgba(181,154,212,0.3) 60%);
   padding: 0 4px;
 }
 .quote-minimal .quote-rule {
   width: 60px;
   height: 3px;
-  background: var(--yellow, #F4D758);
+  background: var(--yellow, #B59AD4);
   margin-bottom: 2rem;
 }
 .quote-minimal .quote-conclusion {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.2rem;
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   line-height: 1.7;
 }
 ```
@@ -549,7 +549,7 @@
   padding: 24px 28px;
   background: white;
   border-radius: 10px;
-  border: 1.5px dashed rgba(43, 127, 216, 0.3);
+  border: 1.5px dashed rgba(166, 61, 111, 0.3);
 }
 .quote-note-tag {
   position: absolute;
@@ -557,7 +557,7 @@
   left: 20px;
   font-family: 'Caveat', cursive;
   font-size: 1rem;
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   background: var(--cream, #fefcf6);
   padding: 0 8px;
   font-weight: 700;
@@ -594,7 +594,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60%;
-  background: var(--yellow, #F4D758);
+  background: var(--yellow, #B59AD4);
   border-radius: 2px;
 }
 .quote-typo p {
@@ -723,7 +723,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 ```
 
-**语法高亮色**: `.kw { color: #bb9af7; }` `.fn { color: #7aa2f7; }` `.str { color: #9ece6a; }` `.cm { color: #565f89; }`
+**语法高亮色**: `.kw { color: #bb9af7; }` `.fn { color: #7aa2f7; }` `.str { color: #9ece6a; }` `.cm { color: #8A94BE; }`
 
 ---
 
@@ -772,7 +772,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   margin: 0;
   padding: 16px 20px 16px 48px;
   background-image: repeating-linear-gradient(
-    transparent, transparent 31px, rgba(43,127,216,0.05) 31px, rgba(43,127,216,0.05) 32px
+    transparent, transparent 31px, rgba(166,61,111,0.05) 31px, rgba(166,61,111,0.05) 32px
   );
 }
 ```
@@ -877,7 +877,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 .code-clean .str { color: var(--red); }
 .code-clean .cm { color: #94a3b8; }
 .code-clean .highlight-line {
-  background: rgba(43,127,216,0.06);
+  background: rgba(166,61,111,0.06);
   margin: 0 -32px;
   padding: 0 32px;
   border-left: 3px solid var(--blue);
@@ -905,14 +905,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   padding: 36px 40px;
   background: var(--cream, #fefcf6);
   border-radius: 16px;
-  border: 2px solid var(--yellow, #F4D758);
+  border: 2px solid var(--yellow, #B59AD4);
   position: relative;
 }
 .viral-pullquote::before {
   content: '"';
   font-family: 'Fraunces', serif;
   font-size: 5rem;
-  color: var(--yellow, #F4D758);
+  color: var(--yellow, #B59AD4);
   position: absolute;
   top: -10px; left: 20px;
   opacity: 0.5;
@@ -958,13 +958,13 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   line-height: 1.6;
 }
 .chat-bubble.user {
-  background: var(--yellow, #F4D758);
+  background: var(--yellow, #B59AD4);
   color: var(--ink, #1A1A2E);
   align-self: flex-end;
   border-bottom-right-radius: 4px;
 }
 .chat-bubble.ai {
-  background: var(--blue, #2B7FD8);
+  background: var(--blue, #A63D6F);
   color: #fefcf6;
   align-self: flex-start;
   border-bottom-left-radius: 4px;
@@ -993,7 +993,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   font-family: 'Fraunces', serif;
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   opacity: 0.15;
   line-height: 0.85;
   display: block;
@@ -1034,7 +1034,7 @@ nav {
   padding: 1rem 2rem;
   background: rgba(254,252,246,.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(26,26,26,.06);
+  border-bottom: 1px solid rgba(26,26,46,.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1057,7 +1057,7 @@ nav.scrolled {
   position: absolute;
   bottom: -4px; left: 0; right: 0;
   height: 2px;
-  background: var(--yellow, #F4D758);
+  background: var(--yellow, #B59AD4);
   transform: scaleX(0);
   transition: transform .25s ease-out;
 }
@@ -1122,8 +1122,8 @@ nav.scrolled {
   line-height: 1;
   pointer-events: none;
 }
-.chair-number-card:nth-child(1) .chair-big-num { color: rgba(43,127,216,0.08); }
-.chair-number-card:nth-child(2) .chair-big-num { color: rgba(244,215,88,0.15); }
+.chair-number-card:nth-child(1) .chair-big-num { color: rgba(166,61,111,0.08); }
+.chair-number-card:nth-child(2) .chair-big-num { color: rgba(181,154,212,0.15); }
 .chair-number-card:nth-child(3) .chair-big-num { color: rgba(232,74,95,0.08); }
 .chair-number-card h3 {
   font-family: 'Noto Serif SC', serif;
@@ -1248,8 +1248,8 @@ nav.scrolled {
   position: relative;
   background: white;
 }
-.chair-dashed-card:nth-child(1) { border-color: rgba(43,127,216,0.3); }
-.chair-dashed-card:nth-child(2) { border-color: rgba(244,215,88,0.5); }
+.chair-dashed-card:nth-child(1) { border-color: rgba(166,61,111,0.3); }
+.chair-dashed-card:nth-child(2) { border-color: rgba(181,154,212,0.5); }
 .chair-dashed-card:nth-child(3) { border-color: rgba(232,74,95,0.3); }
 .chair-dashed-card .chair-label {
   position: absolute;
@@ -1262,7 +1262,7 @@ nav.scrolled {
   padding: 0 8px;
 }
 .chair-dashed-card:nth-child(1) .chair-label { color: var(--blue); }
-.chair-dashed-card:nth-child(2) .chair-label { color: #9a8100; }
+.chair-dashed-card:nth-child(2) .chair-label { color: #88325B; }
 .chair-dashed-card:nth-child(3) .chair-label { color: var(--red); }
 .chair-dashed-card h3 {
   font-family: 'Noto Serif SC', serif;
@@ -1312,8 +1312,8 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
 }
-.chair-gradient-card:nth-child(1) { background: linear-gradient(145deg, rgba(43,127,216,0.08), rgba(43,127,216,0.02)); }
-.chair-gradient-card:nth-child(2) { background: linear-gradient(145deg, rgba(244,215,88,0.15), rgba(244,215,88,0.03)); }
+.chair-gradient-card:nth-child(1) { background: linear-gradient(145deg, rgba(166,61,111,0.08), rgba(166,61,111,0.02)); }
+.chair-gradient-card:nth-child(2) { background: linear-gradient(145deg, rgba(181,154,212,0.15), rgba(181,154,212,0.03)); }
 .chair-gradient-card:nth-child(3) { background: linear-gradient(145deg, rgba(232,74,95,0.08), rgba(232,74,95,0.02)); }
 .chair-gradient-card .chair-emoji {
   font-size: 2rem;
@@ -1426,7 +1426,7 @@ nav.scrolled {
   padding: 24px 32px;
   background: var(--cream, #fefcf6);
   border-radius: 14px;
-  border: 1px solid rgba(43, 127, 216, 0.1);
+  border: 1px solid rgba(166, 61, 111, 0.1);
 }
 .system-flow span {
   font-size: 0.9rem;
@@ -1436,7 +1436,7 @@ nav.scrolled {
   box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 .flow-arrow {
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   font-size: 1.2rem;
   background: transparent !important;
   box-shadow: none !important;
@@ -1779,7 +1779,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ring {
   position: absolute;
   inset: -12px;
-  border: 2px dashed rgba(43,127,216,0.25);
+  border: 2px dashed rgba(166,61,111,0.25);
   border-radius: 50%;
   animation: heroSpin 20s linear infinite;
 }
@@ -1838,7 +1838,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .filter-tag.active {
   color: #fff;
-  background: var(--blue, #2B7FD8);
+  background: var(--blue, #A63D6F);
 }
 .filter-tag:hover:not(.active) {
   background: rgba(0,0,0,.1);
@@ -1884,12 +1884,12 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   padding: 3px 10px;
   border-radius: 12px;
   font-size: 0.7rem;
-  background: rgba(43,127,216,0.1);
-  color: var(--blue, #2B7FD8);
+  background: rgba(166,61,111,0.1);
+  color: var(--blue, #A63D6F);
   margin-bottom: 0.75rem;
 }
 .verdict {
-  border-left: 3px solid var(--blue, #2B7FD8);
+  border-left: 3px solid var(--blue, #A63D6F);
   padding-left: 12px;
   font-size: 0.85rem;
   color: var(--ink-light, #4A4A5A);
@@ -2022,7 +2022,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: var(--blue, #2B7FD8);
+  background: var(--blue, #A63D6F);
   color: #fff;
   border-radius: 12px;
   text-decoration: none;
@@ -2032,7 +2032,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(43,127,216,0.3);
+  box-shadow: 0 8px 24px rgba(166,61,111,0.3);
 }
 ```
 
@@ -2088,7 +2088,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -2113,7 +2113,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   opacity: 0.1;
   line-height: 0.85;
   display: block;
@@ -2141,14 +2141,14 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--yellow, #F4D758);
+  color: var(--yellow, #B59AD4);
   line-height: 1;
 }
 .editorial-col h4 {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint, #6F6F81);
   margin-bottom: 4px;
 }
 .editorial-col p {
@@ -2158,7 +2158,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .editorial-dim {
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint, #6F6F81);
   margin-top: 8px;
 }
 
@@ -2218,7 +2218,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .dot-dim {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint, #6F6F81);
   position: relative;
   padding-left: 16px;
 }
@@ -2231,9 +2231,9 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--yellow, #F4D758);
+  background: var(--yellow, #B59AD4);
 }
-.dot-row:nth-child(2n) .dot-dim::before { background: var(--blue, #2B7FD8); }
+.dot-row:nth-child(2n) .dot-dim::before { background: var(--blue, #A63D6F); }
 .dot-row:nth-child(3n) .dot-dim::before { background: var(--red, #E84A5F); }
 .dot-val {
   font-size: 0.9rem;
@@ -2300,7 +2300,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 ```css
 .ticket-vintage {
   background: #faf6eb;
-  border: 2px dashed #c4b89a;
+  border: 2px dashed #D4C9B5;
   border-radius: 4px;
   padding: 0;
   position: relative;
@@ -2313,7 +2313,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   top: 0; bottom: 0;
   right: 28%;
   width: 2px;
-  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 4px, #c4b89a 4px, #c4b89a 12px);
+  background: repeating-linear-gradient(to bottom, transparent 0px, transparent 4px, #D4C9B5 4px, #D4C9B5 12px);
 }
 .ticket-vintage .main-section {
   flex: 1;
@@ -2344,7 +2344,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   color: #4A4A5A;
 }
 .ticket-vintage .airline-row .badge {
-  background: var(--blue, #2B7FD8);
+  background: var(--blue, #A63D6F);
   color: #fefcf6;
   padding: 2px 8px;
   font-size: 0.65rem;
@@ -2376,7 +2376,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   content: '';
   width: 100%;
   height: 1px;
-  background: #c4b89a;
+  background: #D4C9B5;
   position: absolute;
 }
 .ticket-vintage .route-arrow span {
@@ -2457,7 +2457,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-editorial {
   background: #fefcf6;
   border-top: 3px solid #1A1A2E;
-  border-bottom: 1px solid #e8e4dc;
+  border-bottom: 1px solid #E8E4D9;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 36px);
 }
 .ticket-editorial .top-line {
@@ -2495,7 +2495,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-editorial .time-divider {
   font-family: 'Fraunces', serif;
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--yellow, #F4D758);
+  color: var(--yellow, #B59AD4);
   font-weight: 300;
 }
 .ticket-editorial .cities-line {
@@ -2518,7 +2518,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   margin-left: 6px;
 }
 .ticket-editorial .arrow-editorial {
-  color: var(--blue, #2B7FD8);
+  color: var(--blue, #A63D6F);
   font-size: 1.2rem;
 }
 .ticket-editorial .meta-strip {
@@ -2526,7 +2526,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   gap: clamp(24px, 4vw, 48px);
   flex-wrap: wrap;
   padding-top: 16px;
-  border-top: 1px solid #e8e4dc;
+  border-top: 1px solid #E8E4D9;
 }
 .ticket-editorial .meta-item {
   display: flex;
@@ -2584,7 +2584,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 ```css
 .ticket-minimal {
   background: #fefcf6;
-  border: 1px solid #e8e4dc;
+  border: 1px solid #E8E4D9;
   border-left: 4px solid #1A1A2E;
   padding: clamp(20px, 3vw, 32px);
 }
@@ -2660,7 +2660,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #c4b89a;
+  background: #D4C9B5;
   display: inline-block;
   margin-right: 4px;
   vertical-align: middle;
@@ -2730,14 +2730,14 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .hotel-editorial .detail-item {
   padding: 10px 0;
-  border-top: 1px solid #e0ddd4;
+  border-top: 1px solid #E8E4D9;
   flex: 1 1 auto;
   min-width: 140px;
 }
 .hotel-editorial .detail-item:not(:last-child) {
   padding-right: 20px;
   margin-right: 20px;
-  border-right: 1px solid #e0ddd4;
+  border-right: 1px solid #E8E4D9;
 }
 .hotel-editorial .detail-label {
   font-size: 0.7rem;
@@ -2755,7 +2755,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 0.78rem;
   color: var(--muted);
   padding-top: 12px;
-  border-top: 1px solid #e0ddd4;
+  border-top: 1px solid #E8E4D9;
 }
 ```
 
@@ -3224,7 +3224,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   padding: 20px 0; -webkit-overflow-scrolling: touch;
 }
 .hscroll-track::-webkit-scrollbar { height: 4px; }
-.hscroll-track::-webkit-scrollbar-thumb { background: var(--accent-light, #d4a06a); border-radius: 2px; }
+.hscroll-track::-webkit-scrollbar-thumb { background: var(--accent-light, #B59AD4); border-radius: 2px; }
 .hscroll-card {
   min-width: 340px; max-width: 380px; flex-shrink: 0; scroll-snap-align: center;
   background: #fff; border-radius: 16px; padding: 32px 28px;
@@ -3232,11 +3232,11 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
 }
 .hscroll-card .hscroll-num {
   position: absolute; top: 16px; right: 20px; font-family: 'Caveat', cursive;
-  font-size: 2rem; color: var(--accent-light, #d4a06a); opacity: 0.4;
+  font-size: 2rem; color: var(--accent-light, #B59AD4); opacity: 0.4;
 }
 .hscroll-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
-.hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
-.hscroll-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 1rem; font-family: 'Caveat', cursive; }
+.hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
+.hscroll-hint { font-size: 0.75rem; color: var(--ink-faint, #6F6F81); margin-top: 1rem; font-family: 'Caveat', cursive; }
 ```
 
 **使用原则**：
@@ -3290,20 +3290,20 @@ function switchTab(el, idx) {
 ```
 
 ```css
-.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--accent-light, #d4a06a); }
+.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--accent-light, #B59AD4); }
 .tab-item {
   padding: 10px 20px; font-size: 0.82rem; font-weight: 500; cursor: pointer;
   border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s;
-  color: var(--ink-faint, #8a7e6d);
+  color: var(--ink-faint, #6F6F81);
 }
-.tab-item.active { border-bottom-color: var(--accent, #8b4513); color: var(--ink, #2c2416); font-weight: 700; }
-.tab-item:hover { color: var(--ink-light, #5a4f3f); }
+.tab-item.active { border-bottom-color: var(--accent, #885CBA); color: var(--ink, #1A1A2E); font-weight: 700; }
+.tab-item:hover { color: var(--ink-light, #4A4A5A); }
 .tab-panels { position: relative; }
 .tab-panel { display: none; animation: tabFadeIn 0.3s; }
 .tab-panel.active { display: block; }
 .tab-panel h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
-.tab-panel p { font-size: 0.88rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 550px; }
-.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--accent, #8b4513); border-left: 3px solid var(--accent-light, #d4a06a); }
+.tab-panel p { font-size: 0.88rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 550px; }
+.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--accent, #885CBA); border-left: 3px solid var(--accent-light, #B59AD4); }
 @keyframes tabFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 ```
 
@@ -3355,21 +3355,21 @@ function toggleAccordion(header) {
 
 ```css
 .accordion-list { max-width: 600px; }
-.accordion-item { border-bottom: 1px solid rgba(139,69,19,0.15); }
+.accordion-item { border-bottom: 1px solid rgba(136,92,186,0.15); }
 .accordion-header {
   display: flex; align-items: center; gap: 16px; padding: 18px 0; cursor: pointer; transition: all 0.2s;
 }
 .accordion-header:hover { padding-left: 8px; }
 .accordion-step {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--accent, #8b4513);
+  width: 32px; height: 32px; border-radius: 50%; background: var(--accent, #885CBA);
   color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .accordion-header h4 { font-size: 0.95rem; font-weight: 700; }
-.accordion-arrow { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); transition: transform 0.2s; }
+.accordion-arrow { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint, #6F6F81); transition: transform 0.2s; }
 .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
 .accordion-body { padding: 0 0 18px 48px; display: none; }
 .accordion-item.open .accordion-body { display: block; animation: tabFadeIn 0.3s; }
-.accordion-body p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
+.accordion-body p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
 ```
 
 **使用原则**：
@@ -3427,16 +3427,16 @@ function moveSlide(dir) {
 .carousel-slide { min-width: 100%; padding: 40px; text-align: center; }
 .carousel-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .carousel-slide h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
-.carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 450px; margin: 0 auto; }
+.carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #4A4A5A); line-height: 2; max-width: 450px; margin: 0 auto; }
 .carousel-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 2rem; }
 .carousel-arrow {
-  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--accent-light, #d4a06a);
-  background: transparent; cursor: pointer; font-size: 1rem; color: var(--accent, #8b4513); transition: all 0.2s;
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--accent-light, #B59AD4);
+  background: transparent; cursor: pointer; font-size: 1rem; color: var(--accent, #885CBA); transition: all 0.2s;
 }
-.carousel-arrow:hover { background: var(--accent, #8b4513); color: #fff; }
+.carousel-arrow:hover { background: var(--accent, #885CBA); color: #fff; }
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; }
-.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light, #d4a06a); opacity: 0.4; transition: all 0.2s; }
-.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--accent, #8b4513); }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light, #B59AD4); opacity: 0.4; transition: all 0.2s; }
+.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--accent, #885CBA); }
 ```
 
 **使用原则**：
@@ -3506,9 +3506,9 @@ function flipStack() {
 .stack-card:nth-child(3) { z-index: 2; transform: translateY(24px) scale(0.92); opacity: 0.6; }
 .stack-card:nth-child(4) { z-index: 1; transform: translateY(36px) scale(0.88); opacity: 0.4; }
 .stack-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
-.stack-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
-.stack-tag { display: inline-block; background: var(--accent, #8b4513); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
-.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); text-align: center; margin-top: 3.5rem; font-family: 'Caveat', cursive; }
+.stack-card p { font-size: 0.82rem; color: var(--ink-light, #4A4A5A); line-height: 1.9; }
+.stack-tag { display: inline-block; background: var(--accent, #885CBA); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
+.stack-hint { font-size: 0.75rem; color: var(--ink-faint, #6F6F81); text-align: center; margin-top: 3.5rem; font-family: 'Caveat', cursive; }
 ```
 
 **使用原则**：
@@ -3552,9 +3552,9 @@ function flipStack() {
 }
 .flip-front { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 .flip-front h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.6; text-align: center; }
-.flip-front .flip-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 2rem; }
+.flip-front .flip-hint { font-size: 0.75rem; color: var(--ink-faint, #6F6F81); margin-top: 2rem; }
 .flip-back {
-  background: var(--accent, #8b4513); color: #fff;
+  background: var(--accent, #885CBA); color: #fff;
   transform: rotateY(180deg); text-align: center;
 }
 .flip-back h3 { font-size: 1rem; font-weight: 400; opacity: 0.8; margin-bottom: 1rem; }
@@ -3593,18 +3593,18 @@ function flipStack() {
 }
 .reveal-text {
   font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1.5;
-  color: var(--ink, #2c2416); position: relative; z-index: 2;
+  color: var(--ink, #1A1A2E); position: relative; z-index: 2;
 }
-.reveal-sub { font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); margin-top: 0.5rem; letter-spacing: 0.1em; position: relative; z-index: 2; }
+.reveal-sub { font-size: 0.8rem; color: var(--ink-faint, #6F6F81); margin-top: 0.5rem; letter-spacing: 0.1em; position: relative; z-index: 2; }
 .reveal-overlay {
-  position: absolute; inset: 0; background: var(--accent, #8b4513); color: #fff;
+  position: absolute; inset: 0; background: var(--accent, #885CBA); color: #fff;
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding: 40px; opacity: 0; transition: opacity 0.4s ease; z-index: 3; border-radius: 20px;
 }
 .reveal-card:hover .reveal-overlay { opacity: 1; }
 .reveal-overlay p { font-size: 0.9rem; line-height: 2; text-align: center; max-width: 380px; }
 .reveal-note { margin-top: 1rem; font-size: 0.82rem; opacity: 0.7; }
-.reveal-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 1rem; text-align: center; }
+.reveal-hint { font-size: 0.75rem; color: var(--ink-faint, #6F6F81); margin-top: 1rem; text-align: center; }
 ```
 
 **使用原则**：
@@ -3634,7 +3634,7 @@ function flipStack() {
 ```
 
 ```css
-/* 需要深色背景容器 background: #1a1510; color: #f0e9dc; */
+/* 需要深色背景容器 background: #1a1510; color: #FAF6EB; */
 .dark-reveal-bgchar {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-size: clamp(20rem, 40vw, 35rem); color: rgba(255,255,255,0.03);
@@ -3644,18 +3644,18 @@ function flipStack() {
 .dark-reveal-content h2 {
   font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.6; color: #fff; margin-bottom: 2rem;
 }
-.dark-reveal-divider { width: 40px; height: 2px; background: var(--accent-light, #d4a06a); margin: 0 auto 2rem; }
+.dark-reveal-divider { width: 40px; height: 2px; background: var(--accent-light, #B59AD4); margin: 0 auto 2rem; }
 .dark-reveal-trans {
   font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2;
   opacity: 0; transition: opacity 0.5s;
 }
 .dark-reveal-trans.show { opacity: 1; }
 .dark-reveal-btn {
-  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--accent-light, #d4a06a);
-  background: transparent; color: var(--accent-light, #d4a06a); border-radius: 20px;
+  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--accent-light, #B59AD4);
+  background: transparent; color: var(--accent-light, #B59AD4); border-radius: 20px;
   font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
 }
-.dark-reveal-btn:hover { background: var(--accent-light, #d4a06a); color: #1a1510; }
+.dark-reveal-btn:hover { background: var(--accent-light, #B59AD4); color: #1a1510; }
 ```
 
 **使用原则**：
@@ -3696,10 +3696,10 @@ function flipStack() {
 .numgrid-card:hover { transform: translateY(-3px); }
 .numgrid-card::before {
   content: attr(data-num); position: absolute; top: -8px; right: 12px;
-  font-family: 'Caveat', cursive; font-size: 3rem; color: var(--accent-light, #d4a06a); opacity: 0.2;
+  font-family: 'Caveat', cursive; font-size: 3rem; color: var(--accent-light, #B59AD4); opacity: 0.2;
 }
-.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--accent, #8b4513); }
-.numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.8; }
+.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--accent, #885CBA); }
+.numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.8; }
 .numgrid-card.full { grid-column: 1 / -1; }
 @media (max-width: 768px) { .numgrid { grid-template-columns: 1fr; } }
 ```
@@ -3741,18 +3741,18 @@ function flipStack() {
 .checklist { max-width: 550px; }
 .checklist-item {
   display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
-  border-bottom: 1px solid rgba(139,69,19,0.1);
+  border-bottom: 1px solid rgba(136,92,186,0.1);
 }
 .checklist-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--accent-light, #d4a06a);
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--accent-light, #B59AD4);
   flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; justify-content: center;
 }
-.checklist-check.checked { background: var(--accent, #8b4513); border-color: var(--accent, #8b4513); }
+.checklist-check.checked { background: var(--accent, #885CBA); border-color: var(--accent, #885CBA); }
 .checklist-check.checked::after { content: '✓'; color: #fff; font-size: 0.7rem; }
 .checklist-content h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
-.checklist-content p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.7; }
-.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #f0e9dc); color: var(--ink-faint, #8a7e6d); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
+.checklist-content p { font-size: 0.78rem; color: var(--ink-light, #4A4A5A); line-height: 1.7; }
+.checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #FAF6EB); color: var(--ink-faint, #6F6F81); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
 ```
 
 **使用原则**：
@@ -3770,7 +3770,7 @@ function flipStack() {
 ```html
 <div style="display: flex; gap: 0; max-width: 850px; height: 420px; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
   <!-- Thumbnail rail -->
-  <div style="width: 100px; background: #2C2A26; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
+  <div style="width: 100px; background: #1A1A2E; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
     <img src="[thumb-1]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 1;" onclick="switchPanel(0)">
     <img src="[thumb-2]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 0.5;" onclick="switchPanel(1)">
     <img src="[thumb-3]" style="...opacity: 0.5;" onclick="switchPanel(2)">
@@ -3781,7 +3781,7 @@ function flipStack() {
     <img src="[full-2]" style="...opacity: 0; transition: opacity 0.4s;">
   </div>
   <!-- Side panel -->
-  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #EFE8D8;">
+  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #E8E4D9;">
     <h3 style="font-size: 1rem; font-weight: 800;">Title</h3>
     <p style="font-size: 0.72rem; color: #B87333; font-weight: 600;">Year · Location</p>
     <p style="font-size: 0.78rem; color: #5A5650; line-height: 1.8;">Description text...</p>
@@ -3811,7 +3811,7 @@ function flipStack() {
         <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: #fff; font-size: 0.72rem; font-weight: 600;">Label</div>
       </div>
       <!-- Back -->
-      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #2C2A26; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: #fff;">
+      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #1A1A2E; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: #fff;">
         <h4 style="font-size: 0.85rem; font-weight: 700;">Title</h4>
         <span style="font-size: 0.68rem; color: #D4A574;">Year</span>
         <p style="font-size: 0.72rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 8px;">Description</p>
@@ -3841,9 +3841,9 @@ function flipStack() {
 **用途**：结尾页/金句页。奶油底色+大字号引号居中，极简但有力。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #EFE8D8; text-align: center; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #E8E4D9; text-align: center; padding: 60px;">
   <div>
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #2C2A26;">"Quote text here."</p>
+    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #1A1A2E;">"Quote text here."</p>
     <p style="font-size: 0.75rem; color: #8E8880; margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
   </div>
 </section>
@@ -3879,7 +3879,7 @@ function flipStack() {
 ```html
 <section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F5F5F0; padding: 60px;">
   <div style="max-width: 500px; text-align: left;">
-    <p style="font-family: 'Libre Baskerville', serif; font-size: 1.1rem; line-height: 2.2; color: #2C2A26;">"Quote text here."</p>
+    <p style="font-family: 'Libre Baskerville', serif; font-size: 1.1rem; line-height: 2.2; color: #1A1A2E;">"Quote text here."</p>
     <div style="display: flex; align-items: center; gap: 12px; margin-top: 32px;">
       <div style="width: 32px; height: 1px; background: #D4A574;"></div>
       <span style="font-size: 0.68rem; color: #8E8880; letter-spacing: 0.12em; text-transform: uppercase;">Attribution</span>
@@ -3903,7 +3903,7 @@ function flipStack() {
 .tl-v1 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 8px; }
 .tl-v1 .tc:nth-child(1) h3 { color: var(--blue); }
 .tl-v1 .tc:nth-child(2) h3 { color: var(--red); }
-.tl-v1 .tc:nth-child(3) h3 { color: #805AD5; }
+.tl-v1 .tc:nth-child(3) h3 { color: #885CBA; }
 .tl-v1 .tc:nth-child(4) h3 { color: var(--blue-deep); }
 .tl-v1 .tc p { font-size: .9rem; color: var(--ink-light); line-height: 1.6; }
 ```
@@ -3915,10 +3915,10 @@ function flipStack() {
 ```css
 .tl-v2 .tc { text-align: center; padding: 28px 18px; }
 .tl-v2 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 900; display: inline; }
-.tl-v2 .tc:nth-child(1) h3 { background: linear-gradient(180deg, transparent 55%, rgba(43,127,216,.15) 55%); }
-.tl-v2 .tc:nth-child(2) h3 { background: linear-gradient(180deg, transparent 55%, rgba(244,215,88,.3) 55%); }
+.tl-v2 .tc:nth-child(1) h3 { background: linear-gradient(180deg, transparent 55%, rgba(166,61,111,.15) 55%); }
+.tl-v2 .tc:nth-child(2) h3 { background: linear-gradient(180deg, transparent 55%, rgba(181,154,212,.3) 55%); }
 .tl-v2 .tc:nth-child(3) h3 { background: linear-gradient(180deg, transparent 55%, rgba(232,74,95,.15) 55%); }
-.tl-v2 .tc:nth-child(4) h3 { background: linear-gradient(180deg, transparent 55%, rgba(128,90,213,.15) 55%); }
+.tl-v2 .tc:nth-child(4) h3 { background: linear-gradient(180deg, transparent 55%, rgba(136,92,186,.15) 55%); }
 .tl-v2 .tc p { font-size: .88rem; color: var(--ink-light); line-height: 1.6; margin-top: 10px; }
 ```
 
@@ -3933,7 +3933,7 @@ function flipStack() {
 .tl-v3 .tc:nth-child(1) h3 { color: var(--blue); }
 .tl-v3 .tc:nth-child(2) h3 { color: #d4930a; }
 .tl-v3 .tc:nth-child(3) h3 { color: var(--red); }
-.tl-v3 .tc:nth-child(4) h3 { color: #805AD5; }
+.tl-v3 .tc:nth-child(4) h3 { color: #885CBA; }
 .tl-v3 .tc p { font-size: .9rem; color: var(--ink-light); line-height: 1.6; }
 ```
 
@@ -3947,7 +3947,7 @@ function flipStack() {
 .tl-v5 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; position: relative; }
 .tl-v5 .tc:nth-child(1) h3 { color: var(--blue); }
 .tl-v5 .tc:nth-child(2) h3 { color: var(--red); }
-.tl-v5 .tc:nth-child(3) h3 { color: #805AD5; }
+.tl-v5 .tc:nth-child(3) h3 { color: #885CBA; }
 .tl-v5 .tc:nth-child(4) h3 { color: var(--blue-deep); }
 .tl-v5 .tc p { font-size: .95rem; color: var(--ink-light); line-height: 1.6; position: relative; font-weight: 500; }
 ```
@@ -4004,7 +4004,7 @@ Your second line — keep it short
 
 ```html
 <!-- data-sparkle-colors 为品牌色硬编码，品牌色如有修改需同步替换 -->
-<div class="sparkles-wrap" data-sparkle-colors="#F4D758,#F4D758,#E84A5F">
+<div class="sparkles-wrap" data-sparkle-colors="#B59AD4,#B59AD4,#E84A5F">
   <span class="sparkles-text">Build</span>
 </div>
 ```
@@ -4174,7 +4174,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   border: none; transition: all 0.2s;
 }
 .cool-btn-blue { background: var(--blue); color: #fff; }
-.cool-btn-blue:hover { background: #1E5BA8; transform: translateY(-2px); }
+.cool-btn-blue:hover { background: #88325B; transform: translateY(-2px); }
 .cool-btn-yellow { background: var(--yellow); color: var(--ink); }
 .cool-btn-yellow:hover { background: #e6c840; transform: translateY(-2px); }
 .cool-btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
@@ -4190,7 +4190,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 // Cool Mode粒子效果
 (function() {
   // 粒子颜色为品牌色硬编码，品牌色如有修改需同步替换
-  const colors = ['#2B7FD8','#2B7FD8','#F4D758','#F4D758','#F4D758','#E84A5F'];
+  const colors = ['#A63D6F','#A63D6F','#B59AD4','#B59AD4','#B59AD4','#E84A5F'];
   const sizes = [12,16,20,28,36];
   let particles = [], container, animating = false;
   function getContainer() {
@@ -4445,7 +4445,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 
 ```css
 .hl-yellow {
-  background: linear-gradient(180deg, transparent 60%, rgba(244,215,88,0.4) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(181,154,212,0.4) 60%);
   padding: 0 4px;
   border-radius: 2px;
 }

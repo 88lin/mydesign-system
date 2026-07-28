@@ -8,16 +8,16 @@
 
 | 用途 | 变量名 | 色值 | 说明 |
 |------|--------|------|------|
-| 主黄 | `--yellow` | `#F4D758` | 强调、装饰圆圈、连接线、badges |
-| 柔黄 | `--yellow-soft` | `#FFF3CD` | 背景块、气泡底色 |
-| 主蓝 | `--blue` | `#2B7FD8` | 英文标题、超链、重点标记 |
-| 深蓝 | `--blue-deep` | `#1E5BA8` | 大装饰字、section数字编号 |
+| 主黄 | `--yellow` | `#B59AD4` | 强调、装饰圆圈、连接线、badges |
+| 柔黄 | `--yellow-soft` | `#EAE2F3` | 背景块、气泡底色 |
+| 主蓝 | `--blue` | `#A63D6F` | 英文标题、超链、重点标记 |
+| 深蓝 | `--blue-deep` | `#88325B` | 大装饰字、section数字编号 |
 | 红色 | `--red` | `#E84A5F` | 点缀、高亮下划线、标签 |
 | 奶白底 | `--cream` | `#fefcf6` | 页面主背景 |
 | 深奶底 | `--cream-dark` | `#faf6eb` | section间交替背景 |
 | 墨色 | `--ink` | `#1A1A2E` | 正文主色（非纯黑） |
 | 浅墨 | `--ink-light` | `#4A4A5A` | 次要正文 |
-| 淡墨 | `--ink-faint` | `#8A8A9A` | 辅助文字、标签 |
+| 淡墨 | `--ink-faint` | `#6F6F81` | 辅助文字、标签 |
 
 ### 色彩原则
 - 绝不用纯黑 `#000` 或纯白 `#fff`——总是带暖调
@@ -85,9 +85,9 @@
 
 ### 可用的装饰手法
 - **虚线圆圈**: `border: 2.5px dashed var(--yellow); border-radius: 50%`，半透明，大尺寸做背景
-- **渐变光晕**: `radial-gradient(ellipse, rgba(255,217,61,0.18), transparent)` 做柔和背景
+- **渐变光晕**: `radial-gradient(ellipse, rgba(181,154,212,0.18), transparent)` 做柔和背景
 - **分割线**: `linear-gradient(90deg, transparent, var(--yellow), transparent)` 1px渐隐线
-- **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(255,217,61,0.35) 50%)` 文字底部高亮
+- **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(181,154,212,0.35) 50%)` 文字底部高亮
 - **大透明数字**: 超大字号 + `opacity: 0.12~0.2` 做section装饰
 - **SVG简笔画**: 用描边风格的简化示意图，不要写实截图
 - **底部色条**: `border-bottom: 4px solid var(--yellow/blue/red)` 给卡片加标识（禁止使用 border-left 竖线引用块）
@@ -109,7 +109,7 @@
 ### 关键词高亮底色块（比底部50%下划线更有冲击力）
 ```css
 .keyword-highlight {
-  background: rgba(255, 217, 61, 0.25);
+  background: rgba(181, 154, 212, 0.25);
   padding: 0.1em 0.4em;
   border-radius: 6px;
   display: inline;
@@ -144,7 +144,7 @@
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1.5px solid rgba(74, 125, 232, 0.2);
+  border: 1.5px solid rgba(136, 50, 91, 0.2);
   border-radius: 16px;
 }
 ```
@@ -186,7 +186,7 @@
 - `unobserve` after triggering（只触发一次）
 - 用 `.reveal-d1` ~ `.reveal-d5` 做 stagger（0.1s递增）
 - 尊重 `prefers-reduced-motion`
-- 选中文本高亮：`::selection { background: #F4D758; color: #1a1a1a; }`
+- 选中文本高亮：`::selection { background: #B59AD4; color: #1a1a1a; }`
 
 ### 动效原则
 - **只用 opacity + transform**，不要animate layout属性

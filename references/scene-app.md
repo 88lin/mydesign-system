@@ -34,7 +34,7 @@ Tab栏 / 侧边栏导航
   z-index: 100;
   height: 56px;
   background: var(--cream, #fefcf6);
-  border-bottom: 1px solid rgba(26,26,26,.06);
+  border-bottom: 1px solid rgba(26,26,46,.06);
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
@@ -48,7 +48,7 @@ Tab栏 / 侧边栏导航
   top: 56px; left: 0; bottom: 0;
   width: 220px;
   padding: 1.5rem 1rem;
-  border-right: 1px solid rgba(26,26,26,.06);
+  border-right: 1px solid rgba(26,26,46,.06);
   overflow-y: auto;
 }
 .app-main {
@@ -163,7 +163,7 @@ App型页面色彩更简洁：
 ### 输入Focus
 ```css
 .app-input {
-  border: 1.5px solid rgba(26,26,26,.1);
+  border: 1.5px solid rgba(26,26,46,.1);
   border-radius: 8px;
   padding: 10px 14px;
   font-size: 0.9rem;
@@ -172,8 +172,8 @@ App型页面色彩更简洁：
 }
 .app-input:focus {
   outline: none;
-  border-color: var(--blue, #2B7FD8);
-  box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
+  border-color: var(--blue, #A63D6F);
+  box-shadow: 0 0 0 3px rgba(166,61,111,0.1);
 }
 ```
 
@@ -187,7 +187,7 @@ App型页面色彩更简洁：
 ```css
 .canvas-grid {
   width: 100%; height: 100%;
-  background-image: radial-gradient(circle, rgba(74,124,201,0.13) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(circle, rgba(136,50,91,0.13) 1.2px, transparent 1.2px);
   background-size: 28px 28px;
 }
 ```
@@ -215,7 +215,7 @@ App型页面色彩更简洁：
 ```css
 .canvas-card {
   background: #fff;
-  border: 2px dashed rgba(74,124,201,0.35);
+  border: 2px dashed rgba(136,50,91,0.35);
   border-radius: 16px;
   padding: 1.25rem;
   box-shadow: 0 4px 16px rgba(0,0,0,.06);

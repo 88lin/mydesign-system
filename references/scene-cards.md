@@ -60,11 +60,11 @@
 ## 🧩 卡片结构模板
 
 ### P1 封面
-- 大标题（84px）用汇文明朝体（Huiwen Mincho），关键词用蓝色高亮块（`background: #2B7FD8; color: #fff; padding: 4px 16px; border-radius: 6px`）
+- 大标题（84px）用汇文明朝体（Huiwen Mincho），关键词用蓝色高亮块（`background: #A63D6F; color: #fff; padding: 4px 16px; border-radius: 6px`）
 - 副标题（44px）一行显示，紧跟标题下方，`white-space: nowrap`
-- 圆形头像（`avatar.jpg`，120px，`border: 4px solid #F4D758`）
+- 圆形头像（`avatar.jpg`，120px，`border: 4px solid #B59AD4`）
 - 署名（作者名）44px + 介绍34px
-- 整体边框：`border: 28px solid #F4D758`
+- 整体边框：`border: 28px solid #B59AD4`
 - 背景加浅色网格质感（`background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 40px 40px`）
 - 中间留白区域给用户放效果图/截图
 
