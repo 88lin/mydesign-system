@@ -17,7 +17,7 @@
 | 深奶底 | `--cream-dark` | `#faf6eb` | section间交替背景 |
 | 墨色 | `--ink` | `#1A1A2E` | 正文主色（非纯黑） |
 | 浅墨 | `--ink-light` | `#4A4A5A` | 次要正文 |
-| 淡墨 | `--ink-faint` | `#8A8A9A` | 辅助文字、标签 |
+| 淡墨 | `--ink-faint` | `#6D6E7E` | 辅助文字、标签 |
 
 ### 色彩原则
 - 绝不用纯黑 `#000` 或纯白 `#fff`——总是带暖调
@@ -186,7 +186,7 @@
 - `unobserve` after triggering（只触发一次）
 - 用 `.reveal-d1` ~ `.reveal-d5` 做 stagger（0.1s递增）
 - 尊重 `prefers-reduced-motion`
-- 选中文本高亮：`::selection { background: #F4D758; color: #1a1a1a; }`
+- 选中文本高亮：`::selection —— 已由 assets/palettes.css 全局提供，不必在页面里重复写`
 
 ### 动效原则
 - **只用 opacity + transform**，不要animate layout属性

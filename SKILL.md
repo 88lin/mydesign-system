@@ -17,6 +17,7 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 
 ### Step 2: 读规范
 1. **必读** `brand-dna.md` — 确认品牌底层规范
+> **同时确认配色：** `brand-dna.md` 顶部写着当前启用的是哪一套配色（A–E）。如果用户没指定，沿用当前启用的那套；如果用户提了气质需求（沉静/手作/极简…），对照 5 套配色的「气质」列选一套，并在产出的 HTML 里写 `<html data-palette="x">`。
 2. 根据类型选读场景文件：
    - 教程型/介绍型/科普型 → `references/scene-tutorial.md`
    - 活动页/分享会/Landing → `references/scene-landing.md`

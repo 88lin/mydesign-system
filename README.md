@@ -70,7 +70,7 @@
 
 ### 🧩 组件库全览
 
-51个经过验证的可复用组件。
+52个经过验证的可复用组件。
 
 🔗 [组件库预览](https://esthersjw.github.io/esther-design-system/components-preview.html)
 
@@ -96,7 +96,7 @@ assets/template-*.html(起点 - 从模板改,不从零写)
 ## 文件结构
 
 ```
-esther-design-system/
+mydesign-system/
 ├── SKILL.md                    ← 7步工作流(大脑)
 ├── brand-dna.md                ← 品牌基因:颜色/字体/气质/禁忌(需配置)
 ├── assets/                     ← 模板骨架(起点)
@@ -106,10 +106,10 @@ esther-design-system/
 │   ├── template-cards.html         小红书卡片模板
 │   ├── html2canvas.min.js          卡片导出依赖
 │   ├── avatar-placeholder.svg      占位头像(可替换为你自己的 avatar.jpg)
-│   └── avatar.jpg                  ← 你的头像(需自行放入,仓库未附带)
+│   └── avatar.jpg                  示例头像(已附带,请替换成你自己的)
 └── references/                 ← 规则和零件(知识库)
     ├── layouts.md                  16种布局模式(附完整代码)
-    ├── components.md               组件库(51组件,完整HTML+CSS)
+    ├── components.md               组件库(52组件,完整HTML+CSS)
     ├── checklist.md                质量检查清单(P0/P1/P2)
     ├── scene-tutorial.md           教程场景规范
     ├── scene-landing.md            活动页场景规范
@@ -142,9 +142,11 @@ AI 每次做设计必须按这个顺序走：
 
 | 颜色 | 色值 | 比例 |
 |------|------|------|
-| 主色 | `#2B7FD8` | 60% |
-| 强调色 | `#F4D758` | 30% |
-| 点缀色 | `#E84A5F` | 10% |
+| 主色 | `var(--brand-primary)` | 60% |
+| 强调色 | `var(--brand-accent)` | 30% |
+| 点缀色 | `var(--brand-pop)` | 10% |
+
+> 具体色值随当前启用的配色变化（A 配色为 `#2B7FD8` / `#F4D758` / `#E84A5F`）。
 
 ### 字体
 
@@ -196,6 +198,33 @@ AI 每次做设计必须按这个顺序走：
 
 ---
 
+## 配色
+
+内置 **5 套配色**，默认 A · 原色。换配色改一个属性即可，模板里现有的 CSS 一行都不用动：
+
+```html
+<html lang="zh-CN" data-palette="c">   <!-- a 原色 / b 松墨 / c 陶土 / d 梅子 / e 山墨 -->
+```
+
+| 配色 | 气质 | 适合 |
+|---|---|---|
+| **A · 原色** | 明亮、亲和、可信赖 | 日常首选 · 教程 · 科普 |
+| **B · 松墨** | 文人、沉静、耐看 | 长文 · 读书笔记 · 复盘 |
+| **C · 陶土** | 手作、温暖、土陶质感 | 作品集 · 生活方式 · 活动页 |
+| **D · 梅子** | 柔和有格调、不甜 | 个人主页 · 分享会 · 图文卡片 |
+| **E · 山墨** | 极简编辑感、印刷味最重 | 作品集 · 观点长文 · 高级感 |
+
+打开 `palettes.html` 可以实时切换、看完整色板与 16 条对比度门槛的实测读数，
+并一键复制当前配色的全部色值（喂给公众号编辑器的搜索替换）。色值的唯一事实来源是
+`assets/palettes.css`；详细令牌结构和用色规则见 `brand-dna.md`。
+
+> 公众号模板是纯内联样式（微信编辑器会剥掉 CSS 变量），用不了令牌。
+> `references/scene-wechat.md` 里有 A–E × 全令牌的十六进制对照表，换色就是机械搜索替换。
+
+---
+
 ## Credits
 
+- 本仓库起源于 [esthersjw/esther-design-system](https://github.com/esthersjw/esther-design-system)，在其基础上加入了多配色令牌系统与一轮可达性修缮
+- 上面各场景的「在线预览」链接目前指向**上游作者的 GitHub Pages**。在本仓库 Settings → Pages 里开启 Pages 后，把链接域名换成你自己的即可
 - 方法论灵感来源于 [归藏](https://github.com/guizang) 的 PPT Skill——“限制AI的自由度 = 保证输出质量”这个核心思路参考了他的设计

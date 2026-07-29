@@ -266,3 +266,32 @@ def img_to_base64(path, max_width=1080, quality=72):
 
 - 本仓库 `assets/demo-wechat.html`（完整 Demo，含所有组件示例）
 - 本仓库 `assets/template-wechat.html`（可直接修改的模板骨架）
+
+---
+
+## 🎨 五套配色的十六进制对照表
+
+微信编辑器会剥掉 `:root` 和 CSS 变量，所以公众号模板只能用内联的字面色值。
+换配色的做法是**机械搜索替换**：把 A 列的色值换成目标配色同一行的色值。
+`palettes.html` 支持一键复制某一套配色的全部色值，可以直接对照。
+
+| 令牌 | A · 原色 | B · 松墨 | C · 陶土 | D · 梅子 | E · 山墨 |
+|---|---|---|---|---|---|
+| `--p-primary` | `#2B7FD8` | `#35774B` | `#B35630` | `#87486D` | `#3C352E` |
+| `--p-primary-deep` | `#1E5BA8` | `#175830` | `#8E3912` | `#652D4F` | `#221B15` |
+| `--p-primary-soft` | `#E2EEFE` | `#DFF3E3` | `#FEE8DF` | `#F9E7F0` | `#F9EADB` |
+| `--p-accent` | `#F4D758` | `#EEBC5D` | `#ECD06E` | `#FCCC69` | `#E5CCA6` |
+| `--p-accent-soft` | `#FFF3CD` | `#FEEED4` | `#FDF1C5` | `#FEEFD2` | `#FEEED7` |
+| `--p-accent-ink` | `#78671B` | `#846015` | `#7A6514` | `#826114` | `#81612E` |
+| `--p-pop` | `#E84A5F` | `#D15A42` | `#348979` | `#5F8041` | `#C8482F` |
+| `--p-pop-deep` | `#BF2A44` | `#AA3C27` | `#16695A` | `#426126` | `#A12911` |
+| `--p-cream` | `#FEFCF6` | `#FEFCF6` | `#FFFCF5` | `#FFFCF6` | `#FEFCF6` |
+| `--p-cream-dark` | `#FAF6EB` | `#F7F1E3` | `#F9F1E0` | `#F8F1E3` | `#F8F1E2` |
+| `--p-card` | `#FFFEFC` | `#FFFEFC` | `#FFFEFC` | `#FFFEFC` | `#FFFEFC` |
+| `--p-ink` | `#1A1A2E` | `#19211C` | `#271D18` | `#271C23` | `#221F1A` |
+| `--p-ink-light` | `#4A4A5A` | `#454E48` | `#564942` | `#53494F` | `#504B46` |
+| `--p-ink-faint` | `#6D6E7E` | `#646E68` | `#786961` | `#756971` | `#716B65` |
+| `--p-dark-panel` | `#151821` | `#0F1C15` | `#241710` | `#24151D` | `#1F1812` |
+| `--p-dark-panel-2` | `#292B3C` | `#223028` | `#382921` | `#37272F` | `#322B24` |
+
+> 换色顺序建议：先换 `--p-ink` / `--p-cream` / `--p-cream-dark`（纸面与文字），再换 `--p-primary` 系，最后换 `--p-accent` / `--p-pop`。这样中途预览不会出现文字和底色撞色的中间态。
