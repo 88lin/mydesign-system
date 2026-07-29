@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="rose">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/palettes.css">
   <style>
-    @font-face {
-      font-family: 'Huiwen Mincho';
-      src: url('HuiwenMincho.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    :root {
-      --blue: #2B7FD8;
-      --blue-deep: #1E5BA8;
-      --yellow: #F4D758;
-      --yellow-soft: #FFF3CD;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --cream-dark: #faf6eb;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --dark-panel: #151821;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
@@ -41,7 +20,7 @@
     }
 
     ::selection {
-      background: var(--yellow);
+      background: var(--brand-accent);
       color: var(--ink);
     }
 
@@ -88,7 +67,7 @@
       position: absolute;
       bottom: -4px; left: 0; right: 0;
       height: 2px;
-      background: var(--yellow);
+      background: var(--brand-accent);
       transform: scaleX(0);
       transition: transform .25s ease-out;
     }
@@ -123,7 +102,7 @@
       line-height: 1.2;
     }
     .hero h1 .highlight-word {
-      background: linear-gradient(to top, rgba(244,215,88,0.4) 40%, transparent 40%);
+      background: linear-gradient(to top, rgba(var(--brand-accent-rgb), 0.4) 40%, transparent 40%);
       padding: 0 4px;
     }
     .hero .hero-desc {
@@ -146,7 +125,7 @@
     .hero-cluster .ring {
       position: absolute;
       inset: -14px;
-      border: 2.5px dashed rgba(43,127,216,0.25);
+      border: 2.5px dashed rgba(var(--brand-primary-rgb), 0.25);
       border-radius: 50%;
       animation: heroSpin 25s linear infinite;
     }
@@ -156,11 +135,11 @@
       object-fit: cover;
       position: relative;
       z-index: 2;
-      box-shadow: 0 8px 40px rgba(43,127,216,0.15);
+      box-shadow: 0 8px 40px rgba(var(--brand-primary-rgb), 0.15);
     }
     .hero-cluster .orbit-item {
       position: absolute;
-      background: white;
+      background: var(--card-bg);
       border-radius: 20px;
       padding: 5px 14px;
       font-size: 0.72rem;
@@ -181,11 +160,14 @@
     .section-header {
       margin-bottom: clamp(40px, 6vw, 80px);
     }
+/* 装饰性章节序号：opacity 0.3 是刻意的"幽灵序号"。它紧贴着自己编号的
+   .section-title，信息完全冗余，因此在标记里声明 aria-hidden，
+   与 demo-landing.html 的同名组件保持一致。 */
     .section-number {
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--blue);
+      color: var(--brand-primary);
       opacity: 0.3;
       display: block;
       margin-bottom: 0.25rem;
@@ -211,11 +193,11 @@
       left: 22px;
       top: 30px; bottom: 30px;
       width: 2px;
-      border-left: 2px dashed var(--yellow);
+      border-left: 2px dashed var(--brand-accent);
     }
     .logic-step {
       position: relative;
-      background: white;
+      background: var(--card-bg);
       border-radius: 14px;
       padding: clamp(20px, 2.5vw, 32px);
       box-shadow: 0 2px 16px rgba(0,0,0,0.04);
@@ -226,7 +208,7 @@
       top: 24px;
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: var(--blue);
+      background: var(--brand-primary);
       color: #fff;
       display: flex;
       align-items: center;
@@ -238,7 +220,7 @@
     .logic-step .step-file {
       font-family: 'Fira Code', monospace;
       font-size: 0.82rem;
-      color: var(--blue);
+      color: var(--brand-primary);
       font-weight: 500;
       margin-bottom: 6px;
     }
@@ -250,16 +232,16 @@
     .logic-pullquote {
       margin-top: clamp(32px, 4vw, 56px);
       padding: 28px 32px;
-      background: white;
+      background: var(--card-bg);
       border-radius: 16px;
-      border: 2px solid var(--yellow);
+      border: 2px solid var(--brand-accent);
       position: relative;
     }
     .logic-pullquote::before {
-      content: '"';
+      content: '"' / '';   /* 纯装饰的大引号：空 alt 让读屏跳过它 */
       font-family: 'Fraunces', serif;
       font-size: 4rem;
-      color: var(--yellow);
+      color: var(--brand-accent);
       position: absolute;
       top: -8px; left: 20px;
       opacity: 0.6;
@@ -284,12 +266,12 @@
       border: 2px dashed;
       border-radius: 16px;
       padding: 28px 20px;
-      background: white;
+      background: var(--card-bg);
     }
-    .scene-card:nth-child(1) { border-color: rgba(43,127,216,0.3); }
-    .scene-card:nth-child(2) { border-color: rgba(244,215,88,0.5); }
-    .scene-card:nth-child(3) { border-color: rgba(232,74,95,0.3); }
-    .scene-card:nth-child(4) { border-color: rgba(43,127,216,0.2); }
+    .scene-card:nth-child(1) { border-color: rgba(var(--brand-primary-rgb), 0.3); }
+    .scene-card:nth-child(2) { border-color: rgba(var(--brand-accent-rgb), 0.5); }
+    .scene-card:nth-child(3) { border-color: rgba(var(--brand-pop-rgb), 0.3); }
+    .scene-card:nth-child(4) { border-color: rgba(var(--ink-rgb), .2); }
     .scene-card .scene-label {
       position: absolute;
       top: -11px;
@@ -300,10 +282,10 @@
       background: var(--cream-dark);
       padding: 0 8px;
     }
-    .scene-card:nth-child(1) .scene-label { color: var(--blue); }
-    .scene-card:nth-child(2) .scene-label { color: #9a8100; }
-    .scene-card:nth-child(3) .scene-label { color: var(--red); }
-    .scene-card:nth-child(4) .scene-label { color: var(--blue-deep); }
+    .scene-card:nth-child(1) .scene-label { color: var(--brand-primary-deep); }
+    .scene-card:nth-child(2) .scene-label { color: var(--brand-accent-ink); }
+    .scene-card:nth-child(3) .scene-label { color: var(--brand-pop-deep); }
+    .scene-card:nth-child(4) .scene-label { color: var(--ink-light); }
     .scene-card .scene-emoji {
       font-size: 1.8rem;
       margin-bottom: 12px;
@@ -326,7 +308,7 @@
       color: #e2e8f0;
       padding: clamp(60px, 8vh, 120px) 0;
     }
-    .dark-section .section-number { color: var(--yellow); opacity: 0.4; }
+    .dark-section .section-number { color: var(--brand-accent); opacity: 0.4; }
     .dark-section .section-title { color: #f1f5f9; }
     .code-macos {
       border-radius: 12px;
@@ -351,7 +333,9 @@
       text-align: center;
       font-family: 'Fira Code', monospace;
       font-size: 0.7rem;
-      color: var(--ink-faint);
+      /* 标题栏是固定的 macOS 窗口色，不跟配色走，所以这里也用定值：
+         --ink-faint 是对纸面解出来的，落在 #2d2d3a 上只有 2.50:1。 */
+      color: #9394A4;
     }
     .code-macos .code-body {
       background: #1a1b26;
@@ -367,7 +351,7 @@
     }
     .code-macos pre .dir { color: #7aa2f7; }
     .code-macos pre .file { color: #a9b1d6; }
-    .code-macos pre .cm { color: #565f89; }
+    .code-macos pre .cm { color: #7C86B2; }  /* Tokyo Night 注释色 2.76:1 -> 4.81:1 */
     .code-macos pre .arrow { color: #bb9af7; }
 
     /* ====== SECTION 4: 7步工作流 — Layout 2: Sticky侧栏 ====== */
@@ -385,7 +369,7 @@
       font-family: 'Fraunces', serif;
       font-size: clamp(4rem, 10vw, 7rem);
       font-weight: 900;
-      color: var(--blue);
+      color: var(--brand-primary);
       opacity: 0.12;
       line-height: 0.85;
       display: block;
@@ -413,7 +397,7 @@
       display: grid;
       grid-template-columns: 60px 1fr 1.2fr;
       padding: 14px 20px;
-      background: white;
+      background: var(--card-bg);
       border-bottom: 1px solid rgba(0,0,0,0.04);
       align-items: center;
     }
@@ -421,7 +405,7 @@
     .workflow-table .wt-row .wt-step {
       font-family: 'Fraunces', serif;
       font-weight: 700;
-      color: var(--blue);
+      color: var(--brand-primary);
       font-size: 0.9rem;
     }
     .workflow-table .wt-row .wt-action {
@@ -522,14 +506,14 @@
       gap: 24px;
     }
     .compare-stamp-col {
-      background: white;
+      background: var(--card-bg);
       border: 2px solid;
       padding: 32px 28px;
       position: relative;
       border-radius: 4px;
     }
-    .compare-stamp-col--dont { border-color: var(--red); }
-    .compare-stamp-col--do { border-color: var(--blue); }
+    .compare-stamp-col--dont { border-color: var(--brand-pop); }
+    .compare-stamp-col--do { border-color: var(--brand-primary); }
     .compare-stamp-col .compare-stamp-label {
       position: absolute;
       top: -14px;
@@ -543,8 +527,8 @@
       padding: 2px 16px;
       background: var(--cream);
     }
-    .compare-stamp-col--dont .compare-stamp-label { color: var(--red); }
-    .compare-stamp-col--do .compare-stamp-label { color: var(--blue); }
+    .compare-stamp-col--dont .compare-stamp-label { color: var(--brand-pop-deep); }
+    .compare-stamp-col--do .compare-stamp-label { color: var(--brand-primary-deep); }
     .compare-stamp-col .stamp-list {
       list-style: none;
       padding: 0;
@@ -566,7 +550,7 @@
       left: 0;
       font-weight: 700;
       font-size: 0.8rem;
-      color: var(--red);
+      color: var(--brand-pop-deep);
     }
     .compare-stamp-col--do .stamp-list li::before {
       content: '◆';
@@ -574,7 +558,7 @@
       left: 0;
       font-size: 0.6rem;
       top: 5px;
-      color: var(--blue);
+      color: var(--brand-primary-deep);
     }
 
     /* ====== SECTION 7: 质量检查 — Layout 7: 横向Step连接线 ====== */
@@ -590,7 +574,7 @@
       top: 32px;
       left: 32px; right: 32px;
       height: 3px;
-      background: linear-gradient(90deg, var(--red), var(--yellow), var(--blue));
+      background: linear-gradient(90deg, var(--brand-pop), var(--brand-accent), var(--brand-primary));
       border-radius: 2px;
     }
     .checklist-card {
@@ -611,9 +595,9 @@
       color: #fff;
       margin-bottom: 20px;
     }
-    .checklist-card:nth-child(1) .checklist-dot { background: var(--red); }
-    .checklist-card:nth-child(2) .checklist-dot { background: var(--yellow); color: var(--ink); }
-    .checklist-card:nth-child(3) .checklist-dot { background: var(--blue); }
+    .checklist-card:nth-child(1) .checklist-dot { background: var(--brand-pop-deep); }
+    .checklist-card:nth-child(2) .checklist-dot { background: var(--brand-accent); color: var(--ink); }
+    .checklist-card:nth-child(3) .checklist-dot { background: var(--brand-primary-deep); }
     .checklist-card h3 {
       font-family: 'Huiwen Mincho', 'Noto Serif SC', serif;
       font-size: 1.1rem;
@@ -657,7 +641,7 @@
       align-items: flex-start;
       gap: 16px;
       padding: 18px 22px;
-      background: white;
+      background: var(--card-bg);
       border-radius: 12px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.04);
     }
@@ -665,8 +649,8 @@
       flex-shrink: 0;
       width: 32px; height: 32px;
       border-radius: 50%;
-      background: rgba(43,127,216,0.08);
-      color: var(--blue);
+      background: rgba(var(--brand-primary-rgb), .08);
+      color: var(--brand-primary-deep);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -686,9 +670,9 @@
       margin-top: clamp(32px, 4vw, 48px);
       position: relative;
       padding: 28px 24px;
-      border: 2px dashed rgba(43,127,216,0.25);
+      border: 2px dashed rgba(var(--brand-primary-rgb), 0.25);
       border-radius: 12px;
-      background: white;
+      background: var(--card-bg);
     }
     .fork-note .fork-note-badge {
       position: absolute;
@@ -697,7 +681,7 @@
       font-family: 'Caveat', cursive;
       font-size: 1.1rem;
       font-weight: 700;
-      color: var(--blue);
+      color: var(--brand-primary-deep);
       background: var(--cream);
       padding: 0 10px;
     }
@@ -717,7 +701,7 @@
       color: var(--ink-faint);
     }
     .footer a {
-      color: var(--blue);
+      color: var(--brand-primary-deep);
       text-decoration: none;
       position: relative;
     }
@@ -726,7 +710,7 @@
       position: absolute;
       bottom: -2px; left: 0; right: 0;
       height: 2px;
-      background: var(--yellow);
+      background: var(--brand-accent);
     }
 
     /* ====== Scroll Reveal ====== */
@@ -819,7 +803,7 @@
   <section class="section" id="logic">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">01</span>
+        <span class="section-number" aria-hidden="true">01</span>
         <h2 class="section-title">核心逻辑</h2>
       </div>
       <div class="logic-flow reveal reveal-d1">
@@ -849,7 +833,7 @@
   <section class="section section--alt" id="scenes">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">02</span>
+        <span class="section-number" aria-hidden="true">02</span>
         <h2 class="section-title">支持 4 种场景</h2>
       </div>
       <div class="scene-grid reveal reveal-d1">
@@ -885,7 +869,7 @@
   <section class="dark-section" id="structure">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">03</span>
+        <span class="section-number" aria-hidden="true">03</span>
         <h2 class="section-title">文件结构</h2>
       </div>
       <div class="code-macos reveal reveal-d1">
@@ -924,8 +908,8 @@
     <div class="container">
       <div class="workflow-layout">
         <div class="workflow-side reveal">
-          <span class="big-num">7</span>
-          <span class="section-number">04</span>
+          <span class="big-num" aria-hidden="true">7</span>
+          <span class="section-number" aria-hidden="true">04</span>
           <h2 class="section-title">工作流</h2>
           <p style="font-size: 0.88rem; color: var(--ink-light); margin-top: 1rem; line-height: 1.8;">AI 每次做设计必须按这个顺序走。不允许跳步。</p>
         </div>
@@ -981,7 +965,7 @@
   <section class="section section--alt" id="brand">
     <div class="brand-split">
       <div class="brand-left reveal">
-        <span class="section-number">05</span>
+        <span class="section-number" aria-hidden="true">05</span>
         <h2>品牌基因</h2>
         <p class="brand-vibe" style="margin-top: 1.5rem;">
           <strong>气质关键词：</strong><br>
@@ -991,29 +975,29 @@
       <div class="brand-right reveal reveal-d1">
         <!-- Colors -->
         <div style="margin-bottom: 8px;">
-          <span style="font-family: 'Caveat', cursive; font-size: 1.1rem; color: var(--ink-faint);">IP三色 ↓</span>
+          <span style="font-family: 'Caveat', cursive; font-size: 1.1rem; color: var(--ink-faint);">配色令牌 ↓</span>
         </div>
         <div class="color-row">
-          <div class="color-swatch" style="background: var(--blue);"></div>
+          <div class="color-swatch" style="background: var(--brand-primary);"></div>
           <div class="color-info">
-            <span class="color-name">#2B7FD8</span>
-            <span class="color-use">蓝 — 主色调、标题、超链接</span>
+            <span class="color-name">主色 Primary</span>
+            <span class="color-use">主色 — 标题、超链接、主按钮</span>
             <span class="color-ratio">60%</span>
           </div>
         </div>
         <div class="color-row">
-          <div class="color-swatch" style="background: var(--yellow);"></div>
+          <div class="color-swatch" style="background: var(--brand-accent);"></div>
           <div class="color-info">
-            <span class="color-name">#F4D758</span>
-            <span class="color-use">黄 — 强调、装饰、高亮</span>
+            <span class="color-name">强调 Accent</span>
+            <span class="color-use">强调 — 高亮、装饰、下划线</span>
             <span class="color-ratio">30%</span>
           </div>
         </div>
         <div class="color-row">
-          <div class="color-swatch" style="background: var(--red);"></div>
+          <div class="color-swatch" style="background: var(--brand-pop);"></div>
           <div class="color-info">
-            <span class="color-name">#E84A5F</span>
-            <span class="color-use">红 — 点缀、CTA、标签</span>
+            <span class="color-name">点缀 Pop</span>
+            <span class="color-use">点缀 — CTA、标签、少量重点</span>
             <span class="color-ratio">10%</span>
           </div>
         </div>
@@ -1047,7 +1031,7 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">06</span>
+        <span class="section-number" aria-hidden="true">06</span>
         <h2 class="section-title">禁忌清单</h2>
       </div>
       <div class="compare-stamp reveal reveal-d1">
@@ -1066,8 +1050,8 @@
         <div class="compare-stamp-col compare-stamp-col--do">
           <span class="compare-stamp-label">PREFER</span>
           <ul class="stamp-list">
-            <li>暖底背景 #fefcf6 / #faf6eb</li>
-            <li>品牌三色（蓝60 / 黄30 / 红10）</li>
+            <li>暖底背景（--cream / --cream-dark），不用纯白</li>
+            <li>配色三令牌（主色60 / 强调30 / 点缀10）</li>
             <li>每个section布局形式不同</li>
             <li>expo ease-out 自然减速动效</li>
             <li>手绘蜡笔感装饰、虚线圆圈</li>
@@ -1083,7 +1067,7 @@
   <section class="section section--alt" id="checklist">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">07</span>
+        <span class="section-number" aria-hidden="true">07</span>
         <h2 class="section-title">质量检查</h2>
       </div>
       <div class="checklist-levels reveal reveal-d1">
@@ -1131,7 +1115,7 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">08</span>
+        <span class="section-number" aria-hidden="true">08</span>
         <h2 class="section-title">怎么用（Fork 指南）</h2>
       </div>
       <div class="fork-container reveal reveal-d1">

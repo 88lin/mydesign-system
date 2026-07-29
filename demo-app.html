@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="rose">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/palettes.css">
   <style>
     /* === CSS变量 === */
-    :root {
-      --blue: #2B7FD8;
-      --yellow: #F4D758;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --card-bg: #fff;
-      --border: rgba(26,26,26,.08);
-    }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -32,7 +22,7 @@
     }
 
     ::selection {
-      background: var(--yellow);
+      background: var(--brand-accent);
       color: var(--ink);
     }
 
@@ -44,7 +34,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: var(--blue);
+      background: var(--brand-primary);
       z-index: 9999;
     }
     body::after {
@@ -54,7 +44,7 @@
       left: 0;
       width: 33.3%;
       height: 2px;
-      background: var(--yellow);
+      background: var(--brand-accent);
       z-index: 9999;
     }
     .tricolor-red {
@@ -63,7 +53,7 @@
       right: 0;
       width: 33.3%;
       height: 2px;
-      background: var(--red);
+      background: var(--brand-pop);
       z-index: 9999;
       pointer-events: none;
     }
@@ -109,16 +99,17 @@
     }
 
     .btn-icon:hover {
-      border-color: var(--blue);
-      color: var(--blue);
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
     }
 
     .avatar {
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: var(--blue);
-      color: #fff;
+      /* 深底而非中间调：32px 圆内的字号算小字，中间调只保证大字（见门槛表）。 */
+      background: var(--brand-primary-deep);
+      color: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -131,7 +122,7 @@
       display: flex;
       gap: 4px;
       overflow-x: auto;
-      border-bottom: 2px solid #eee;
+      border-bottom: 2px solid var(--border-strong);
       padding: 0 1.5rem;
       background: var(--cream);
       position: sticky;
@@ -154,8 +145,8 @@
     }
 
     .tab.active {
-      border-bottom-color: var(--blue);
-      color: var(--blue);
+      border-bottom-color: var(--brand-primary-deep);
+      color: var(--brand-primary-deep);
       font-weight: 600;
     }
 
@@ -193,9 +184,9 @@
       line-height: 1.2;
     }
 
-    .stat-card .stat-number.blue { color: var(--blue); }
-    .stat-card .stat-number.yellow { color: #c5a800; }
-    .stat-card .stat-number.red { color: var(--red); }
+    .stat-card .stat-number.blue { color: var(--brand-primary); }
+    .stat-card .stat-number.yellow { color: var(--brand-accent-ink); }
+    .stat-card .stat-number.red { color: var(--brand-pop); }
 
     .stat-card .stat-label {
       font-size: 0.8rem;
@@ -240,24 +231,26 @@
       padding: 2px 8px;
       border-radius: 8px;
       font-size: 0.7rem;
-      background: rgba(43,127,216,0.1);
-      color: var(--blue);
+      background: rgba(var(--brand-primary-rgb), .1);
+      color: var(--brand-primary-deep);
       margin-bottom: 0.5rem;
     }
 
     .card-badge.yellow {
-      background: rgba(244,215,88,0.2);
-      color: #9a8400;
+      background: rgba(var(--brand-accent-rgb), .2);
+      color: var(--brand-accent-ink);
     }
 
     .card-badge.red {
-      background: rgba(232,74,95,0.1);
-      color: var(--red);
+      background: rgba(var(--brand-pop-rgb), .1);
+      color: var(--brand-pop-deep);
     }
 
+    /* 「笔记」这类中性状态没有第四个品牌色可用 —— 配色系统只有三个彩色令牌。
+       与其为 10 套配色各发明一个绿，不如用墨色，既克制也不撒谎。 */
     .card-badge.green {
-      background: rgba(40,167,69,0.1);
-      color: #28a745;
+      background: rgba(var(--ink-rgb), .07);
+      color: var(--ink-light);
     }
 
     /* === 卡片内列表 === */
@@ -289,14 +282,15 @@
     }
 
     .card-list .check.done {
-      background: var(--blue);
-      border-color: var(--blue);
+      /* 同上：10px 的 ✓ 是小字，必须落在 *_deep 实底上。 */
+      background: var(--brand-primary-deep);
+      border-color: var(--brand-primary-deep);
       position: relative;
     }
 
     .card-list .check.done::after {
       content: '✓';
-      color: #fff;
+      color: var(--cream);
       font-size: 10px;
       position: absolute;
       top: 50%;
@@ -322,12 +316,12 @@
     .progress-bar .fill {
       height: 100%;
       border-radius: 3px;
-      background: var(--blue);
+      background: var(--brand-primary);
       transition: width .3s;
     }
 
-    .progress-bar .fill.yellow { background: var(--yellow); }
-    .progress-bar .fill.red { background: var(--red); }
+    .progress-bar .fill.yellow { background: var(--brand-accent); }
+    .progress-bar .fill.red { background: var(--brand-pop); }
 
     .progress-label {
       display: flex;
@@ -370,7 +364,7 @@
       justify-content: center;
       font-size: 1.2rem;
       flex-shrink: 0;
-      background: rgba(43,127,216,0.08);
+      background: rgba(var(--brand-primary-rgb), .08);
     }
 
     .list-item-body {
@@ -429,13 +423,13 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: var(--blue);
+      background: var(--brand-primary);
       flex-shrink: 0;
       margin-top: 4px;
     }
 
-    .timeline-dot.yellow { background: var(--yellow); }
-    .timeline-dot.red { background: var(--red); }
+    .timeline-dot.yellow { background: var(--brand-accent); }
+    .timeline-dot.red { background: var(--brand-pop); }
 
     .timeline-body {
       flex: 1;
@@ -530,14 +524,14 @@
 
     .app-input:focus {
       outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb), .1);
     }
 
     /* === 按钮 === */
     .btn-primary {
-      background: var(--blue);
-      color: #fff;
+      background: var(--brand-primary);
+      color: var(--cream);
       border: none;
       border-radius: 8px;
       padding: 10px 20px;
@@ -655,10 +649,10 @@
           <span class="card-badge green">笔记</span>
           <h3>最近笔记</h3>
           <ul class="card-list">
-            <li><span style="color: var(--blue);">📝</span> 用户访谈总结 — 今天</li>
-            <li><span style="color: var(--blue);">📝</span> 竞品分析报告 — 昨天</li>
-            <li><span style="color: var(--blue);">📝</span> Q3 规划草案 — 周一</li>
-            <li><span style="color: var(--blue);">📝</span> 设计系统规范 v2 — 周一</li>
+            <li><span style="color: var(--brand-primary);">📝</span> 用户访谈总结 — 今天</li>
+            <li><span style="color: var(--brand-primary);">📝</span> 竞品分析报告 — 昨天</li>
+            <li><span style="color: var(--brand-primary);">📝</span> Q3 规划草案 — 周一</li>
+            <li><span style="color: var(--brand-primary);">📝</span> 设计系统规范 v2 — 周一</li>
           </ul>
         </div>
 
@@ -668,15 +662,15 @@
           <h3>即将到期</h3>
           <ul class="card-list">
             <li>
-              <span style="color: var(--red); font-size: 0.8rem;">●</span>
+              <span aria-hidden="true" style="color: var(--brand-pop-deep); font-size: 0.8rem;">●</span>
               <span>提交季度报告 — <strong>明天</strong></span>
             </li>
             <li>
-              <span style="color: var(--red); font-size: 0.8rem;">●</span>
+              <span aria-hidden="true" style="color: var(--brand-pop-deep); font-size: 0.8rem;">●</span>
               <span>更新落地页文案 — 后天</span>
             </li>
             <li>
-              <span style="color: var(--yellow); font-size: 0.8rem;">●</span>
+              <span aria-hidden="true" style="color: var(--brand-accent-ink); font-size: 0.8rem;">●</span>
               <span>产品Demo录制 — 周五</span>
             </li>
           </ul>
