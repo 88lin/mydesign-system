@@ -127,7 +127,7 @@
   left: 22px;
   top: 40px; bottom: 40px;
   width: 2px;
-  border-left: 2px dashed var(--yellow);
+  border-left: 2px dashed var(--brand-accent);
 }
 .step-item {
   position: relative;
@@ -137,7 +137,7 @@
   left: -60px;
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand-primary);
   color: #fff;
   display: flex;
   align-items: center;
@@ -178,7 +178,7 @@
   left: 50%;
   top: 0; bottom: 0;
   width: 2px;
-  background: rgba(43, 127, 216, 0.15);
+  background: rgba(var(--brand-primary-rgb), 0.15);
 }
 .timeline-item {
   display: grid;
@@ -262,7 +262,7 @@
   top: 28px;
   left: 28px; right: 28px;
   height: 3px;
-  background: linear-gradient(90deg, var(--yellow), var(--blue));
+  background: linear-gradient(90deg, var(--brand-accent), var(--brand-primary));
 }
 .step-card {
   text-align: center;
@@ -271,7 +271,7 @@
 .step-dot {
   width: 56px; height: 56px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--brand-primary);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -399,7 +399,7 @@
 
 ```css
 .section-accent {
-  background: var(--blue);
+  background: var(--brand-primary);
   color: #fff;
   padding: clamp(80px, 12vh, 160px) 0;
   position: relative;
@@ -412,7 +412,7 @@
 }
 ```
 
-⚠️ 注意：一页最多1~2个。可换用黄色（文字改为墨色）。不要在品牌色面板上放蓝色文字。
+⚠️ 注意：一页最多1~2个。可换用强调色（文字改为墨色）。不要在品牌色面板上放同色系文字。
 
 ---
 
@@ -456,8 +456,10 @@
 .timeline-card .year {
   font-family: 'Fraunces', serif;
   font-size: 1.8rem;
-  color: var(--blue);
-  opacity: 0.6;
+  /* 年份是内容不是装饰，所以不能用 opacity 压淡：opacity 会直接乘进对比度，
+     主色 @0.6 实测 10 套最低只有 2.27 : 1，连大字的 3.0 都不到。
+     改成全不透明的 -deep，最低 6.75 : 1。 */
+  color: var(--brand-primary-deep);
 }
 ```
 
@@ -548,8 +550,10 @@
   margin-bottom: -2px;
 }
 .tab.active {
-  border-bottom-color: var(--blue);
-  color: var(--blue);
+  border-bottom-color: var(--brand-primary);
+  /* 0.9rem 属小字，门槛 4.5。主色在樱那套只有 4.33、青瓷 4.39，过不了，
+     所以文字走 -deep（最低 6.75）；下边框是边框不是文字，保留较浅的主色。 */
+  color: var(--brand-primary-deep);
   font-weight: 600;
 }
 .tab-content { display: none; }
@@ -615,7 +619,7 @@
     <div class="step-item step-observe" data-index="0">
       <img src="step-image.png" alt="">
       <div class="step-text">
-        <span class="step-num">01</span>
+        <span class="step-num" aria-hidden="true">01</span>
         <div class="step-info">
           <h4>步骤标题</h4>
           <p>步骤描述</p>
@@ -653,11 +657,13 @@
   transition: all 0.3s ease;
 }
 .layout-sticky-mag .nav li::before {
-  content: counter(step, decimal-leading-zero);
+  /* 空 CSS alt = 标准原生的「这是装饰」声明：编号是排版节奏，导航项自己的文字才是内容。
+     0.12 的 alpha 是刻意的水印感，保留原值，只把色相换成令牌。 */
+  content: counter(step, decimal-leading-zero) / '';
   font-family: 'Fraunces', serif;
   font-size: 1.5rem;
   font-weight: 900;
-  color: rgba(43,127,216,0.12);
+  color: rgba(var(--brand-primary-rgb), 0.12);
   min-width: 36px;
   transition: all 0.3s ease;
 }
@@ -666,7 +672,7 @@
   font-weight: 700;
 }
 .layout-sticky-mag .nav li.active::before {
-  color: var(--blue);
+  color: var(--brand-primary);
   font-size: 1.8rem;
 }
 .steps-content {
@@ -696,10 +702,11 @@
   font-size: 3rem;
   font-weight: 900;
   line-height: 1;
-  color: rgba(43,127,216,0.15);
+  /* 3rem 的幽灵序号，alpha 原值不动，只换色相令牌 */
+  color: rgba(var(--brand-primary-rgb), 0.15);
 }
-.step-item:nth-child(3n+2) .step-num { color: rgba(244,215,88,0.35); }
-.step-item:nth-child(3n) .step-num { color: rgba(232,74,95,0.2); }
+.step-item:nth-child(3n+2) .step-num { color: rgba(var(--brand-accent-rgb), 0.35); }
+.step-item:nth-child(3n) .step-num { color: rgba(var(--brand-pop-rgb), 0.2); }
 .step-item .step-info h4 {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.3rem;
@@ -734,4 +741,4 @@ const stepObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.step-observe').forEach(el => stepObserver.observe(el));
 ```
 
-⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（蓝/黄/红）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。
+⚠️ 注意：步骤5~10个最合适。超过10个太长，少于5个用横向Step连接线（#7）更紧凑。大图是关键——每一步都必须有一张占满宽度的配图。编号三色轮换（主色 / 强调色 / 点缀色）保持节奏。移动端侧栏隐藏，变成纯纵向滚动。
