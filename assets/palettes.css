@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   mydesign-system · 配色系统（A–E 五套，可切换）
+
+   切换方式 —— 改 <html> 上一个属性就够了：
+       <html lang="zh-CN" data-palette="c">
+   a=原色(默认) b=松墨 c=陶土 d=梅子 e=山墨
+
+   三层结构，页面只认第 2 层：
+     第 1 层  --p-*        五套配色的色值表。只有这里写十六进制。
+     第 2 层  --brand-* 等  语义令牌 + 兼容别名。所有页面 CSS 引用这一层。
+     第 3 层  全局细节      ::selection / :focus-visible / 减少动效。
+
+   为什么要两层：--blue / --yellow / --red 是「颜色名」，语义和色值绑死了 ——
+   配色 B 的主色是墨绿，还叫 --blue 就荒谬。加一层间接之后，仓库里现存的
+   200+ 处 var(--blue) 一处都不用改，照样跟着配色走。
+
+   注释里的数字是实测 WCAG 对比度。每套配色都过同一组 16 项门槛，
+   所以换配色只换性格、不换可读性。数值不是估的，是 palette_tools 算的。
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ── 第 1 层 · 五套配色色值表 ──────────────────────────────────────── */
+
+/* A · 原色 — Cobalt & Butter   日常首选 · 教程 · 科普   气质：明亮、亲和、可信赖 */
+:root,
+[data-palette="a"] {
+  --p-name: "A · 原色";
+
+  --p-primary:       #2B7FD8;  /* 3.99 on cream */
+  --p-primary-deep:  #1E5BA8;  /* 6.57 on cream */
+  --p-primary-soft:  #E2EEFE;  /* 主色浅底 */
+  --p-accent:        #F4D758;  /* ink on it 11.95 */
+  --p-accent-soft:   #FFF3CD;  /* 强调浅底 */
+  --p-accent-ink:    #78671B;  /* 5.05 on accent-soft */
+  --p-pop:           #E84A5F;  /* 3.67 on cream */
+  --p-pop-deep:      #BF2A44;  /* 5.64 on cream */
+  --p-cream:         #FEFCF6;  /* 页面底色 */
+  --p-cream-dark:    #FAF6EB;  /* 深一档色带 */
+  --p-card:          #FFFEFC;  /* 卡片底色 */
+  --p-ink:           #1A1A2E;  /* 16.63 on cream */
+  --p-ink-light:     #4A4A5A;  /* 8.46 on cream */
+  --p-ink-faint:     #6D6E7E;  /* 4.89 on cream / 4.65 on cream-dark */
+  --p-dark-panel:    #151821;  /* cream on it 17.28 */
+  --p-dark-panel-2:  #292B3C;  /* 面板次层 */
+
+  --p-ink-rgb:       26, 26, 46;
+  --p-primary-rgb:   43, 127, 216;
+  --p-accent-rgb:    244, 215, 88;
+  --p-pop-rgb:       232, 74, 95;
+}
+
+/* B · 松墨 — Ink Pine   长文 · 读书笔记 · 复盘   气质：文人、沉静、耐看 */
+[data-palette="b"] {
+  --p-name: "B · 松墨";
+
+  --p-primary:       #35774B;  /* 5.26 on cream */
+  --p-primary-deep:  #175830;  /* 8.27 on cream */
+  --p-primary-soft:  #DFF3E3;  /* 主色浅底 */
+  --p-accent:        #EEBC5D;  /* ink on it 9.40 */
+  --p-accent-soft:   #FEEED4;  /* 强调浅底 */
+  --p-accent-ink:    #846015;  /* 5.02 on accent-soft */
+  --p-pop:           #D15A42;  /* 3.90 on cream */
+  --p-pop-deep:      #AA3C27;  /* 6.05 on cream */
+  --p-cream:         #FEFCF6;  /* 页面底色 */
+  --p-cream-dark:    #F7F1E3;  /* 深一档色带 */
+  --p-card:          #FFFEFC;  /* 卡片底色 */
+  --p-ink:           #19211C;  /* 16.05 on cream */
+  --p-ink-light:     #454E48;  /* 8.40 on cream */
+  --p-ink-faint:     #646E68;  /* 5.15 on cream / 4.69 on cream-dark */
+  --p-dark-panel:    #0F1C15;  /* cream on it 17.10 */
+  --p-dark-panel-2:  #223028;  /* 面板次层 */
+
+  --p-ink-rgb:       25, 33, 28;
+  --p-primary-rgb:   53, 119, 75;
+  --p-accent-rgb:    238, 188, 93;
+  --p-pop-rgb:       209, 90, 66;
+}
+
+/* C · 陶土 — Terracotta   作品集 · 生活方式 · 活动页   气质：手作、温暖、土陶质感 */
+[data-palette="c"] {
+  --p-name: "C · 陶土";
+
+  --p-primary:       #B35630;  /* 4.78 on cream */
+  --p-primary-deep:  #8E3912;  /* 7.47 on cream */
+  --p-primary-soft:  #FEE8DF;  /* 主色浅底 */
+  --p-accent:        #ECD06E;  /* ink on it 10.83 */
+  --p-accent-soft:   #FDF1C5;  /* 强调浅底 */
+  --p-accent-ink:    #7A6514;  /* 5.02 on accent-soft */
+  --p-pop:           #348979;  /* 4.10 on cream */
+  --p-pop-deep:      #16695A;  /* 6.40 on cream */
+  --p-cream:         #FFFCF5;  /* 页面底色 */
+  --p-cream-dark:    #F9F1E0;  /* 深一档色带 */
+  --p-card:          #FFFEFC;  /* 卡片底色 */
+  --p-ink:           #271D18;  /* 16.07 on cream */
+  --p-ink-light:     #564942;  /* 8.44 on cream */
+  --p-ink-faint:     #786961;  /* 5.13 on cream / 4.68 on cream-dark */
+  --p-dark-panel:    #241710;  /* cream on it 17.01 */
+  --p-dark-panel-2:  #382921;  /* 面板次层 */
+
+  --p-ink-rgb:       39, 29, 24;
+  --p-primary-rgb:   179, 86, 48;
+  --p-accent-rgb:    236, 208, 110;
+  --p-pop-rgb:       52, 137, 121;
+}
+
+/* D · 梅子 — Mulberry & Honey   个人主页 · 分享会 · 图文卡片   气质：柔和有格调、不甜 */
+[data-palette="d"] {
+  --p-name: "D · 梅子";
+
+  --p-primary:       #87486D;  /* 6.45 on cream */
+  --p-primary-deep:  #652D4F;  /* 10.04 on cream */
+  --p-primary-soft:  #F9E7F0;  /* 主色浅底 */
+  --p-accent:        #FCCC69;  /* ink on it 10.95 */
+  --p-accent-soft:   #FEEFD2;  /* 强调浅底 */
+  --p-accent-ink:    #826114;  /* 5.04 on accent-soft */
+  --p-pop:           #5F8041;  /* 4.41 on cream */
+  --p-pop-deep:      #426126;  /* 6.91 on cream */
+  --p-cream:         #FFFCF6;  /* 页面底色 */
+  --p-cream-dark:    #F8F1E3;  /* 深一档色带 */
+  --p-card:          #FFFEFC;  /* 卡片底色 */
+  --p-ink:           #271C23;  /* 16.06 on cream */
+  --p-ink-light:     #53494F;  /* 8.43 on cream */
+  --p-ink-faint:     #756971;  /* 5.11 on cream / 4.65 on cream-dark */
+  --p-dark-panel:    #24151D;  /* cream on it 17.09 */
+  --p-dark-panel-2:  #37272F;  /* 面板次层 */
+
+  --p-ink-rgb:       39, 28, 35;
+  --p-primary-rgb:   135, 72, 109;
+  --p-accent-rgb:    252, 204, 105;
+  --p-pop-rgb:       95, 128, 65;
+}
+
+/* E · 山墨 — Sumi & Vermilion   作品集 · 观点长文 · 高级感   气质：极简编辑感、印刷味最重 */
+[data-palette="e"] {
+  --p-name: "E · 山墨";
+
+  --p-primary:       #3C352E;  /* 11.76 on cream */
+  --p-primary-deep:  #221B15;  /* 16.57 on cream */
+  --p-primary-soft:  #F9EADB;  /* 主色浅底 */
+  --p-accent:        #E5CCA6;  /* ink on it 10.57 */
+  --p-accent-soft:   #FEEED7;  /* 强调浅底 */
+  --p-accent-ink:    #81612E;  /* 5.00 on accent-soft */
+  --p-pop:           #C8482F;  /* 4.63 on cream */
+  --p-pop-deep:      #A12911;  /* 7.21 on cream */
+  --p-cream:         #FEFCF6;  /* 页面底色 */
+  --p-cream-dark:    #F8F1E2;  /* 深一档色带 */
+  --p-card:          #FFFEFC;  /* 卡片底色 */
+  --p-ink:           #221F1A;  /* 16.00 on cream */
+  --p-ink-light:     #504B46;  /* 8.40 on cream */
+  --p-ink-faint:     #716B65;  /* 5.13 on cream / 4.68 on cream-dark */
+  --p-dark-panel:    #1F1812;  /* cream on it 17.09 */
+  --p-dark-panel-2:  #322B24;  /* 面板次层 */
+
+  --p-ink-rgb:       34, 31, 26;
+  --p-primary-rgb:   60, 53, 46;
+  --p-accent-rgb:    229, 204, 166;
+  --p-pop-rgb:       200, 72, 47;
+}
+
+/* ── 第 2 层 · 语义令牌 ────────────────────────────────────────────────
+   页面里请只用这一层。想换配色就改 <html data-palette>，别改这里。   */
+:root {
+  /* 主色 60% */
+  --brand-primary:      var(--p-primary);        /* 大标题 / 装饰 / 色块 */
+  --brand-primary-deep: var(--p-primary-deep);   /* 正文链接 / 小字 / 按钮底 */
+  --brand-primary-soft: var(--p-primary-soft);   /* pill / 浅色块 */
+
+  /* 强调 30% */
+  --brand-accent:      var(--p-accent);          /* 高亮 / badge / 连接线 */
+  --brand-accent-soft: var(--p-accent-soft);     /* 荧光笔 / 标签底 */
+  --brand-accent-ink:  var(--p-accent-ink);      /* 只用在 accent-soft 浅底上 */
+
+  /* 点缀 10% */
+  --brand-pop:      var(--p-pop);                /* CTA / 下划线 */
+  --brand-pop-deep: var(--p-pop-deep);           /* 点缀色当小字用 */
+
+  /* 纸面 */
+  --cream:      var(--p-cream);
+  --cream-dark: var(--p-cream-dark);
+  --card-bg:    var(--p-card);
+
+  /* 文字 */
+  --ink:       var(--p-ink);
+  --ink-light: var(--p-ink-light);
+  --ink-faint: var(--p-ink-faint);
+
+  /* 深色面板 */
+  --dark-panel:   var(--p-dark-panel);
+  --dark-panel-2: var(--p-dark-panel-2);
+
+  /* RGB 三元组 —— 半透明色块用：rgba(var(--brand-primary-rgb), .08) */
+  --ink-rgb:           var(--p-ink-rgb);
+  --brand-primary-rgb: var(--p-primary-rgb);
+  --brand-accent-rgb:  var(--p-accent-rgb);
+  --brand-pop-rgb:     var(--p-pop-rgb);
+
+  /* 描边 / 焦点 / 荧光笔 —— 跟随 ink 色相，不用死灰 */
+  --border:        rgba(var(--p-ink-rgb), .09);
+  --border-strong: rgba(var(--p-ink-rgb), .16);
+  --focus-ring:    var(--brand-primary-deep);
+  --highlighter:   linear-gradient(transparent 60%, var(--brand-accent) 60%);
+
+  /* 兼容别名 —— 老代码继续用颜色名，零改动。一个旧变量都没删。 */
+  --blue:        var(--brand-primary);
+  --blue-deep:   var(--brand-primary-deep);
+  --yellow:      var(--brand-accent);
+  --yellow-soft: var(--brand-accent-soft);
+  --red:         var(--brand-pop);
+}
+
+
+/* ── 第 3 层 · 全局细节 ──────────────────────────────────────────────── */
+
+/* brand-dna 要求的选中态：黄底 + 深字，不用浏览器默认的蓝 */
+::selection { background: var(--brand-accent); color: var(--ink); }
+
+/* 键盘焦点环。原来全仓库 0 处 :focus-visible —— 键盘用户看不到自己在哪。
+   用品牌深色而不是浏览器默认蓝框，跟着配色走。 */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* 尊重系统的「减少动效」。用 .01ms 而不是 none：animation-fill-mode:forwards
+   的动画如果直接禁掉，元素会卡在 opacity:0 的起始态上，整段内容消失。 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
