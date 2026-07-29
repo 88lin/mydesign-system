@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-palette="a">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配色系统 · 5 套可切换配色与对比度实测</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,900&family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/palettes.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:'Noto Sans SC',sans-serif;
+  line-height:1.8;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+header{padding:clamp(48px,7vw,88px) 0 clamp(28px,4vw,44px)}
+h1{font-family:'Fraunces','Noto Serif SC',serif;font-weight:900;
+  font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.15;letter-spacing:-.01em}
+h1 em{font-style:normal;background:var(--highlighter);padding:0 .1em}
+.lede{margin-top:1.1rem;max-width:52ch;color:var(--ink-light);font-size:1.02rem}
+/* ---- switcher ---- */
+.sw{position:sticky;top:0;z-index:20;background:rgba(var(--ink-rgb),.02);
+  backdrop-filter:none;border-bottom:1px solid var(--border);padding:12px 0;margin-bottom:44px}
+.sw-in{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sw-lbl{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-faint);margin-right:6px}
+.pb{font-family:'Noto Sans SC',sans-serif;font-size:.84rem;font-weight:500;cursor:pointer;
+  padding:8px 15px;border-radius:8px;border:1.5px solid var(--border-strong);
+  background:transparent;color:var(--ink-light);transition:transform .16s}
+.pb:hover{transform:translateY(-1px);border-color:var(--brand-primary-deep)}
+.pb[aria-pressed=true]{background:var(--brand-primary-deep);color:var(--cream);
+  border-color:var(--brand-primary-deep);font-weight:700}
+.copy{margin-left:auto;display:flex;gap:8px;align-items:center}
+.copy button{font-family:'Noto Sans SC',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;
+  padding:8px 16px;border-radius:8px;border:none;background:var(--brand-primary-deep);
+  color:#fff;transition:transform .16s}
+.copy button:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.copy .ok{font-size:.74rem;color:var(--brand-pop-deep);font-weight:700;opacity:0;transition:opacity .2s}
+.copy .ok.on{opacity:1}
+/* ---- sections ---- */
+section{padding-bottom:clamp(44px,6vw,72px)}
+h2{font-family:'Fraunces','Noto Serif SC',serif;font-weight:900;font-size:1.55rem;
+  margin-bottom:.3rem;display:flex;align-items:baseline;gap:.6rem}
+h2 .n{font-family:'Fira Code',monospace;font-size:.72rem;font-weight:500;
+  color:var(--brand-pop-deep);letter-spacing:.1em}
+.sub{color:var(--ink-faint);font-size:.86rem;margin-bottom:1.7rem}
+/* ---- swatches ---- */
+.grp{margin-bottom:26px}
+.grp-h{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);padding-bottom:7px;
+  border-bottom:1px solid var(--border);margin-bottom:14px}
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:12px}
+.sc{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;overflow:hidden}
+.sc .chip{height:62px;display:flex;align-items:flex-end;justify-content:flex-end;padding:7px 9px}
+.sc .chip code{font-family:'Fira Code',monospace;font-size:.6rem;font-weight:500;
+  padding:2px 5px;border-radius:3px;background:rgba(255,255,255,.86);color:#1a1a2e}
+.sc .chip.lt code{background:rgba(26,26,46,.82);color:#fff}
+.sc .meta{padding:9px 11px 11px}
+.sc .tok{font-family:'Fira Code',monospace;font-size:.66rem;font-weight:500;color:var(--ink)}
+.sc .role{font-size:.7rem;color:var(--ink-faint);margin-top:2px;line-height:1.5}
+/* ---- contrast table ---- */
+.tbl{width:100%;border-collapse:collapse;font-size:.82rem}
+.tbl th{text-align:left;font-family:'Fira Code',monospace;font-size:.6rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-faint);font-weight:500;
+  padding:0 10px 9px 0;border-bottom:1.5px solid var(--border-strong)}
+.tbl td{padding:9px 10px 9px 0;border-bottom:1px solid var(--border);vertical-align:top}
+.tbl .pair{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--ink-light)}
+.tbl .r{font-family:'Fira Code',monospace;font-weight:500;white-space:nowrap}
+.tbl .yes{color:var(--brand-primary-deep);font-weight:700}
+.tbl .min{color:var(--ink-faint);font-size:.7rem}
+/* ---- specimen ---- */
+.spec{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  padding:clamp(24px,3.4vw,40px)}
+.spec h3{font-family:'Fraunces','Noto Serif SC',serif;font-weight:900;
+  font-size:clamp(1.4rem,3.4vw,2.1rem);line-height:1.25}
+.spec .kick{font-family:'Fira Code',monospace;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brand-pop-deep);margin-bottom:.55rem}
+.spec p{margin-top:.95rem;max-width:56ch}
+.spec a{color:var(--brand-primary-deep);text-decoration:none;
+  border-bottom:1.5px solid var(--brand-accent);padding-bottom:1px}
+.spec mark{background:var(--highlighter);color:inherit;padding:0 .08em}
+.spec .row{display:flex;gap:11px;flex-wrap:wrap;align-items:center;margin-top:1.5rem}
+.spec .cta{display:inline-flex;align-items:center;gap:7px;padding:11px 26px;
+  background:var(--brand-primary-deep);color:#fff;border-radius:9px;
+  font-weight:600;font-size:.9rem;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .18s}
+.spec .cta:hover{transform:translateY(-2px)}
+.spec .cta.alt{background:var(--brand-accent);color:var(--ink)}
+.spec .tag{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:999px;
+  background:var(--brand-accent-soft);color:var(--brand-accent-ink)}
+.spec .panel{margin-top:1.6rem;background:var(--dark-panel);border-radius:11px;
+  padding:22px 24px;color:var(--cream)}
+.spec .panel .pt{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;
+  color:var(--brand-accent)}
+.spec .panel p{color:rgba(255,255,255,.82);font-size:.86rem;margin-top:.4rem}
+footer{border-top:1px solid var(--border);padding:30px 0 60px;color:var(--ink-faint);font-size:.78rem}
+footer code{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--ink-light)}
+::selection{background:var(--brand-accent);color:var(--ink)}
+:focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.01ms!important;animation-iteration-count:1!important;
+  transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap"><header>
+<h1>一套 IP，<em>五种性格</em></h1>
+<p class="lede">同一份版式，换一个属性值就换一整套配色。五套配色的明度台阶是对齐的——换配色只换气质，不换视觉节奏。下面每个色值都标了实测对比度。</p>
+</header></div>
+<div class="sw"><div class="wrap sw-in">
+<span class="sw-lbl">palette</span>
+<button class="pb" data-p="a" aria-pressed="true">A · 原色</button>
+<button class="pb" data-p="b" aria-pressed="false">B · 松墨</button>
+<button class="pb" data-p="c" aria-pressed="false">C · 陶土</button>
+<button class="pb" data-p="d" aria-pressed="false">D · 梅子</button>
+<button class="pb" data-p="e" aria-pressed="false">E · 山墨</button>
+<span class="copy"><button id="cp" type="button">复制当前配色色值</button><span class="ok" id="ok">已复制</span></span>
+</div></div>
+<div class="wrap">
+<section><h2><span class="n">01</span><span id="pname">A · 原色</span></h2>
+<p class="sub" id="pblurb"></p>
+<div class="grp"><div class="grp-h">主色 · 60%</div><div class="sw-grid">
+<div class="sc"><div class="chip" style="background:var(--p-primary)"><code data-hex="--p-primary">#000000</code></div><div class="meta"><div class="tok">--p-primary</div><div class="role">大标题、装饰、色块</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-primary-deep)"><code data-hex="--p-primary-deep">#000000</code></div><div class="meta"><div class="tok">--p-primary-deep</div><div class="role">正文链接、小字、实心按钮底</div></div></div>
+<div class="sc"><div class="chip lt" style="background:var(--p-primary-soft)"><code data-hex="--p-primary-soft">#000000</code></div><div class="meta"><div class="tok">--p-primary-soft</div><div class="role">浅色 pill / 色块底</div></div></div>
+</div></div>
+<div class="grp"><div class="grp-h">强调 · 30%</div><div class="sw-grid">
+<div class="sc"><div class="chip lt" style="background:var(--p-accent)"><code data-hex="--p-accent">#000000</code></div><div class="meta"><div class="tok">--p-accent</div><div class="role">高亮、badge、连接线</div></div></div>
+<div class="sc"><div class="chip lt" style="background:var(--p-accent-soft)"><code data-hex="--p-accent-soft">#000000</code></div><div class="meta"><div class="tok">--p-accent-soft</div><div class="role">荧光笔、标签底</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-accent-ink)"><code data-hex="--p-accent-ink">#000000</code></div><div class="meta"><div class="tok">--p-accent-ink</div><div class="role">只用在 accent-soft 浅底上的深字</div></div></div>
+</div></div>
+<div class="grp"><div class="grp-h">点缀 · 10%</div><div class="sw-grid">
+<div class="sc"><div class="chip" style="background:var(--p-pop)"><code data-hex="--p-pop">#000000</code></div><div class="meta"><div class="tok">--p-pop</div><div class="role">CTA、下划线（大字）</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-pop-deep)"><code data-hex="--p-pop-deep">#000000</code></div><div class="meta"><div class="tok">--p-pop-deep</div><div class="role">点缀色当小字时用这一档</div></div></div>
+</div></div>
+<div class="grp"><div class="grp-h">纸面</div><div class="sw-grid">
+<div class="sc"><div class="chip lt" style="background:var(--p-cream)"><code data-hex="--p-cream">#000000</code></div><div class="meta"><div class="tok">--p-cream</div><div class="role">页面底色</div></div></div>
+<div class="sc"><div class="chip lt" style="background:var(--p-cream-dark)"><code data-hex="--p-cream-dark">#000000</code></div><div class="meta"><div class="tok">--p-cream-dark</div><div class="role">色带 / 次级底</div></div></div>
+<div class="sc"><div class="chip lt" style="background:var(--p-card)"><code data-hex="--p-card">#000000</code></div><div class="meta"><div class="tok">--p-card</div><div class="role">卡片面</div></div></div>
+</div></div>
+<div class="grp"><div class="grp-h">文字</div><div class="sw-grid">
+<div class="sc"><div class="chip" style="background:var(--p-ink)"><code data-hex="--p-ink">#000000</code></div><div class="meta"><div class="tok">--p-ink</div><div class="role">正文</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-ink-light)"><code data-hex="--p-ink-light">#000000</code></div><div class="meta"><div class="tok">--p-ink-light</div><div class="role">次要文字 / 纸感底板上的辅助字</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-ink-faint)"><code data-hex="--p-ink-faint">#000000</code></div><div class="meta"><div class="tok">--p-ink-faint</div><div class="role">辅助小字</div></div></div>
+</div></div>
+<div class="grp"><div class="grp-h">深色面板</div><div class="sw-grid">
+<div class="sc"><div class="chip" style="background:var(--p-dark-panel)"><code data-hex="--p-dark-panel">#000000</code></div><div class="meta"><div class="tok">--p-dark-panel</div><div class="role">深色面板</div></div></div>
+<div class="sc"><div class="chip" style="background:var(--p-dark-panel-2)"><code data-hex="--p-dark-panel-2">#000000</code></div><div class="meta"><div class="tok">--p-dark-panel-2</div><div class="role">面板次层</div></div></div>
+</div></div>
+</section>
+<section><h2><span class="n">02</span>对比度实测</h2>
+<p class="sub">16 条门槛 × 5 套配色 = 80 项，全部达标。数值随上方切换器实时重算。</p>
+<table class="tbl"><thead><tr><th>用途</th><th>组合</th><th>门槛</th><th>实测</th></tr></thead><tbody>
+<tr><td>正文</td><td class="pair">--p-ink on --p-cream</td><td class="min">≥ 12.0</td><td class="r" data-fg="--p-ink" data-bg="--p-cream" data-min="12.0">—</td></tr>
+<tr><td>次要文字</td><td class="pair">--p-ink-light on --p-cream</td><td class="min">≥ 7.0</td><td class="r" data-fg="--p-ink-light" data-bg="--p-cream" data-min="7.0">—</td></tr>
+<tr><td>辅助小字</td><td class="pair">--p-ink-faint on --p-cream</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-ink-faint" data-bg="--p-cream" data-min="4.5">—</td></tr>
+<tr><td>正文链接 / 小字</td><td class="pair">--p-primary-deep on --p-cream</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-primary-deep" data-bg="--p-cream" data-min="4.5">—</td></tr>
+<tr><td>大标题 / 装饰（大字号）</td><td class="pair">--p-primary on --p-cream</td><td class="min">≥ 3.0</td><td class="r" data-fg="--p-primary" data-bg="--p-cream" data-min="3.0">—</td></tr>
+<tr><td>点缀小字</td><td class="pair">--p-pop-deep on --p-cream</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-pop-deep" data-bg="--p-cream" data-min="4.5">—</td></tr>
+<tr><td>点缀大字</td><td class="pair">--p-pop on --p-cream</td><td class="min">≥ 3.0</td><td class="r" data-fg="--p-pop" data-bg="--p-cream" data-min="3.0">—</td></tr>
+<tr><td>强调色系深字 · 只用于浅黄底</td><td class="pair">--p-accent-ink on --p-accent-soft</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-accent-ink" data-bg="--p-accent-soft" data-min="4.5">—</td></tr>
+<tr><td>实心强调色块上的文字</td><td class="pair">--p-ink on --p-accent</td><td class="min">≥ 7.0</td><td class="r" data-fg="--p-ink" data-bg="--p-accent" data-min="7.0">—</td></tr>
+<tr><td>主色深底上的浅字</td><td class="pair">--p-cream on --p-primary-deep</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-cream" data-bg="--p-primary-deep" data-min="4.5">—</td></tr>
+<tr><td>深色面板上的正文</td><td class="pair">--p-cream on --p-dark-panel</td><td class="min">≥ 12.0</td><td class="r" data-fg="--p-cream" data-bg="--p-dark-panel" data-min="12.0">—</td></tr>
+<tr><td>深色面板上的强调色</td><td class="pair">--p-accent on --p-dark-panel</td><td class="min">≥ 7.0</td><td class="r" data-fg="--p-accent" data-bg="--p-dark-panel" data-min="7.0">—</td></tr>
+<tr><td>辅助小字落在色带上</td><td class="pair">--p-ink-faint on --p-cream-dark</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-ink-faint" data-bg="--p-cream-dark" data-min="4.5">—</td></tr>
+<tr><td>次要文字落在色带上</td><td class="pair">--p-ink-light on --p-cream-dark</td><td class="min">≥ 7.0</td><td class="r" data-fg="--p-ink-light" data-bg="--p-cream-dark" data-min="7.0">—</td></tr>
+<tr><td>链接落在色带上</td><td class="pair">--p-primary-deep on --p-cream-dark</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-primary-deep" data-bg="--p-cream-dark" data-min="4.5">—</td></tr>
+<tr><td>点缀小字落在色带上</td><td class="pair">--p-pop-deep on --p-cream-dark</td><td class="min">≥ 4.5</td><td class="r" data-fg="--p-pop-deep" data-bg="--p-cream-dark" data-min="4.5">—</td></tr>
+</tbody></table></section>
+<section><h2><span class="n">03</span>迷你样张</h2>
+<p class="sub">标题、正文、链接、荧光笔、标签、按钮、深色面板——真实组件，不是色块。</p>
+<div class="spec"><div class="kick">Design Note</div>
+<h3>内容决定形式，不是反过来</h3>
+<p>先看内容是什么，再选组件。<mark>一致性比创新更重要</mark>——同类内容应当用同一种视觉语言。每个元素都要证明自己的价值，<a href="#">如果它无法提升理解</a>，就该删掉。</p>
+<div class="row"><button class="cta" type="button">开始使用 →</button><button class="cta alt" type="button">查看组件</button><span class="tag">共 52 组件</span></div>
+<div class="panel"><div class="pt">克制是一种设计能力</div><p>一个页面最多 1–2 个动效组件。动效服务于理解，不服务于炫技。</p></div>
+</div></section>
+<footer>切换配色只需要改一个属性：<code>&lt;html data-palette="c"&gt;</code>。色值的唯一事实来源是 <code>assets/palettes.css</code>。语法高亮色、macOS 红绿灯点和纸感底板是<strong>刻意</strong>不跟随配色的约定色。</footer>
+</div>
+<script>
+const META={a:{name:"A · 原色",blurb:"日常首选 · 教程 · 科普"}, b:{name:"B · 松墨",blurb:"长文 · 读书笔记 · 复盘"}, c:{name:"C · 陶土",blurb:"作品集 · 生活方式 · 活动页"}, d:{name:"D · 梅子",blurb:"个人主页 · 分享会 · 图文卡片"}, e:{name:"E · 山墨",blurb:"作品集 · 观点长文 · 高级感"}};
+const TOKENS=["--p-primary", "--p-primary-deep", "--p-primary-soft", "--p-accent", "--p-accent-soft", "--p-accent-ink", "--p-pop", "--p-pop-deep", "--p-cream", "--p-cream-dark", "--p-card", "--p-ink", "--p-ink-light", "--p-ink-faint", "--p-dark-panel", "--p-dark-panel-2"];
+const root=document.documentElement;
+const cs=()=>getComputedStyle(root);
+// custom properties come back exactly as authored, so a hex stays a hex.
+// Only rgb()/rgba() forms need converting.
+const hex=v=>{v=(v||'').trim();
+  if(v[0]==='#')return v.length===4
+    ?('#'+[1,2,3].map(i=>v[i]+v[i]).join('')).toUpperCase():v.toUpperCase();
+  const m=v.match(/[\d.]+/g);if(!m)return v;
+  return '#'+m.slice(0,3).map(x=>Math.round(+x).toString(16)
+    .padStart(2,'0')).join('').toUpperCase()};
+const lum=h=>{const n=parseInt(h.slice(1),16),c=[n>>16&255,n>>8&255,n&255]
+  .map(v=>{v/=255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});
+  return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+const ratio=(a,b)=>{const x=lum(a),y=lum(b),hi=Math.max(x,y),lo=Math.min(x,y);
+  return (hi+.05)/(lo+.05)};
+function render(){
+  const p=root.dataset.palette||'a', s=cs();
+  document.getElementById('pname').textContent=META[p].name;
+  document.getElementById('pblurb').textContent=META[p].blurb;
+  document.querySelectorAll('[data-hex]').forEach(el=>{
+    el.textContent=hex(s.getPropertyValue(el.dataset.hex))});
+  document.querySelectorAll('[data-fg]').forEach(el=>{
+    const r=ratio(hex(s.getPropertyValue(el.dataset.fg)),
+                  hex(s.getPropertyValue(el.dataset.bg)));
+    const ok=r>=parseFloat(el.dataset.min)-1e-9;
+    el.textContent=r.toFixed(2)+(ok?' ✓':' ✕');
+    el.className='r'+(ok?' yes':'')});
+  document.querySelectorAll('.pb').forEach(b=>
+    b.setAttribute('aria-pressed',String(b.dataset.p===p)));
+}
+document.querySelectorAll('.pb').forEach(b=>b.addEventListener('click',()=>{
+  root.dataset.palette=b.dataset.p;render()}));
+document.getElementById('cp').addEventListener('click',()=>{
+  const s=cs(),p=root.dataset.palette||'a';
+  const txt=[`/* ${META[p].name} */`].concat(
+    TOKENS.map(t=>`${t}: ${hex(s.getPropertyValue(t))};`)).join('\n');
+  navigator.clipboard.writeText(txt).catch(()=>{});
+  const ok=document.getElementById('ok');ok.classList.add('on');
+  setTimeout(()=>ok.classList.remove('on'),1600)});
+render();
+</script>
+</body>
+</html>
