@@ -70,7 +70,7 @@
 
 ### 🧩 组件库全览
 
-51个经过验证的可复用组件。
+52个经过验证的可复用组件。
 
 🔗 [组件库预览](https://esthersjw.github.io/esther-design-system/components-preview.html)
 
@@ -96,7 +96,7 @@ assets/template-*.html(起点 - 从模板改,不从零写)
 ## 文件结构
 
 ```
-esther-design-system/
+mydesign-system/
 ├── SKILL.md                    ← 7步工作流(大脑)
 ├── brand-dna.md                ← 品牌基因:颜色/字体/气质/禁忌(需配置)
 ├── assets/                     ← 模板骨架(起点)
@@ -106,10 +106,10 @@ esther-design-system/
 │   ├── template-cards.html         小红书卡片模板
 │   ├── html2canvas.min.js          卡片导出依赖
 │   ├── avatar-placeholder.svg      占位头像(可替换为你自己的 avatar.jpg)
-│   └── avatar.jpg                  ← 你的头像(需自行放入,仓库未附带)
+│   └── avatar.jpg                  示例头像(已附带,请替换成你自己的)
 └── references/                 ← 规则和零件(知识库)
     ├── layouts.md                  16种布局模式(附完整代码)
-    ├── components.md               组件库(51组件,完整HTML+CSS)
+    ├── components.md               组件库(52组件,完整HTML+CSS)
     ├── checklist.md                质量检查清单(P0/P1/P2)
     ├── scene-tutorial.md           教程场景规范
     ├── scene-landing.md            活动页场景规范
@@ -138,13 +138,16 @@ AI 每次做设计必须按这个顺序走：
 
 ## 品牌基因速览
 
-### 三色（默认配色，可在brand-dna.md中替换为你自己的）
+### 三色（10 套配色共用同一套语义令牌）
 
-| 颜色 | 色值 | 比例 |
-|------|------|------|
-| 主色 | `#2B7FD8` | 60% |
-| 强调色 | `#F4D758` | 30% |
-| 点缀色 | `#E84A5F` | 10% |
+| 颜色 | 令牌 | 默认（茶玫）| 比例 |
+|------|------|------|------|
+| 主色 | `--brand-primary` | `#A15C63` | 60% |
+| 强调色 | `--brand-accent` | `#EED0A3` | 30% |
+| 点缀色 | `--brand-pop` | `#458270` | 10% |
+
+> 页面代码里**只写令牌**，色值由 `<html data-palette="…">` 决定。上面第三列是默认
+> 茶玫的实际值，换成其它 9 套时这三个 hex 全变，页面一行不用改。
 
 ### 字体
 
@@ -186,7 +189,12 @@ AI 每次做设计必须按这个顺序走：
 
 1. Fork 或克隆本仓库
 2. 放入你的头像 `assets/avatar.jpg`
-3. （可选）打开 `brand-dna.md`，把默认品牌色替换成你自己的，并同步修改 `assets/template-*.html` 里 `:root` 的变量。注意：公众号模板（`template-wechat.html`）全部是内联样式，没有 CSS 变量，需要手动搜索替换色值。快捷方法：在所有模板文件中搜索 `#2B7FD8` 替换为你的主色，`#F4D758` 替换为你的强调色，`#E84A5F` 替换为你的点缀色
+3. 挑一套配色：在 `<html>` 上写 `data-palette="…"`（10 套，见下面「配色」一节，
+   或直接打开 `palettes.html` 边看边切）。**不需要手改任何 hex**——模板和页面里一处色值都没写死。
+   如果你想换成完全自己的一套，改 `assets/palettes.css` 第 1 层里那一组 `--p-*` 就行，
+   其余两层和所有页面都不用动。唯一的例外是公众号模板（`assets/template-wechat.html`）：
+   微信编辑器会剥掉 CSS 变量，所以那一份必须是内联 hex，照 `references/scene-wechat.md`
+   里的对照表机械搜索替换即可。
 4. 把 `assets/template-cards.html` 中的作者名替换成你自己的
 5. 把仓库链接发给你的 AI Agent，跟它说：
 
@@ -196,6 +204,44 @@ AI 每次做设计必须按这个顺序走：
 
 ---
 
+## 配色
+
+内置 **10 套配色**，默认 **茶玫 `rose`**。
+整套偏女性化：低彩度雾面色、带血色的暖白纸、香槟金／腮红粉一类接近金属质感的浅强调色——不是高饱和的粉。
+换配色改一个属性即可，模板里现有的 CSS 一行都不用动：
+
+```html
+<html lang="zh-CN" data-palette="wine">
+<!-- rose 茶玫 / wine 胭脂 / sakura 樱 / wisteria 藕荷 / bluebell 雾霞 / celadon 青瓷 / sage 艾绿 / latte 奶咖 / greige 烟灰玫 / heather 雪青 -->
+```
+
+| 配色 | 气质 | 适合 |
+|---|---|---|
+| **色彩层 — 带气质** | | |
+| `rose` **茶玫**（默认） | 柔雾玫瑰 × 香槟金 | 日常首选 · 教程 · 图文卡片 |
+| `wine` **胭脂** | 波尔多酒红 × 蜜杏 | 长文 · 观点 · 深度复盘 |
+| `sakura` **樱** | 樱粉 × 柠黄 | 活动页 · 节日 · 高饱和场合 |
+| `wisteria` **藕荷** | 紫藤丁香 × 薄荷 | 个人主页 · 分享会 · 手帐感 |
+| `bluebell` **雾霞** | 雾霭蓝紫 × 芹绿 | 科普 · 教程 · 需要冷静可信的场合 |
+| `celadon` **青瓷** | 青瓷湖水 × 腮红粉 | 作品集 · 生活方式 · 清冷感 |
+| `sage` **艾绿** | 草木灰绿 × 蜜黄 | 读书笔记 · 植物 · 慢生活 |
+| **中性层 — 彩度更低、不抢内容** | | |
+| `latte` **奶咖** | 燕麦焦糖 × 抹茶奶绿 | 作品集 · 简历 · 极简排版 |
+| `greige` **烟灰玫** | 烟灰藕粉 × 淡丁香 | 摄影图文 · 不想抢图的场合 |
+| `heather` **雪青** | 灰丁香 × 藕粉 | 长文 · 安静克制的个人主页 |
+
+打开 `palettes.html` 可以实时切换、看完整色板与 18 条对比度门槛的实测读数
+（10 套 × 18 条 = 180 项全部通过，那一页在浏览器里当场重算给你看），
+并一键复制当前配色的全部色值。色值的唯一事实来源是
+`assets/palettes.css`；详细令牌结构和用色规则见 `brand-dna.md`。
+
+> 公众号模板是纯内联样式（微信编辑器会剥掉 CSS 变量），用不了令牌。
+> `references/scene-wechat.md` 里有 10 套 × 全令牌的十六进制对照表，换色就是机械搜索替换。
+
+---
+
 ## Credits
 
+- 本仓库起源于 [esthersjw/esther-design-system](https://github.com/esthersjw/esther-design-system)，在其基础上加入了多配色令牌系统与一轮可达性修缮
+- 上面各场景的「在线预览」链接目前指向**上游作者的 GitHub Pages**。在本仓库 Settings → Pages 里开启 Pages 后，把链接域名换成你自己的即可
 - 方法论灵感来源于 [归藏](https://github.com/guizang) 的 PPT Skill——“限制AI的自由度 = 保证输出质量”这个核心思路参考了他的设计

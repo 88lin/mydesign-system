@@ -17,6 +17,11 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 
 ### Step 2: 读规范
 1. **必读** `brand-dna.md` — 确认品牌底层规范
+> **同时确认配色：** 一共 10 套，都在 `brand-dna.md` 里，键名是语义化的英文 slug，不是编号。
+> 色彩层（7 套，负责情绪）：`rose` 茶玫 · `wine` 胭脂 · `sakura` 樱 · `wisteria` 藕荷 · `bluebell` 雾霞 · `celadon` 青瓷 · `sage` 艾绿。
+> 中性层（3 套，不想抢内容时用）：`latte` 奶咖 · `greige` 烟灰玫 · `heather` 雪青。
+> 用户没指定就用默认的 **茶玫 `rose`**；提了气质需求（柔雾/酒红/清冷/极简…）就对照 brand-dna.md 的「气质」和「适合」两列挑一套，拿不定主意时打开 `palettes.html` 逐套看实色和对比度。
+> 定下来之后在产出的 HTML 里写 `<html data-palette="rose">`，换配色只改这一个属性值，页面里不要出现任何写死的品牌色。
 2. 根据类型选读场景文件：
    - 教程型/介绍型/科普型 → `references/scene-tutorial.md`
    - 活动页/分享会/Landing → `references/scene-landing.md`
