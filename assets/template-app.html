@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="rose">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +9,146 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
   <style>
     /* === CSS变量（简化版） === */
-    :root {
-      --blue: #2B7FD8;
-      --yellow: #F4D758;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --card-bg: #fff;
-      --border: rgba(26,26,26,.08);
+    /* ==== PALETTE SYSTEM · 同步自 assets/palettes.css —— 请勿单独手改 ====
+       换配色：改 <html data-palette="rose|wine|sakura|wisteria|bluebell|celadon|sage|latte|greige|heather">。默认 rose。
+       rose=茶玫  wine=胭脂  sakura=樱  wisteria=藕荷  bluebell=雾霞  celadon=青瓷  sage=艾绿  latte=奶咖  greige=烟灰玫  heather=雪青
+       页面 CSS 只引用第 2 层语义令牌；--blue/--yellow/--red 作为兼容别名保留。 */
+    /* 茶玫 — Rose Tea · 日常首选 · 教程 · 图文卡片 */
+    :root,
+    [data-palette="rose"] {
+      --p-name: "茶玫";
+      --p-primary: #A15C63; --p-primary-deep: #7E4047; --p-primary-soft: #FEE6E7;
+      --p-accent: #EED0A3; --p-accent-soft: #FFEED5; --p-accent-ink: #85601D;
+      --p-pop: #458270; --p-pop-deep: #296352;
+      --p-cream: #FEF6F5; --p-cream-dark: #F8ECEA; --p-card: #FFFEFE;
+      --p-ink: #24181E; --p-ink-light: #50474B; --p-ink-faint: #71686C;
+      --p-dark-panel: #1D1318; --p-dark-panel-2: #33292E;
+      --p-ink-rgb: 36, 24, 30; --p-primary-rgb: 161, 92, 99; --p-accent-rgb: 238, 208, 163; --p-pop-rgb: 69, 130, 112;
     }
+    /* 胭脂 — Bordeaux Rouge · 长文 · 观点 · 深度复盘 */
+    [data-palette="wine"] {
+      --p-name: "胭脂";
+      --p-primary: #812A51; --p-primary-deep: #5D0E35; --p-primary-soft: #FCE6ED;
+      --p-accent: #F4C5AF; --p-accent-soft: #FFECE3; --p-accent-ink: #955637;
+      --p-pop: #377395; --p-pop-deep: #1A5473;
+      --p-cream: #FEF6F5; --p-cream-dark: #F8ECEA; --p-card: #FFFEFE;
+      --p-ink: #25181E; --p-ink-light: #51464B; --p-ink-faint: #72676C;
+      --p-dark-panel: #1D1318; --p-dark-panel-2: #34292E;
+      --p-ink-rgb: 37, 24, 30; --p-primary-rgb: 129, 42, 81; --p-accent-rgb: 244, 197, 175; --p-pop-rgb: 55, 115, 149;
+    }
+    /* 樱 — Sakura · 活动页 · 节日 · 高饱和场合 */
+    [data-palette="sakura"] {
+      --p-name: "樱";
+      --p-primary: #B25588; --p-primary-deep: #8D3969; --p-primary-soft: #FBE6F0;
+      --p-accent: #EDDD7E; --p-accent-soft: #F7F2D2; --p-accent-ink: #73671D;
+      --p-pop: #54824F; --p-pop-deep: #386334;
+      --p-cream: #FEF6F5; --p-cream-dark: #F8ECEA; --p-card: #FFFEFE;
+      --p-ink: #25181F; --p-ink-light: #52464C; --p-ink-faint: #73676D;
+      --p-dark-panel: #1D1318; --p-dark-panel-2: #34292F;
+      --p-ink-rgb: 37, 24, 31; --p-primary-rgb: 178, 85, 136; --p-accent-rgb: 237, 221, 126; --p-pop-rgb: 84, 130, 79;
+    }
+    /* 藕荷 — Wisteria · 个人主页 · 分享会 · 手帐感 */
+    [data-palette="wisteria"] {
+      --p-name: "藕荷";
+      --p-primary: #815C93; --p-primary-deep: #614071; --p-primary-soft: #F3E8F9;
+      --p-accent: #A6E4E3; --p-accent-soft: #D1FAFA; --p-accent-ink: #217273;
+      --p-pop: #BA5E54; --p-pop-deep: #954239;
+      --p-cream: #FEF7F1; --p-cream-dark: #F9EDE4; --p-card: #FFFEFE;
+      --p-ink: #1E1A25; --p-ink-light: #4C4851; --p-ink-faint: #6D6972;
+      --p-dark-panel: #18151D; --p-dark-panel-2: #2E2B34;
+      --p-ink-rgb: 30, 26, 37; --p-primary-rgb: 129, 92, 147; --p-accent-rgb: 166, 228, 227; --p-pop-rgb: 186, 94, 84;
+    }
+    /* 雾霞 — Misty Bluebell · 科普 · 教程 · 需要冷静可信的场合 */
+    [data-palette="bluebell"] {
+      --p-name: "雾霞";
+      --p-primary: #5C6A9F; --p-primary-deep: #404C7C; --p-primary-soft: #E6ECFF;
+      --p-accent: #D5DFB1; --p-accent-soft: #EDF5D5; --p-accent-ink: #616D26;
+      --p-pop: #B6556A; --p-pop-deep: #91384E;
+      --p-cream: #FCF8EF; --p-cream-dark: #F6EEE0; --p-card: #FFFEFD;
+      --p-ink: #1A1C26; --p-ink-light: #484953; --p-ink-faint: #696A74;
+      --p-dark-panel: #15161E; --p-dark-panel-2: #2B2C36;
+      --p-ink-rgb: 26, 28, 38; --p-primary-rgb: 92, 106, 159; --p-accent-rgb: 213, 223, 177; --p-pop-rgb: 182, 85, 106;
+    }
+    /* 青瓷 — Celadon & Blush · 作品集 · 生活方式 · 清冷感 */
+    [data-palette="celadon"] {
+      --p-name: "青瓷";
+      --p-primary: #2E807F; --p-primary-deep: #195F5F; --p-primary-soft: #DAF3F2;
+      --p-accent: #F9BAC4; --p-accent-soft: #FFEBED; --p-accent-ink: #97515F;
+      --p-pop: #A25F32; --p-pop-deep: #7F4216;
+      --p-cream: #FCF8EF; --p-cream-dark: #F5EFE0; --p-card: #FFFEFD;
+      --p-ink: #131E1E; --p-ink-light: #434B4B; --p-ink-faint: #646C6C;
+      --p-dark-panel: #0F1818; --p-dark-panel-2: #252F2E;
+      --p-ink-rgb: 19, 30, 30; --p-primary-rgb: 46, 128, 127; --p-accent-rgb: 249, 186, 196; --p-pop-rgb: 162, 95, 50;
+    }
+    /* 艾绿 — Sage & Honey · 读书笔记 · 植物 · 慢生活 */
+    [data-palette="sage"] {
+      --p-name: "艾绿";
+      --p-primary: #587255; --p-primary-deep: #3C543A; --p-primary-soft: #E3F2E2;
+      --p-accent: #EDD080; --p-accent-soft: #FBF0D1; --p-accent-ink: #7C641C;
+      --p-pop: #A25483; --p-pop-deep: #7F3863;
+      --p-cream: #FDF8EF; --p-cream-dark: #F7EEE1; --p-card: #FFFEFE;
+      --p-ink: #181E19; --p-ink-light: #464B47; --p-ink-faint: #676C68;
+      --p-dark-panel: #121813; --p-dark-panel-2: #292E29;
+      --p-ink-rgb: 24, 30, 25; --p-primary-rgb: 88, 114, 85; --p-accent-rgb: 237, 208, 128; --p-pop-rgb: 162, 84, 131;
+    }
+    /* 奶咖 — Latte · 作品集 · 简历 · 极简排版 */
+    [data-palette="latte"] {
+      --p-name: "奶咖";
+      --p-primary: #7D5D45; --p-primary-deep: #5D412B; --p-primary-soft: #FBE9DC;
+      --p-accent: #BBE5C4; --p-accent-soft: #DDF9E3; --p-accent-ink: #357449;
+      --p-pop: #287A83; --p-pop-deep: #175A61;
+      --p-cream: #FEF7F0; --p-cream-dark: #F9EDE2; --p-card: #FFFEFE;
+      --p-ink: #211B17; --p-ink-light: #4D4845; --p-ink-faint: #6E6A66;
+      --p-dark-panel: #1A1512; --p-dark-panel-2: #302C27;
+      --p-ink-rgb: 33, 27, 23; --p-primary-rgb: 125, 93, 69; --p-accent-rgb: 187, 229, 196; --p-pop-rgb: 40, 122, 131;
+    }
+    /* 烟灰玫 — Smoked Greige · 摄影图文 · 不想抢图的场合 */
+    [data-palette="greige"] {
+      --p-name: "烟灰玫";
+      --p-primary: #7C6B75; --p-primary-deep: #5D4E57; --p-primary-soft: #FAE6F2;
+      --p-accent: #DDD2F1; --p-accent-soft: #F3EDFF; --p-accent-ink: #735B97;
+      --p-pop: #4B5D8E; --p-pop-deep: #30406C;
+      --p-cream: #FEF7F4; --p-cream-dark: #F8ECE8; --p-card: #FFFEFE;
+      --p-ink: #211A1E; --p-ink-light: #4E484C; --p-ink-faint: #6E696C;
+      --p-dark-panel: #1A1519; --p-dark-panel-2: #302B2E;
+      --p-ink-rgb: 33, 26, 30; --p-primary-rgb: 124, 107, 117; --p-accent-rgb: 221, 210, 241; --p-pop-rgb: 75, 93, 142;
+    }
+    /* 雪青 — Heather · 长文 · 安静克制的个人主页 */
+    [data-palette="heather"] {
+      --p-name: "雪青";
+      --p-primary: #635B7B; --p-primary-deep: #463F5B; --p-primary-soft: #EEEAFD;
+      --p-accent: #F9D0C7; --p-accent-soft: #FFECE7; --p-accent-ink: #995346;
+      --p-pop: #8E5C9D; --p-pop-deep: #6D407B;
+      --p-cream: #FEF7F1; --p-cream-dark: #F9EDE3; --p-card: #FFFEFE;
+      --p-ink: #1D1B22; --p-ink-light: #4A494E; --p-ink-faint: #6B6A70;
+      --p-dark-panel: #17151B; --p-dark-panel-2: #2D2C32;
+      --p-ink-rgb: 29, 27, 34; --p-primary-rgb: 99, 91, 123; --p-accent-rgb: 249, 208, 199; --p-pop-rgb: 142, 92, 157;
+    }
+    :root {
+      --brand-primary: var(--p-primary); --brand-primary-deep: var(--p-primary-deep); --brand-primary-soft: var(--p-primary-soft);
+      --brand-accent: var(--p-accent); --brand-accent-soft: var(--p-accent-soft); --brand-accent-ink: var(--p-accent-ink);
+      --brand-pop: var(--p-pop); --brand-pop-deep: var(--p-pop-deep);
+      --cream: var(--p-cream); --cream-dark: var(--p-cream-dark); --card-bg: var(--p-card);
+      --ink: var(--p-ink); --ink-light: var(--p-ink-light); --ink-faint: var(--p-ink-faint);
+      --dark-panel: var(--p-dark-panel); --dark-panel-2: var(--p-dark-panel-2);
+      --ink-rgb: var(--p-ink-rgb); --brand-primary-rgb: var(--p-primary-rgb);
+      --brand-accent-rgb: var(--p-accent-rgb); --brand-pop-rgb: var(--p-pop-rgb);
+      --border: rgba(var(--p-ink-rgb), .09); --border-strong: rgba(var(--p-ink-rgb), .16);
+      --focus-ring: var(--brand-primary-deep);
+      --highlighter: linear-gradient(transparent 60%, var(--brand-accent) 60%);
+      /* 兼容别名 */
+      --blue: var(--brand-primary); --blue-deep: var(--brand-primary-deep);
+      --yellow: var(--brand-accent); --yellow-soft: var(--brand-accent-soft);
+      --red: var(--brand-pop);
+    }
+    ::selection { background: var(--brand-accent); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-radius: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important; scroll-behavior: auto !important }
+    }
+    /* ==== /PALETTE SYSTEM ==== */
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -29,11 +158,6 @@
       line-height: 1.6;
       color: var(--ink);
       background: var(--cream);
-    }
-
-    ::selection {
-      background: var(--yellow);
-      color: var(--ink);
     }
 
     /* === Fixed Header === */
@@ -86,8 +210,8 @@
     }
 
     .tab.active {
-      border-bottom-color: var(--blue);
-      color: var(--blue);
+      border-bottom-color: var(--brand-primary);
+      color: var(--brand-primary);
       font-weight: 600;
     }
 
@@ -139,8 +263,8 @@
       padding: 2px 8px;
       border-radius: 8px;
       font-size: 0.7rem;
-      background: rgba(43,127,216,0.1);
-      color: var(--blue);
+      background: rgba(var(--brand-primary-rgb),0.1);
+      color: var(--brand-primary);
       margin-bottom: 0.5rem;
     }
 
@@ -201,8 +325,8 @@
 
     .app-input:focus {
       outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(43,127,216,0.1);
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px rgba(var(--brand-primary-rgb),0.1);
     }
 
     /* === 响应式 === */
