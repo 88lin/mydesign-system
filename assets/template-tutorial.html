@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="a">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +9,90 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
   <style>
     /* === CSS变量 === */
-    :root {
-      --blue: #2B7FD8;
-      --blue-deep: #1E5BA8;
-      --yellow: #F4D758;
-      --yellow-soft: #FFF3CD;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --cream-dark: #faf6eb;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --dark-panel: #151821;
+    /* ==== PALETTE SYSTEM · 同步自 assets/palettes.css —— 请勿单独手改 ====
+       换配色：改 <html data-palette="a|b|c|d|e">。a=原色 b=松墨 c=陶土 d=梅子 e=山墨
+       页面 CSS 只引用第 2 层语义令牌；--blue/--yellow/--red 作为兼容别名保留。 */
+    /* A · 原色 — Cobalt & Butter · 日常首选 · 教程 · 科普 */
+    :root,
+    [data-palette="a"] {
+      --p-name: "A · 原色";
+      --p-primary: #2B7FD8; --p-primary-deep: #1E5BA8; --p-primary-soft: #E2EEFE;
+      --p-accent: #F4D758; --p-accent-soft: #FFF3CD; --p-accent-ink: #78671B;
+      --p-pop: #E84A5F; --p-pop-deep: #BF2A44;
+      --p-cream: #FEFCF6; --p-cream-dark: #FAF6EB; --p-card: #FFFEFC;
+      --p-ink: #1A1A2E; --p-ink-light: #4A4A5A; --p-ink-faint: #6D6E7E;
+      --p-dark-panel: #151821; --p-dark-panel-2: #292B3C;
+      --p-ink-rgb: 26, 26, 46; --p-primary-rgb: 43, 127, 216; --p-accent-rgb: 244, 215, 88; --p-pop-rgb: 232, 74, 95;
     }
+    /* B · 松墨 — Ink Pine · 长文 · 读书笔记 · 复盘 */
+    [data-palette="b"] {
+      --p-name: "B · 松墨";
+      --p-primary: #35774B; --p-primary-deep: #175830; --p-primary-soft: #DFF3E3;
+      --p-accent: #EEBC5D; --p-accent-soft: #FEEED4; --p-accent-ink: #846015;
+      --p-pop: #D15A42; --p-pop-deep: #AA3C27;
+      --p-cream: #FEFCF6; --p-cream-dark: #F7F1E3; --p-card: #FFFEFC;
+      --p-ink: #19211C; --p-ink-light: #454E48; --p-ink-faint: #646E68;
+      --p-dark-panel: #0F1C15; --p-dark-panel-2: #223028;
+      --p-ink-rgb: 25, 33, 28; --p-primary-rgb: 53, 119, 75; --p-accent-rgb: 238, 188, 93; --p-pop-rgb: 209, 90, 66;
+    }
+    /* C · 陶土 — Terracotta · 作品集 · 生活方式 · 活动页 */
+    [data-palette="c"] {
+      --p-name: "C · 陶土";
+      --p-primary: #B35630; --p-primary-deep: #8E3912; --p-primary-soft: #FEE8DF;
+      --p-accent: #ECD06E; --p-accent-soft: #FDF1C5; --p-accent-ink: #7A6514;
+      --p-pop: #348979; --p-pop-deep: #16695A;
+      --p-cream: #FFFCF5; --p-cream-dark: #F9F1E0; --p-card: #FFFEFC;
+      --p-ink: #271D18; --p-ink-light: #564942; --p-ink-faint: #786961;
+      --p-dark-panel: #241710; --p-dark-panel-2: #382921;
+      --p-ink-rgb: 39, 29, 24; --p-primary-rgb: 179, 86, 48; --p-accent-rgb: 236, 208, 110; --p-pop-rgb: 52, 137, 121;
+    }
+    /* D · 梅子 — Mulberry & Honey · 个人主页 · 分享会 · 图文卡片 */
+    [data-palette="d"] {
+      --p-name: "D · 梅子";
+      --p-primary: #87486D; --p-primary-deep: #652D4F; --p-primary-soft: #F9E7F0;
+      --p-accent: #FCCC69; --p-accent-soft: #FEEFD2; --p-accent-ink: #826114;
+      --p-pop: #5F8041; --p-pop-deep: #426126;
+      --p-cream: #FFFCF6; --p-cream-dark: #F8F1E3; --p-card: #FFFEFC;
+      --p-ink: #271C23; --p-ink-light: #53494F; --p-ink-faint: #756971;
+      --p-dark-panel: #24151D; --p-dark-panel-2: #37272F;
+      --p-ink-rgb: 39, 28, 35; --p-primary-rgb: 135, 72, 109; --p-accent-rgb: 252, 204, 105; --p-pop-rgb: 95, 128, 65;
+    }
+    /* E · 山墨 — Sumi & Vermilion · 作品集 · 观点长文 · 高级感 */
+    [data-palette="e"] {
+      --p-name: "E · 山墨";
+      --p-primary: #3C352E; --p-primary-deep: #221B15; --p-primary-soft: #F9EADB;
+      --p-accent: #E5CCA6; --p-accent-soft: #FEEED7; --p-accent-ink: #81612E;
+      --p-pop: #C8482F; --p-pop-deep: #A12911;
+      --p-cream: #FEFCF6; --p-cream-dark: #F8F1E2; --p-card: #FFFEFC;
+      --p-ink: #221F1A; --p-ink-light: #504B46; --p-ink-faint: #716B65;
+      --p-dark-panel: #1F1812; --p-dark-panel-2: #322B24;
+      --p-ink-rgb: 34, 31, 26; --p-primary-rgb: 60, 53, 46; --p-accent-rgb: 229, 204, 166; --p-pop-rgb: 200, 72, 47;
+    }
+    :root {
+      --brand-primary: var(--p-primary); --brand-primary-deep: var(--p-primary-deep); --brand-primary-soft: var(--p-primary-soft);
+      --brand-accent: var(--p-accent); --brand-accent-soft: var(--p-accent-soft); --brand-accent-ink: var(--p-accent-ink);
+      --brand-pop: var(--p-pop); --brand-pop-deep: var(--p-pop-deep);
+      --cream: var(--p-cream); --cream-dark: var(--p-cream-dark); --card-bg: var(--p-card);
+      --ink: var(--p-ink); --ink-light: var(--p-ink-light); --ink-faint: var(--p-ink-faint);
+      --dark-panel: var(--p-dark-panel); --dark-panel-2: var(--p-dark-panel-2);
+      --ink-rgb: var(--p-ink-rgb); --brand-primary-rgb: var(--p-primary-rgb);
+      --brand-accent-rgb: var(--p-accent-rgb); --brand-pop-rgb: var(--p-pop-rgb);
+      --border: rgba(var(--p-ink-rgb), .09); --border-strong: rgba(var(--p-ink-rgb), .16);
+      --focus-ring: var(--brand-primary-deep);
+      --highlighter: linear-gradient(transparent 60%, var(--brand-accent) 60%);
+      /* 兼容别名 */
+      --blue: var(--brand-primary); --blue-deep: var(--brand-primary-deep);
+      --yellow: var(--brand-accent); --yellow-soft: var(--brand-accent-soft);
+      --red: var(--brand-pop);
+    }
+    ::selection { background: var(--brand-accent); color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; border-radius: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important; scroll-behavior: auto !important }
+    }
+    /* ==== /PALETTE SYSTEM ==== */
 
     /* === Reset === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,11 +103,6 @@
       line-height: 1.7;
       color: var(--ink);
       background: var(--cream);
-    }
-
-    ::selection {
-      background: var(--yellow);
-      color: var(--ink);
     }
 
     .container {
