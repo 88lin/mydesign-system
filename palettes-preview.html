@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-palette="A">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<title>配色选择器 · 10 套主题</title>
+<meta name="description" content="个人设计系统的 10 套主题配色与实时对比度预览。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/palettes.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Noto Sans SC',-apple-system,'PingFang SC','Helvetica Neue',sans-serif;
+  font-size:16px;line-height:1.7;color:var(--ink);background:var(--cream);
+  transition:background .35s ease,color .35s ease;
+}
+button{font:inherit} img{display:block;max-width:100%}
+.picker{
+  position:sticky;top:0;z-index:50;background:var(--cream);
+  border-bottom:1px solid var(--border);padding:12px clamp(18px,4vw,64px);
+  display:flex;align-items:center;gap:clamp(12px,2vw,26px);flex-wrap:wrap;
+}
+.picker-label{font-family:'Fraunces',serif;font-style:italic;font-size:.9rem;color:var(--ink-light);white-space:nowrap}
+.swatches{display:flex;min-width:0;gap:8px;overflow-x:auto;padding:3px 2px 5px;scrollbar-width:thin}
+.sw{
+  position:relative;width:52px;height:44px;min-width:44px;min-height:44px;border:1.5px solid var(--border);
+  border-radius:9px;background:var(--card-bg);padding:3px;display:flex;gap:2px;overflow:hidden;cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.sw i{display:block;flex:1;border-radius:4px}.sw i:first-child{flex:2.1}
+.sw:hover{transform:translateY(-2px)}
+.sw[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 3px rgba(var(--ink-rgb),.12)}
+.sw:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.sw-key{position:absolute;right:3px;bottom:0;font:500 .55rem 'Fira Code',monospace;color:var(--ink);background:rgba(255,255,255,.72);padding:0 2px;border-radius:3px}
+.picker-now{margin-left:auto;display:flex;align-items:baseline;gap:9px;white-space:nowrap}
+.picker-now b{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:900}.picker-now span{font:italic .82rem 'Fraunces',serif;color:var(--brand-text)}
+
+.hero{max-width:1300px;margin:0 auto;padding:clamp(60px,10vh,116px) clamp(20px,4vw,64px) clamp(44px,7vh,82px);display:grid;grid-template-columns:1fr .75fr;gap:clamp(28px,5vw,76px);align-items:end}
+.hero h1{font:900 clamp(2.5rem,6vw,4.6rem)/1.08 'Noto Serif SC',serif}
+.hero h1 em{font-style:normal;color:var(--brand);background:linear-gradient(transparent 62%,var(--highlight) 62%)}
+.hero-note{max-width:45ch;font-size:.96rem;color:var(--ink-light)}
+.hero-note code{font:500 .82rem 'Fira Code',monospace;color:var(--ink);background:var(--highlight-soft);padding:2px 7px;border-radius:5px}
+.hand{display:block;margin-top:12px;font:1.28rem 'Caveat',cursive;color:var(--pop-text)}
+
+.wrap{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4vw,64px)}.sec{padding:clamp(46px,7vh,86px) 0}.sec-alt{background:var(--cream-dark)}
+.sec-h{font:700 clamp(1.35rem,3vw,2rem)/1.3 'Fraunces',serif;margin-bottom:6px}.sec-sub{font-size:.86rem;color:var(--ink-light);margin-bottom:clamp(24px,3vw,40px)}
+.tokens{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:clamp(10px,1.4vw,18px)}
+.tok{overflow:hidden;border:1px solid var(--border);border-radius:12px;background:var(--card-bg)}
+.tok-chip{height:88px;display:flex;align-items:flex-end;justify-content:space-between;padding:9px 11px;box-shadow:inset 0 0 0 1px var(--border)}
+.tok-chip.is-border{align-items:center}.tok-line{width:100%;height:42px;border:3px solid;border-radius:7px;display:flex;align-items:center;justify-content:center;font:600 .66rem 'Fira Code',monospace}
+.tok-cr{font:500 .62rem 'Fira Code',monospace;padding:2px 6px;border-radius:20px;background:rgba(255,255,255,.74);color:var(--ink)}
+.tok-meta{padding:10px 12px 13px}.tok-name{font-size:.8rem;font-weight:700;line-height:1.35}.tok-var{font:500 .63rem 'Fira Code',monospace;color:var(--ink-light);margin-top:2px}.tok-hex{display:block;margin-top:5px;padding:0;border:0;background:none;color:var(--ink-light);cursor:pointer;font:500 .68rem 'Fira Code',monospace}.tok-hex:hover{color:var(--brand-text)}.tok-role{display:block;margin-top:8px;font-size:.62rem;color:var(--ink-light);line-height:1.5}
+.ratio{display:flex;height:52px;overflow:hidden;border:1px solid var(--border);border-radius:11px}.ratio div{display:flex;align-items:center;justify-content:center;font:500 .68rem 'Fira Code',monospace}.ratio span{padding:1px 6px;border-radius:5px;background:rgba(255,255,255,.82);color:var(--ink)}.ratio .r6{flex:6;background:var(--brand)}.ratio .r3{flex:3;background:var(--highlight)}.ratio .r1{flex:1;background:var(--pop)}
+.specimen{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(20px,3vw,44px);align-items:start}.card{padding:clamp(22px,2.6vw,34px);border:1px solid var(--border);border-radius:14px;background:var(--card-bg)}.card-num{display:block;font:700 italic clamp(2.6rem,6vw,4.2rem)/.8 'Fraunces',serif;color:var(--brand);opacity:.2}.card h3{margin:-.5em 0 .55rem;font:900 1.3rem 'Noto Serif SC',serif}.card p{font-size:.9rem;color:var(--ink-light)}.card p+p{margin-top:.7rem}.card a{color:var(--brand-text);text-decoration-color:var(--highlight);text-decoration-thickness:2px;text-underline-offset:3px}.mark{background:linear-gradient(transparent 60%,var(--highlight) 60%)}
+.side{display:flex;flex-direction:column;gap:14px}.btn-row,.badges{display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:9px;padding:11px 20px;cursor:pointer;font-size:.85rem;font-weight:600;transition:transform .18s ease,background .18s ease}.btn:hover{transform:translateY(-2px)}.btn:focus-visible,.tok-hex:focus-visible{outline:2px solid var(--brand);outline-offset:3px}.btn-1{background:var(--brand-surface);color:var(--on-brand)}.btn-1:hover{background:var(--brand-deep)}.btn-2{background:transparent;color:var(--brand-text);box-shadow:inset 0 0 0 1.5px var(--brand-border)}.btn-2:hover{background:var(--highlight-soft)}.btn-3{background:var(--pop-surface);color:var(--on-pop)}
+.badge{font-size:.68rem;font-weight:600;padding:4px 11px;border-radius:20px}.b-hi{background:var(--highlight);color:var(--on-highlight)}.b-soft{background:var(--highlight-soft);color:var(--ink-light)}.b-brand{background:var(--brand-surface);color:var(--on-brand)}.b-out{box-shadow:inset 0 0 0 1.5px var(--brand-border);color:var(--brand-text)}
+.dark{padding:clamp(22px,2.6vw,32px);border-radius:14px;background:var(--dark-panel);color:var(--on-dark)}.dark .q{font:700 1.06rem/1.75 'Noto Serif SC',serif}.dark .q em{font-style:normal;color:var(--highlight)}.dark small{display:block;margin-top:12px;font-size:.76rem;color:var(--on-dark-dim)}.dark .tintline{display:inline-block;margin-top:14px;font:500 .76rem 'Fira Code',monospace;color:var(--brand-on-dark)}
+.grid-all{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:clamp(12px,1.6vw,20px)}.mini{padding:0;overflow:hidden;border:1.5px solid var(--border);border-radius:12px;background:var(--card-bg);color:var(--ink);font-family:inherit;text-align:left;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.mini:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.08)}.mini[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px rgba(var(--ink-rgb),.10)}.mini:focus-visible{outline:2px solid var(--brand);outline-offset:2px}.mini-top{padding:15px 16px 13px}.mini-k{font:500 .6rem 'Fira Code',monospace;letter-spacing:.1em;opacity:.6}.mini-zh{font:900 1.05rem 'Noto Serif SC',serif;margin-top:1px}.mini-en{font:italic .74rem 'Fraunces',serif;margin-top:1px}.mini-note{font-size:.66rem;line-height:1.55;margin-top:7px}.mini-bar{display:flex;height:26px}.mini-bar i{display:block;height:100%}.mini-foot{display:flex;align-items:center;justify-content:space-between;padding:8px 16px 11px;font:500 .6rem 'Fira Code',monospace;opacity:.7}
+.cr-table{width:100%;border-collapse:collapse;font-size:.82rem}.cr-table caption{text-align:left;font-size:.78rem;color:var(--ink-light);padding-bottom:12px}.cr-table th{text-align:left;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-light);padding:0 14px 9px 0;border-bottom:1.5px solid var(--border)}.cr-table td{padding:10px 14px 10px 0;border-bottom:1px solid var(--hairline)}.cr-table tbody tr:last-child td{border-bottom:0}.cr-val{font:500 .78rem 'Fira Code',monospace}.pass{display:inline-block;font-size:.65rem;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--success-soft);color:var(--success)}.fail{background:var(--danger-soft);color:var(--danger-strong)}
+.code{overflow-x:auto;padding:clamp(18px,2.2vw,26px);border-radius:14px;background:var(--dark-panel);color:var(--on-dark);font:500 .8rem/1.9 'Fira Code',monospace}.code .c{color:var(--on-dark-dim)}.code .t{color:var(--highlight)}.code .s{color:var(--brand-on-dark)}
+footer{padding:clamp(36px,5vh,60px) 0;text-align:center;font-size:.78rem;color:var(--ink-light);border-top:1px solid var(--border)}
+.toast{position:fixed;bottom:26px;left:50%;z-index:200;transform:translate(-50%,18px);padding:11px 22px;border-radius:10px;background:var(--ink);color:var(--on-dark);font-size:.83rem;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;gap:22px;align-items:start}.specimen{grid-template-columns:1fr}}
+@media (max-width:700px){.picker{display:grid;grid-template-columns:auto 1fr;padding-inline:14px}.swatches{grid-column:1/-1;grid-row:2;width:100%}.picker-now{justify-self:end}.sw{width:44px;height:44px;flex:0 0 44px}}
+@media (max-width:600px){body{font-size:15px}.cr-table thead{display:none}.cr-table td{display:block;padding:3px 0;border:0}.cr-table tbody tr{display:block;padding:11px 0;border-bottom:1px solid var(--hairline)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav class="picker" aria-label="主题选择">
+  <span class="picker-label">Palette —</span>
+  <div class="swatches" id="swatches" role="group" aria-label="选择配色"></div>
+  <div class="picker-now"><b id="nowZh">经典</b><span id="nowEn">Classic</span></div>
+</nav>
+
+<header class="hero">
+  <div><h1>挑一套<em>你的</em>颜色</h1></div>
+  <div class="hero-note">10 套已经配好的主题，选中的色卡就是页面实际使用的 token。<br><span class="hand">颜色要服务内容，不要抢走内容 ↓</span></div>
+</header>
+
+<section class="sec"><div class="wrap"><h2 class="sec-h">Tokens</h2><p class="sec-sub">当前主题的核心色与语义角色。点击色值复制，所有结果都来自浏览器计算后的 CSS。</p><div class="tokens" id="tokens"></div></div></section>
+<section class="sec sec-alt"><div class="wrap"><h2 class="sec-h">60 / 30 / 10</h2><p class="sec-sub">主色建立识别，强调色建立节奏，点缀色只负责最后一笔。</p><div class="ratio"><div class="r6"><span>60%</span></div><div class="r3"><span>30%</span></div><div class="r1"><span>10%</span></div></div></div></section>
+<section class="sec"><div class="wrap"><h2 class="sec-h">排版样张</h2><p class="sec-sub">同一组组件在当前主题下的真实观感。</p><div class="specimen"><div class="card"><span class="card-num">01</span><h3>把审美写成操作手册</h3><p>限制 AI 的自由度，等于<span class="mark">保证输出质量</span>。它不能随便发明布局，只能从既有的模式里选。</p><p>规范本身不是重点，<a href="#usage">你的审美判断力</a>才是。</p></div><div class="side"><div class="btn-row"><button class="btn btn-1">主按钮</button><button class="btn btn-2">次按钮</button><button class="btn btn-3">CTA</button></div><div class="badges"><span class="badge b-hi">强调</span><span class="badge b-soft">柔光</span><span class="badge b-brand">主色</span><span class="badge b-out">描边</span></div><div class="dark"><p class="q">好的配色不抢戏，<em>它托住内容</em>。</p><small>深色面板 · 暖调不发灰</small><span class="tintline">--brand-on-dark 在深底上可读</span></div></div></div></div></section>
+<section class="sec sec-alt"><div class="wrap"><h2 class="sec-h">全部 10 套</h2><p class="sec-sub">同屏比较，选择后整页同步更新。</p><div class="grid-all" id="gridAll"></div></div></section>
+<section class="sec"><div class="wrap"><h2 class="sec-h">对比度校验</h2><p class="sec-sub">每次切换都会按当前 CSS token 重新计算，避免文档中的旧数字漂移。</p><table class="cr-table"><caption>WCAG 2.1：正文至少 4.5:1，非文本控件边界至少 3:1</caption><thead><tr><th>组合</th><th>用途</th><th>对比度</th><th>等级</th></tr></thead><tbody id="crBody"></tbody></table></div></section>
+<section class="sec sec-alt" id="usage"><div class="wrap"><h2 class="sec-h">怎么用</h2><p class="sec-sub">只给 html 加一个属性，组件代码保持不变。</p><pre class="code"><span class="c">&lt;!-- A 是原版；B~J 是可选主题 --&gt;</span>
+&lt;<span class="t">html</span> lang=<span class="s">"zh-CN"</span> data-palette=<span class="s">"<span id="codeKey">A</span>"</span>&gt;
+
+color: <span class="t">var</span>(--brand-text);     <span class="c">/* 小字号标题、链接 */</span>
+color: <span class="t">var</span>(--brand);          <span class="c">/* 大标题、装饰 */</span>
+background: <span class="t">var</span>(--brand-surface); <span class="c">/* 承载文字的主色块 */</span>
+background: <span class="t">var</span>(--highlight);   <span class="c">/* 高亮、标签 */</span>
+color: <span class="t">var</span>(--on-brand);       <span class="c">/* 主色上的前景 */</span></pre></div></section>
+<footer><div class="wrap">10 套主题 · 单一 CSS 色源 · 对比度实时计算</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const META = {
+  A: { zh: '经典', en: 'Classic', note: '原版蓝黄红，识别度和亲和力最平衡' },
+  B: { zh: '黛蓝', en: 'Ink Blue', note: '冷静克制，粉色只做柔光' },
+  C: { zh: '莓紫', en: 'Mulberry', note: '低饱和紫红，复古杂志感' },
+  D: { zh: '鼠尾草', en: 'Sage', note: '温柔植物调，耐看而安静' },
+  E: { zh: '赤茶', en: 'Terracotta', note: '陶土暖调，手作质感' },
+  F: { zh: '豆沙', en: 'Red Bean', note: '柔和低刺激，适合长时间阅读' },
+  G: { zh: '藕荷', en: 'Orchid', note: '兰紫配奶油黄，甜而不腻' },
+  H: { zh: '孔雀蓝', en: 'Peacock', note: '清冷蓝绿里带一点暖粉' },
+  I: { zh: '紫藤', en: 'Wisteria', note: '梦幻但压得住，不甜腻' },
+  J: { zh: '珊瑚', en: 'Coral', note: '明亮外向，活力感最强' }
+};
+const KEYS = Object.keys(META);
+const TOKEN_ROWS = [
+  { variable: '--brand', name: '主色', role: '大标题 · 图形 · 装饰', kind: 'decorative' },
+  { variable: '--brand-deep', name: '主色深阶', role: 'hover · 强调层级', kind: 'surface', against: '--on-brand' },
+  { variable: '--brand-tint', name: '主色浅阶', role: '柔和装饰 · 旧版兼容', kind: 'decorative' },
+  { variable: '--brand-text', name: '品牌文字', role: '小字号标题 · 链接', kind: 'text', against: '--cream' },
+  { variable: '--brand-surface', name: '品牌承载色', role: '按钮 · 带字色块', kind: 'surface', against: '--on-brand' },
+  { variable: '--brand-border', name: '品牌描边', role: '控件边界 · 焦点环', kind: 'border', against: '--cream' },
+  { variable: '--brand-on-dark', name: '深底品牌色', role: '深色面板提示', kind: 'text', against: '--dark-panel' },
+  { variable: '--highlight', name: '强调色', role: '高亮 · badge · 连接线', kind: 'surface', against: '--on-highlight' },
+  { variable: '--highlight-soft', name: '强调柔光', role: '浅底提示 · 占位', kind: 'surface', against: '--ink-light' },
+  { variable: '--pop', name: '点缀色', role: '图形 · 装饰 · 下划线', kind: 'decorative' },
+  { variable: '--pop-deep', name: '点缀深阶', role: 'hover · 强调层级', kind: 'surface', against: '--on-pop' },
+  { variable: '--pop-text', name: '点缀文字', role: '小字号标签 · 链接', kind: 'text', against: '--cream' },
+  { variable: '--pop-surface', name: '点缀承载色', role: 'CTA · 带字色块', kind: 'surface', against: '--on-pop' },
+  { variable: '--pop-soft', name: '点缀柔光', role: '浅色提示背景', kind: 'surface', against: '--ink-light' },
+  { variable: '--cream', name: '主背景', role: '页面暖底', kind: 'surface', against: '--ink' },
+  { variable: '--cream-dark', name: '次级背景', role: '交替 section', kind: 'surface', against: '--ink' },
+  { variable: '--card-bg', name: '卡片底', role: '内容容器', kind: 'surface', against: '--ink' },
+  { variable: '--ink', name: '正文墨色', role: '正文 · 标题', kind: 'text', against: '--cream' },
+  { variable: '--ink-light', name: '次要文字', role: '描述 · 副标题', kind: 'text', against: '--cream' },
+  { variable: '--ink-faint', name: '辅助文字', role: '元信息 · 时间戳', kind: 'text', against: '--cream' },
+  { variable: '--dark-panel', name: '深色面板', role: '代码 · 导出栏', kind: 'surface', against: '--on-dark' },
+  { variable: '--on-dark-dim', name: '深底次级字', role: '深色面板说明', kind: 'text', against: '--dark-panel' }
+];
+const CR_ROWS = [
+  { foreground: '--brand-text', background: '--cream', combo: '品牌文字 / 暖底', use: '小字号标题、链接', minimum: 4.5 },
+  { foreground: '--on-brand', background: '--brand-surface', combo: '前景 / 品牌承载色', use: '按钮、带字色块', minimum: 4.5 },
+  { foreground: '--pop-text', background: '--cream', combo: '点缀文字 / 暖底', use: '标签、强调链接', minimum: 4.5 },
+  { foreground: '--on-pop', background: '--pop-surface', combo: '前景 / 点缀承载色', use: 'CTA、带字色块', minimum: 4.5 },
+  { foreground: '--ink', background: '--cream', combo: '正文 / 暖底', use: '正文内容', minimum: 4.5 },
+  { foreground: '--ink-light', background: '--cream', combo: '次要文字 / 暖底', use: '描述、副标题', minimum: 4.5 },
+  { foreground: '--ink-faint', background: '--cream', combo: '辅助文字 / 暖底', use: '元信息、时间戳', minimum: 4.5 },
+  { foreground: '--on-highlight', background: '--highlight', combo: '前景 / 强调色', use: '高亮上的文字', minimum: 4.5 },
+  { foreground: '--on-dark', background: '--dark-panel', combo: '前景 / 深底', use: '深色面板正文', minimum: 4.5 },
+  { foreground: '--on-dark-dim', background: '--dark-panel', combo: '次级字 / 深底', use: '深色面板说明', minimum: 4.5 },
+  { foreground: '--brand-on-dark', background: '--dark-panel', combo: '品牌色 / 深底', use: '深底品牌提示', minimum: 4.5 },
+  { foreground: '--brand-border', background: '--cream', combo: '品牌描边 / 暖底', use: '控件边界、焦点环', minimum: 3 },
+  { foreground: '--success', background: '--success-soft', combo: '成功文字 / 柔光底', use: '成功状态', minimum: 4.5 },
+  { foreground: '--warning', background: '--warning-soft', combo: '警告文字 / 柔光底', use: '警告状态', minimum: 4.5 },
+  { foreground: '--danger-strong', background: '--danger-soft', combo: '危险文字 / 柔光底', use: '危险状态', minimum: 4.5 }
+];
+const cssVars = [...new Set([
+  ...TOKEN_ROWS.flatMap(row => [row.variable, row.against]),
+  ...CR_ROWS.flatMap(row => [row.foreground, row.background])
+].filter(Boolean))];
+const probe = document.createElement('i');
+probe.setAttribute('aria-hidden','true');
+probe.style.cssText = 'position:absolute;inline-size:0;block-size:0;overflow:hidden;pointer-events:none';
+document.body.appendChild(probe);
+function readPalette(key){
+  probe.dataset.palette = key;
+  const style = getComputedStyle(probe);
+  return Object.fromEntries(cssVars.map(name => [name, style.getPropertyValue(name).trim()]));
+}
+const PALETTE = Object.fromEntries(KEYS.map(key => [key, readPalette(key)]));
+function rgb(value){
+  const v = value.trim();
+  if(v[0] === '#'){
+    const hex = v.slice(1); const full = hex.length === 3 ? hex.split('').map(c => c + c).join('') : hex;
+    return [parseInt(full.slice(0,2),16), parseInt(full.slice(2,4),16), parseInt(full.slice(4,6),16)];
+  }
+  const match = v.match(/rgba?\(\s*([\d.]+)[, ]+\s*([\d.]+)[, ]+\s*([\d.]+)/i);
+  return match ? match.slice(1,4).map(Number) : null;
+}
+function luminance(value){
+  const color = rgb(value); if(!color) return 0;
+  return color.map(channel => channel / 255).map(channel => channel <= .03928 ? channel / 12.92 : ((channel + .055) / 1.055) ** 2.4).reduce((sum, channel, index) => sum + channel * [0.2126,0.7152,0.0722][index], 0);
+}
+function contrast(foreground, background){
+  const light = luminance(foreground), dark = luminance(background);
+  return (Math.max(light,dark) + .05) / (Math.min(light,dark) + .05);
+}
+function ratioLabel(value){return `${value.toFixed(2)}:1`}
+function colorStyle(value){return value || 'transparent'}
+
+document.getElementById('swatches').innerHTML = KEYS.map(key => `<button class="sw" data-key="${key}" aria-pressed="false" aria-label="配色 ${key} ${META[key].zh}" title="${META[key].zh} ${META[key].en}"><i style="background:${PALETTE[key]['--brand']}"></i><i style="background:${PALETTE[key]['--highlight']}"></i><i style="background:${PALETTE[key]['--pop']}"></i><span class="sw-key">${key}</span></button>`).join('');
+document.getElementById('gridAll').innerHTML = KEYS.map(key => { const p = PALETTE[key]; return `<button class="mini" data-key="${key}" aria-pressed="false" style="background:${p['--cream']};color:${p['--ink']};border-color:${p['--brand']}"><div class="mini-top"><div class="mini-k">PALETTE ${key}</div><div class="mini-zh">${META[key].zh}</div><div class="mini-en" style="color:${p['--brand-text']}">${META[key].en}</div><div class="mini-note" style="color:${p['--ink-light']}">${META[key].note}</div></div><div class="mini-bar"><i style="background:${p['--brand']};flex:6"></i><i style="background:${p['--highlight']};flex:3"></i><i style="background:${p['--pop']};flex:1"></i></div><div class="mini-foot" style="color:${p['--ink-light']}"><span>${p['--brand']}</span><span>已校验</span></div></button>`; }).join('');
+function renderTokens(key){
+  const p = PALETTE[key];
+  document.getElementById('tokens').innerHTML = TOKEN_ROWS.map(row => {
+    const value = p[row.variable];
+    if(row.kind === 'decorative') return `<div class="tok"><div class="tok-chip" style="background:${colorStyle(value)}"><span class="tok-cr">装饰色</span></div>${tokenMeta(row,value)}</div>`;
+    const against = p[row.against];
+    const foreground = row.kind === 'surface' ? against : value;
+    const background = row.kind === 'surface' ? value : against;
+    const ratio = contrast(foreground,background);
+    if(row.kind === 'border') return `<div class="tok"><div class="tok-chip is-border" style="background:${colorStyle(background)};color:${colorStyle(p['--ink'])}"><span class="tok-line" style="border-color:${colorStyle(value)}">UI · ${ratioLabel(ratio)}</span></div>${tokenMeta(row,value)}</div>`;
+    return `<div class="tok"><div class="tok-chip" style="background:${colorStyle(background)};color:${colorStyle(foreground)}"><span style="font:500 .62rem 'Fira Code',monospace">Aa</span><span class="tok-cr">${ratioLabel(ratio)}</span></div>${tokenMeta(row,value)}</div>`;
+  }).join('');
+}
+function tokenMeta(row,value){return `<div class="tok-meta"><div class="tok-name">${row.name}</div><div class="tok-var">${row.variable}</div><button class="tok-hex" data-copy="${value}">${value}</button><span class="tok-role">${row.role}</span></div>`}
+function renderContrast(key){
+  const p = PALETTE[key];
+  document.getElementById('crBody').innerHTML = CR_ROWS.map(row => { const value = contrast(p[row.foreground],p[row.background]); const pass = value >= row.minimum; const level = !pass ? '需调整' : (row.minimum === 3 ? 'UI' : (value >= 7 ? 'AAA' : 'AA')); return `<tr><td><strong>${row.combo}</strong></td><td style="color:var(--ink-light);font-size:.8rem">${row.use}</td><td class="cr-val">${ratioLabel(value)}</td><td><span class="pass${pass ? '' : ' fail'}">${level}</span></td></tr>`; }).join('');
+}
+function setActive(key){document.querySelectorAll('[data-key]').forEach(el => el.setAttribute('aria-pressed', String(el.dataset.key === key)));}
+function apply(key){
+  if(!META[key]) return;
+  document.documentElement.dataset.palette = key;
+  setActive(key); renderTokens(key); renderContrast(key);
+  document.getElementById('nowZh').textContent = META[key].zh; document.getElementById('nowEn').textContent = META[key].en; document.getElementById('codeKey').textContent = key;
+  try{localStorage.setItem('palette',key)}catch(error){}
+}
+let toastTimer;
+function toast(message){const element=document.getElementById('toast');element.textContent=message;element.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>element.classList.remove('show'),1600)}
+document.addEventListener('click', async event => { const choice=event.target.closest('[data-key]'); if(choice){apply(choice.dataset.key);return} const copy=event.target.closest('[data-copy]'); if(copy){try{await navigator.clipboard.writeText(copy.dataset.copy);toast(`已复制 ${copy.dataset.copy}`)}catch(error){toast('复制失败，请手动选择')}} });
+document.addEventListener('keydown', event => {if(event.metaKey||event.ctrlKey||event.altKey||['INPUT','TEXTAREA'].includes(event.target.tagName))return;const current=document.documentElement.dataset.palette||'A';const index=KEYS.indexOf(current);if(event.key==='ArrowRight'){event.preventDefault();apply(KEYS[(index+1)%KEYS.length])}if(event.key==='ArrowLeft'){event.preventDefault();apply(KEYS[(index-1+KEYS.length)%KEYS.length])}});
+let saved=null;try{saved=localStorage.getItem('palette')}catch(error){} apply(META[saved] ? saved : 'A');
+</script>
+</body>
+</html>

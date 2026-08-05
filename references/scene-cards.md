@@ -18,7 +18,7 @@
 | 最多张数 | 18张（小红书上限） |
 | 文件形式 | 所有卡片放一个HTML文件，每张一个 `div.card` |
 | 导出方式 | 顶部固定"一键导出PNG"按钮（html2canvas本地文件 + JSZip打包为zip一次性下载） |
-| 浏览器预览 | `transform: scale(0.45); transform-origin: top center; margin-bottom: -792px` |
+| 浏览器预览 | 桌面最大缩放 `0.45`；模板会根据可用视口宽度同步 `--card-preview-scale` 与纵向占位，手机端不产生横向滚动 |
 | 本地服务器 | 用 `python3 -m http.server 8765` 打开，确保html2canvas加载正常 |
 
 ---
@@ -60,11 +60,11 @@
 ## 🧩 卡片结构模板
 
 ### P1 封面
-- 大标题（84px）用汇文明朝体（Huiwen Mincho），关键词用蓝色高亮块（`background: #2B7FD8; color: #fff; padding: 4px 16px; border-radius: 6px`）
+- 大标题（84px）优先使用系统已安装的汇文明朝体（Huiwen Mincho），否则回退 Noto Serif SC；关键词可用主题展示色（`color: var(--brand)`）；如果字号较小或需要整块承载文字，改用 `background: var(--brand-surface); color: var(--on-brand)`
 - 副标题（44px）一行显示，紧跟标题下方，`white-space: nowrap`
-- 圆形头像（`avatar.jpg`，120px，`border: 4px solid #F4D758`）
+- 圆形头像（`avatar.jpg`，120px，`border: 4px solid var(--highlight)`）
 - 署名（作者名）44px + 介绍34px
-- 整体边框：`border: 28px solid #F4D758`
+- 整体边框：`border: 28px solid var(--highlight)`
 - 背景加浅色网格质感（`background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 40px 40px`）
 - 中间留白区域给用户放效果图/截图
 
@@ -88,13 +88,13 @@
 
 | 手法 | 适用场景 | 要点 |
 |------|----------|------|
-| 深色面板 | 代码、文件树、重点强调 | 暗色背景(#1A1A2E)+亮色文字，圆角16px |
+| 深色面板 | 代码、文件树、重点强调 | 暗色背景(`var(--dark-panel)`)+`var(--on-dark)`，圆角16px |
 | oversized编号 | 步骤/流程展示 | 极大(64-120px)极淡色(opacity 0.12)做背景装饰 |
-| 色块交替行 | 对比/表格 | 暖底行(#faf6eb) vs 白底行(#fff) 交替 |
-| 大箭头流程 | 步骤连接 | 蓝色箭头(48px)连接流程块 |
+| 色块交替行 | 对比/表格 | 暖底行(`var(--cream-dark)`) vs 卡片底(`var(--card-bg)`) 交替 |
+| 大箭头流程 | 步骤连接 | 主色箭头(48px)连接流程块 |
 | 代码面板 | 代码/文件树/命令 | 深色底+Fira Code+三色圆点title bar |
 | 金句装饰 | 核心观点/结尾 | oversized引号+白底圆角卡片 |
-| 问题→解法对比行 | before/after | 左红底右蓝底，✗ vs ✓ 前缀 |
+| 问题→解法对比行 | before/after | 使用 `--danger-soft` / `--success-soft`，✗ vs ✓ 前缀 |
 | 图标+文字横排 | 要点/优势列表 | emoji/icon左对齐+文字说明 |
 
 ---
@@ -105,7 +105,7 @@
 - 头像源文件：`assets/avatar.jpg`（HTML内用相对路径 `avatar.jpg` 引用，交付时复制到输出HTML同目录）
 - 署名固定为你在 `template-cards.html` 中配置的作者名（模板内为占位符，使用前替换）
 - 品牌三色比例：主色6 : 强调3 : 点缀1
-- 背景主色：奶白 `#fefcf6` / 深奶 `#faf6eb`，深色面板用 `#1A1A2E`
+- 背景主色：奶白 `var(--cream)` / 深奶 `var(--cream-dark)`，深色面板用 `var(--dark-panel)`
 
 ---
 

@@ -13,10 +13,10 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 2. **受众** — 给谁看的？技术水平？
 3. **Section数** — 大概几屏内容？
 4. **素材** — 有哪些文案/图片/数据？
-5. **硬约束** — 必须包含什么？有没有合作品牌色？
+5. **硬约束** — 必须包含什么？有没有合作品牌色？**用哪套配色（A~J，见 `brand-dna.md`）？**
 
 ### Step 2: 读规范
-1. **必读** `brand-dna.md` — 确认品牌底层规范
+1. **必读** `brand-dna.md` — 确认品牌底层规范（含 10 套配色 A~J 与语义 token）
 2. 根据类型选读场景文件：
    - 教程型/介绍型/科普型 → `references/scene-tutorial.md`
    - 活动页/分享会/Landing → `references/scene-landing.md`
@@ -32,6 +32,10 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 - **图文卡片** → `assets/template-cards.html`
 
 **从模板开始改，不从零写。**
+
+模板已通过 `<link rel="stylesheet" href="palettes.css">` 引入配色。
+如果用户指定了配色（或 Step 1 问出了偏好），改 `<html>` 上的 `data-palette="A"~"J"` 即可；
+没指定就保持默认 A。**不要在模板里重新定义 `:root` 色值。**
 
 ### Step 4: 选布局组合
 从 `references/layouts.md` 中选取 3~5 种布局模式，为每个 section 分配不同布局。
@@ -51,7 +55,7 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 - P1 应过 — 尽量满足
 - P2 加分 — 锦上添花
 
-（图文卡片模式：额外对照 `scene-cards.md` 底部的 Checklist。）
+（图文卡片模式：额外对照 `scene-cards.md` 底部的 Checklist；公众号模式：额外对照 `scene-wechat.md` 底部的 Checklist，逐项检查标题是否发生非语义断行或英文断词。）
 
 ### Step 7: 交付
 输出最终 HTML 文件，确保可直接在浏览器打开。
@@ -68,6 +72,8 @@ description: 脆皮的个人IP设计系统。做HTML页面、个人网站、教�
 
 ## 关键原则
 - **从模板开始改，不从零写** — 模板已内置品牌变量和基础结构
+- **颜色只用 token，绝不写死色值** — 见 `brand-dna.md` 的语义 token 表。
+  写死一个 `#xxxxxx`，用户换配色时那块颜色就不跟着变，等于埋了个 bug
 - **每个 section 布局必须不同** — 避免单调重复，从 layouts.md 选不同模式
 - **做完必须跑 checklist** — P0 全过才能交付
 

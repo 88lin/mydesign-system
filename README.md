@@ -99,7 +99,9 @@ assets/template-*.html(起点 - 从模板改,不从零写)
 esther-design-system/
 ├── SKILL.md                    ← 7步工作流(大脑)
 ├── brand-dna.md                ← 品牌基因:颜色/字体/气质/禁忌(需配置)
+├── palettes-preview.html       ← 配色选择器(点色卡实时预览10套)
 ├── assets/                     ← 模板骨架(起点)
+│   ├── palettes.css                ← 10套配色 + 语义token(单一事实来源)
 │   ├── template-tutorial.html      教程页模板
 │   ├── template-landing.html       活动页模板
 │   ├── template-app.html           App型模板
@@ -107,6 +109,8 @@ esther-design-system/
 │   ├── html2canvas.min.js          卡片导出依赖
 │   ├── avatar-placeholder.svg      占位头像(可替换为你自己的 avatar.jpg)
 │   └── avatar.jpg                  ← 你的头像(需自行放入,仓库未附带)
+├── scripts/
+│   └── validate-palettes.mjs       ← 校验主题 token、RGB 通道和对比度
 └── references/                 ← 规则和零件(知识库)
     ├── layouts.md                  16种布局模式(附完整代码)
     ├── components.md               组件库(51组件,完整HTML+CSS)
@@ -138,13 +142,34 @@ AI 每次做设计必须按这个顺序走：
 
 ## 品牌基因速览
 
-### 三色（默认配色，可在brand-dna.md中替换为你自己的）
+### 配色 — 10 套可选，一个属性切换
 
-| 颜色 | 色值 | 比例 |
-|------|------|------|
-| 主色 | `#2B7FD8` | 60% |
-| 强调色 | `#F4D758` | 30% |
-| 点缀色 | `#E84A5F` | 10% |
+```html
+<html lang="zh-CN" data-palette="C">   <!-- A ~ J，不写默认 A -->
+```
+
+| # | 名字 | 主色 | # | 名字 | 主色 |
+|---|------|------|---|------|------|
+| **A** | 经典 Classic（默认） | `#2B7FD8` | **F** | 豆沙 Red Bean | `#96545C` |
+| **B** | 黛蓝 Ink Blue | `#33548A` | **G** | 藕荷 Orchid | `#8A2F84` |
+| **C** | 莓紫 Mulberry | `#7A3560` | **H** | 孔雀蓝 Peacock | `#15697C` |
+| **D** | 鼠尾草 Sage | `#41684F` | **I** | 紫藤 Wisteria | `#71519B` |
+| **E** | 赤茶 Terracotta | `#A8452F` | **J** | 珊瑚 Coral | `#C33D46` |
+
+👉 **打开 `palettes-preview.html` 点色卡实时预览**，挑好再写进 `data-palette`。
+
+每套都按主色 60% · 强调色 30% · 点缀色 10%组织，并通过自动化的
+token 完整性、RGB 通道同步和对比度校验。校验项会随语义角色增加而变化，
+以 `node scripts/validate-palettes.mjs` 的实时结果为准。
+
+配色定义集中在 `assets/palettes.css`，组件只用语义 token
+（`--brand` / `--highlight` / `--pop` / `--ink` …），所以换配色不用改任何组件代码。
+其中 `--brand` / `--pop` 保留主题最有辨识度的展示色；小字号文字用
+`--brand-text` / `--pop-text`，带字按钮和色块用 `--brand-surface` /
+`--pop-surface`，既保留原色观感，也保证实际阅读场景的对比度。
+跨模板复用时可使用 `--brand-primary-*` / `--brand-accent-*` / `--brand-pop-*` 别名；
+`--focus-ring`、`--border-strong` 和 `--highlighter` 负责交互反馈与高亮，
+`palettes.css` 还会统一处理 `prefers-reduced-motion`。
 
 ### 字体
 
@@ -186,7 +211,10 @@ AI 每次做设计必须按这个顺序走：
 
 1. Fork 或克隆本仓库
 2. 放入你的头像 `assets/avatar.jpg`
-3. （可选）打开 `brand-dna.md`，把默认品牌色替换成你自己的，并同步修改 `assets/template-*.html` 里 `:root` 的变量。注意：公众号模板（`template-wechat.html`）全部是内联样式，没有 CSS 变量，需要手动搜索替换色值。快捷方法：在所有模板文件中搜索 `#2B7FD8` 替换为你的主色，`#F4D758` 替换为你的强调色，`#E84A5F` 替换为你的点缀色
+3. **挑配色**：打开 `palettes-preview.html` 点色卡预览，选好后把字母写进模板的 `<html data-palette="X">`。
+   想用自己的品牌色，就改 `assets/palettes.css` 里某一套的色值 —— 只改这一个文件，全站生效。
+   ⚠️ 手改色值可能打破对比度保证，改完运行 `node scripts/validate-palettes.mjs`。
+   注意：公众号模板（`template-wechat.html`）因为要粘进公众号编辑器，全部是内联样式、不能用 CSS 变量，需要手动搜索替换色值
 4. 把 `assets/template-cards.html` 中的作者名替换成你自己的
 5. 把仓库链接发给你的 AI Agent，跟它说：
 

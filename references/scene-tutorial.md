@@ -8,21 +8,23 @@
 
 | 用途 | 变量名 | 色值 | 说明 |
 |------|--------|------|------|
-| 主黄 | `--yellow` | `#F4D758` | 强调、装饰圆圈、连接线、badges |
-| 柔黄 | `--yellow-soft` | `#FFF3CD` | 背景块、气泡底色 |
-| 主蓝 | `--blue` | `#2B7FD8` | 英文标题、超链、重点标记 |
-| 深蓝 | `--blue-deep` | `#1E5BA8` | 大装饰字、section数字编号 |
-| 红色 | `--red` | `#E84A5F` | 点缀、高亮下划线、标签 |
-| 奶白底 | `--cream` | `#fefcf6` | 页面主背景 |
-| 深奶底 | `--cream-dark` | `#faf6eb` | section间交替背景 |
-| 墨色 | `--ink` | `#1A1A2E` | 正文主色（非纯黑） |
-| 浅墨 | `--ink-light` | `#4A4A5A` | 次要正文 |
-| 淡墨 | `--ink-faint` | `#8A8A9A` | 辅助文字、标签 |
+| 强调色 | `--highlight` | `var(--highlight)` | 强调、装饰圆圈、连接线、badges |
+| 强调柔光 | `--highlight-soft` | `var(--highlight-soft)` | 背景块、气泡底色 |
+| 品牌展示色 | `--brand` | `var(--brand)` | 大标题、装饰字、section 编号 |
+| 品牌文字色 | `--brand-text` | `var(--brand-text)` | 小字号英文标题、链接、标签 |
+| 品牌承载色 | `--brand-surface` | `var(--brand-surface)` | 按钮、带字色块，前景用 `--on-brand` |
+| 点缀展示色 | `--pop` | `var(--pop)` | 图形、下划线、装饰 |
+| 点缀文字色 | `--pop-text` | `var(--pop-text)` | 小字号标签、强调文字 |
+| 奶白底 | `--cream` | `var(--cream)` | 页面主背景 |
+| 深奶底 | `--cream-dark` | `var(--cream-dark)` | section 间交替背景 |
+| 墨色 | `--ink` | `var(--ink)` | 正文主色（非纯黑） |
+| 浅墨 | `--ink-light` | `var(--ink-light)` | 次要正文 |
+| 淡墨 | `--ink-faint` | `var(--ink-faint)` | 辅助文字、标签 |
 
 ### 色彩原则
-- 绝不用纯黑 `#000` 或纯白 `#fff`——总是带暖调
-- 主色永远是暖黄+蓝，红色只做点缀
-- 背景用径向渐变制造层次感，不要纯平色
+- 页面不用纯黑/纯白：背景和文字始终来自当前主题 token，卡片使用 `--card-bg`
+- 三种主题色可以跨色相组合；关键是角色和用量稳定，不要求每套都保持蓝/黄/红
+- 小字号彩色文字和带字色块必须使用可读语义角色，不能直接拿展示色硬撑
 
 ---
 
@@ -31,8 +33,8 @@
 | 用途 | 字体 | 备注 |
 |------|------|------|
 | 英文标题/装饰 | `Fraunces` (Google Fonts) | italic用于副标题、accent文字 |
-| 中文标题首选 | `Huiwen Mincho`（汇文明朝体） | 品牌真正用的标题字体，需本地字体文件 |
-| 中文标题备选 | `Noto Serif SC` (Google Fonts) | 当无汇文明朝体时使用 |
+| 中文标题首选 | `Huiwen Mincho`（汇文明朝体） | 优先使用系统已安装字体；仓库未捆绑字体文件，不要引用不存在的 ttf |
+| 中文标题备选 | `Noto Serif SC` (Google Fonts) | 默认 fallback；无汇文明朝体时自动使用 |
 | 正文/UI | `Noto Sans SC` + 系统栈 `-apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif` | 无衬线保证可读性 |
 | 手写装饰 | `Caveat` (Google Fonts) | 轻松标注、注释性文字 |
 
@@ -70,7 +72,7 @@
 7. **产品出血型Hero**: 左侧40%紧凑文字（大标题+描述+缩略图），右侧60%大图溢出右边界。图片用 `margin-right: -5vw; border-radius: 24px 0 0 24px`，grid: `grid-template-columns: 0.4fr 0.6fr`
 8. **条纹Editorial**: 条纹分割带（repeating-linear-gradient）做section分隔。内部左图右文，图片可加低饱和度滤镜。标题用Fraunces大号italic，正文小号无衬线
 9. **横向滚动时间线**: flex横排 + scroll-snap + 固定宽度卡片，适合经历展示、项目历程
-10. **全宽品牌色面板**: 背景使用蓝/黄/橙纯色，文字反白。一页最多1~2个，用于打破奶白底的节奏。禁忌：不要在品牌色面板上放蓝色文字
+10. **全宽品牌色面板**: 背景使用 `--brand-surface` / `--highlight`，前景分别使用 `--on-brand` / `--on-highlight`。一页最多1~2个，用于打破奶白底的节奏
 11. **对称双栏（Pain展示）**: `grid-template-columns: 1fr 1fr`，min-height: 100vh。左侧大字标题，右侧列表/解释。适合问题/痛点、before/after对比
 
 ### 间距系统
@@ -84,13 +86,13 @@
 ## 🎭 装饰元素
 
 ### 可用的装饰手法
-- **虚线圆圈**: `border: 2.5px dashed var(--yellow); border-radius: 50%`，半透明，大尺寸做背景
-- **渐变光晕**: `radial-gradient(ellipse, rgba(255,217,61,0.18), transparent)` 做柔和背景
-- **分割线**: `linear-gradient(90deg, transparent, var(--yellow), transparent)` 1px渐隐线
-- **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(255,217,61,0.35) 50%)` 文字底部高亮
+- **虚线圆圈**: `border: 2.5px dashed var(--highlight); border-radius: 50%`，半透明，大尺寸做背景
+- **渐变光晕**: `radial-gradient(ellipse, rgba(var(--highlight-rgb), .18), transparent)` 做柔和背景
+- **分割线**: `linear-gradient(90deg, transparent, var(--highlight), transparent)` 1px渐隐线
+- **高亮标记**: `background: linear-gradient(180deg, transparent 50%, rgba(var(--highlight-rgb), .35) 50%)` 文字底部高亮
 - **大透明数字**: 超大字号 + `opacity: 0.12~0.2` 做section装饰
 - **SVG简笔画**: 用描边风格的简化示意图，不要写实截图
-- **底部色条**: `border-bottom: 4px solid var(--yellow/blue/red)` 给卡片加标识（禁止使用 border-left 竖线引用块）
+- **底部色条**: `border-bottom: 4px solid var(--highlight)`（或 `--brand` / `--pop`） 给卡片加标识（禁止使用 border-left 竖线引用块）
 
 ### 条纹肌理分割（替代渐隐线做section divider）
 ```css
@@ -100,8 +102,8 @@
     0deg,
     transparent,
     transparent 3px,
-    rgba(232, 74, 95, 0.08) 3px,
-    rgba(232, 74, 95, 0.08) 4px
+    rgba(var(--pop-rgb), .08) 3px,
+    rgba(var(--pop-rgb), .08) 4px
   );
 }
 ```
@@ -109,7 +111,7 @@
 ### 关键词高亮底色块（比底部50%下划线更有冲击力）
 ```css
 .keyword-highlight {
-  background: rgba(255, 217, 61, 0.25);
+  background: rgba(var(--highlight-rgb), .25);
   padding: 0.1em 0.4em;
   border-radius: 6px;
   display: inline;
@@ -137,14 +139,14 @@
 .decorative-frame {
   position: relative;
   padding: 16px;
-  border: 2.5px dashed var(--yellow);
+  border: 2.5px dashed var(--highlight);
   border-radius: 12px;
 }
 .decorative-frame::before {
   content: '';
   position: absolute;
   inset: -6px;
-  border: 1.5px solid rgba(74, 125, 232, 0.2);
+  border: 1.5px solid rgba(var(--brand-rgb), .2);
   border-radius: 16px;
 }
 ```
@@ -186,7 +188,7 @@
 - `unobserve` after triggering（只触发一次）
 - 用 `.reveal-d1` ~ `.reveal-d5` 做 stagger（0.1s递增）
 - 尊重 `prefers-reduced-motion`
-- 选中文本高亮：`::selection { background: #F4D758; color: #1a1a1a; }`
+- 选中文本高亮由 `palettes.css` 全局提供：`var(--highlight)` + `var(--on-highlight)`
 
 ### 动效原则
 - **只用 opacity + transform**，不要animate layout属性
@@ -226,11 +228,11 @@
 
 ## 🧩 可发散方向
 
-- **配色微调**: 内容跟某品牌相关时可替换主蓝为品牌色，但暖黄+奶白底不变
+- **合作色**: 内容跟某品牌相关时增加局部 `--partner-accent`，不要改写全局主题；所有带字组合重新验对比度
 - **布局组合**: 十一种布局模式自由组合
 - **装饰密度**: 轻松内容多装饰，严肃内容减少装饰只保留字体层次
 - **IP出现方式**: 不同姿势（叉腰、放大镜、坐椅子等）
-- **深色section**: 可用一个section用深色底（如 `--blue-deep`），制造节奏对比
+- **深色section**: 可用一个 section 使用 `--dark-panel` + `--on-dark`，制造节奏对比
 - **交互**: 如果内容适合，可加hover状态、tab切换、accordion——但不要为交互而交互
 
 ---

@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="A">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>图文卡片</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Fraunces:ital,wght@1,400;1,700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- 配色：改 <html data-palette="A"~"J"> 即可整站换色，见 palettes.css -->
+<link rel="stylesheet" href="palettes.css">
 <script src="html2canvas.min.js" onerror="console.error('html2canvas failed to load')"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --yellow: #F4D758;
-  --yellow-soft: #FFF3CD;
-  --blue: #2B7FD8;
-  --blue-deep: #1E5BA8;
-  --red: #E84A5F;
-  --cream: #fefcf6;
-  --cream-dark: #faf6eb;
-  --ink: #1A1A2E;
-  --ink-light: #4A4A5A;
-  --ink-faint: #8A8A9A;
+  --card-preview-scale: 0.45;
+  --card-preview-offset: -792px;
 }
 
 body {
-  background: #e8e4de;
+  /* 导出区外的工作台底色，不进 PNG */
+  background: var(--cream-dark);
   font-family: 'Noto Sans SC', sans-serif;
   color: var(--ink);
   padding: 40px 20px;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ========== 导出栏 ========== */
@@ -37,7 +35,7 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
-  background: var(--ink);
+  background: var(--dark-panel);
   padding: 14px 24px;
   display: flex;
   align-items: center;
@@ -46,8 +44,8 @@ body {
 }
 
 .export-bar button {
-  background: var(--blue);
-  color: #fff;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   border: none;
   padding: 10px 28px;
   border-radius: 8px;
@@ -57,10 +55,10 @@ body {
   font-family: 'Noto Sans SC', sans-serif;
 }
 
-.export-bar button:hover { background: #1a6abf; }
+.export-bar button:hover { background: var(--brand-deep); }
 
 .export-bar .hint {
-  color: #aaa;
+  color: var(--on-dark-dim);
   font-size: 13px;
 }
 
@@ -78,11 +76,34 @@ body {
   height: 1440px;
   position: relative;
   overflow: hidden;
-  transform: scale(0.45);
+  transform: scale(var(--card-preview-scale));
   transform-origin: top center;
-  margin-bottom: -792px;
+  margin-bottom: var(--card-preview-offset);
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 560px) {
+  body { padding: 32px 12px; }
+
+  .export-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .export-bar button {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .export-bar .hint { display: none; }
+
+  .cards-container {
+    gap: 24px;
+    margin-top: 68px;
+  }
 }
 
 /* ========== P1 封面 ========== */
@@ -98,14 +119,14 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 60%, var(--highlight) 80%, var(--pop) 100%);
 }
 
 .p-cover .tag {
   font-size: 28px;
   font-weight: 700;
-  color: #fff;
-  background: var(--blue);
+  color: var(--on-brand);
+  background: var(--brand-surface);
   display: inline-block;
   padding: 8px 24px;
   border-radius: 6px;
@@ -122,7 +143,7 @@ body {
   margin-bottom: 24px;
 }
 
-.p-cover h1 .highlight { color: var(--blue); }
+.p-cover h1 .highlight { color: var(--brand); }
 
 .p-cover .subtitle {
   font-size: 42px;
@@ -144,7 +165,7 @@ body {
   height: 88px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--yellow);
+  border: 3px solid var(--highlight);
 }
 
 .p-cover .author-name {
@@ -161,7 +182,7 @@ body {
 
 /* ========== 深色面板页 ========== */
 .p-dark {
-  background: var(--ink);
+  background: var(--dark-panel);
   display: flex;
   flex-direction: column;
   padding: 80px 80px;
@@ -171,7 +192,7 @@ body {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 120px;
-  color: var(--yellow);
+  color: var(--highlight);
   opacity: 0.15;
   position: absolute;
   top: 40px;
@@ -183,13 +204,13 @@ body {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: 52px;
-  color: var(--cream);
+  color: var(--on-dark);
   margin-bottom: 16px;
 }
 
 .p-dark .sub {
   font-size: 32px;
-  color: var(--yellow);
+  color: var(--highlight);
   margin-bottom: 60px;
   font-weight: 500;
 }
@@ -217,13 +238,13 @@ body {
 
 .p-dark .item .text {
   font-size: 38px;
-  color: #e8e4de;
+  color: var(--on-dark-dim);
   line-height: 1.5;
   font-weight: 500;
 }
 
 .p-dark .item .text strong {
-  color: #fff;
+  color: var(--on-dark);
   font-weight: 700;
 }
 
@@ -233,7 +254,7 @@ body {
   left: 80px;
   right: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue) 50%, var(--yellow) 75%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 50%, var(--highlight) 75%, var(--pop) 100%);
   border-radius: 2px;
   opacity: 0.6;
 }
@@ -250,7 +271,7 @@ body {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 120px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.12;
   position: absolute;
   top: 40px;
@@ -271,7 +292,7 @@ body {
   display: block;
   width: 80px;
   height: 6px;
-  background: var(--yellow);
+  background: var(--highlight);
   margin-top: 16px;
   border-radius: 3px;
 }
@@ -299,14 +320,14 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 60%, var(--highlight) 80%, var(--pop) 100%);
 }
 
 .p-end .quote-mark {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 200px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.15;
   line-height: 0.6;
   margin-bottom: -20px;
@@ -323,9 +344,9 @@ body {
 }
 
 .p-end .quote .highlight {
-  color: var(--blue);
+  color: var(--brand);
   text-decoration: underline;
-  text-decoration-color: var(--yellow);
+  text-decoration-color: var(--highlight);
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
 }
@@ -335,7 +356,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--yellow);
+  border: 3px solid var(--highlight);
   margin-bottom: 20px;
 }
 
@@ -348,7 +369,7 @@ body {
 
 .p-end .cta {
   font-size: 32px;
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
   margin-bottom: 48px;
 }
@@ -388,7 +409,7 @@ body {
 <!-- ===== P2 深色面板页示例 ===== -->
 <!-- 适合代码、文件树、核心要点强调。深色底+亮色文字。 -->
 <div class="card p-dark" data-card="2">
-  <span class="page-num">02</span>
+  <span class="page-num" aria-hidden="true">02</span>
   <h2><!-- 页面标题 --></h2>
   <p class="sub"><!-- 副标题/小字说明 --></p>
   <div class="items">
@@ -405,7 +426,7 @@ body {
 <!-- ===== P3 浅色列表页示例 ===== -->
 <!-- 适合步骤、列表、分点说明。浅色底+oversized编号装饰。 -->
 <div class="card p-list" data-card="3">
-  <span class="page-num">03</span>
+  <span class="page-num" aria-hidden="true">03</span>
   <h2><!-- 页面标题 --></h2>
   <div class="content-area">
     <!-- 根据内容选择排版：
@@ -420,7 +441,7 @@ body {
 <!-- 金句+头像+CTA。oversized引号装饰，居中大字。 -->
 <div class="card p-end" data-card="last">
   <div class="deco-bottom"></div>
-  <div class="quote-mark">"</div>
+  <div class="quote-mark" aria-hidden="true">"</div>
   <p class="quote"><!-- 金句/核心观点 --><span class="highlight"><!-- 高亮关键词 --></span></p>
   <img class="avatar" src="avatar.jpg" alt="脆皮头像">
   <p class="author-name">脆皮</p>
@@ -431,6 +452,22 @@ body {
 </div><!-- cards-container -->
 
 <script>
+const CARD_WIDTH = 1080;
+const CARD_HEIGHT = 1440;
+const MAX_PREVIEW_SCALE = 0.45;
+
+function syncCardPreviewScale() {
+  const viewportWidth = document.documentElement.clientWidth;
+  const sideGutter = viewportWidth <= 560 ? 32 : 48;
+  const availableWidth = Math.max(0, viewportWidth - sideGutter);
+  const scale = Math.max(0.05, Math.min(MAX_PREVIEW_SCALE, availableWidth / CARD_WIDTH));
+  document.documentElement.style.setProperty('--card-preview-scale', scale.toFixed(4));
+  document.documentElement.style.setProperty('--card-preview-offset', `${(-CARD_HEIGHT * (1 - scale)).toFixed(2)}px`);
+}
+
+syncCardPreviewScale();
+window.addEventListener('resize', syncCardPreviewScale, { passive: true });
+
 async function exportAll() {
   if (typeof html2canvas === 'undefined') {
     alert('⏳ html2canvas 正在加载，请稍等几秒后重试。');
@@ -450,6 +487,12 @@ async function exportAll() {
 
   for (let i = 0; i < cards.length; i++) {
     const card = cards[i];
+    const previewStyle = {
+      transform: card.style.transform,
+      marginBottom: card.style.marginBottom,
+      borderRadius: card.style.borderRadius,
+      boxShadow: card.style.boxShadow
+    };
     card.style.transform = 'none';
     card.style.marginBottom = '0';
     card.style.borderRadius = '0';
@@ -476,10 +519,10 @@ async function exportAll() {
     } catch(e) {
       console.error('Export error on card ' + (i+1), e);
     } finally {
-      card.style.transform = 'scale(0.45)';
-      card.style.marginBottom = '-792px';
-      card.style.borderRadius = '4px';
-      card.style.boxShadow = '0 8px 40px rgba(0,0,0,0.12)';
+      card.style.transform = previewStyle.transform;
+      card.style.marginBottom = previewStyle.marginBottom;
+      card.style.borderRadius = previewStyle.borderRadius;
+      card.style.boxShadow = previewStyle.boxShadow;
     }
   }
 

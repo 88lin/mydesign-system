@@ -1,27 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="A">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title><!-- 页面标题 --></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <!-- 配色：改 <html data-palette="A"~"J"> 即可整站换色，见 palettes.css -->
+  <link rel="stylesheet" href="palettes.css">
   <style>
-    /* === CSS变量 === */
-    :root {
-      --blue: #2B7FD8;
-      --blue-deep: #1E5BA8;
-      --yellow: #F4D758;
-      --yellow-soft: #FFF3CD;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --cream-dark: #faf6eb;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --dark-panel: #151821;
-    }
 
     /* === Reset === */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +24,7 @@
     }
 
     ::selection {
-      background: var(--yellow);
+      background: var(--highlight);
       color: var(--ink);
     }
 
@@ -100,7 +89,7 @@
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--blue);
+      color: var(--brand);
       opacity: 0.3;
       display: block;
       margin-bottom: 0.25rem;
@@ -117,7 +106,7 @@
       background: var(--cream-dark);
       border-radius: 16px;
       padding: clamp(24px, 3vw, 36px);
-      border-bottom: 4px solid var(--yellow);
+      border-bottom: 4px solid var(--highlight);
       transition: transform 0.3s ease;
     }
     .feature-card:hover { transform: translateY(-4px); }
@@ -174,7 +163,7 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">01</span>
+        <span class="section-number" aria-hidden="true">01</span>
         <h2 class="section-title"><!-- Section标题 --></h2>
       </div>
       <div class="reveal reveal-d1">
@@ -188,7 +177,7 @@
   <section class="section section--alt">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">02</span>
+        <span class="section-number" aria-hidden="true">02</span>
         <h2 class="section-title"><!-- Section标题 --></h2>
       </div>
       <div class="reveal reveal-d1">
@@ -199,7 +188,7 @@
 
   <!-- ====== SECTION 3 ====== -->
   <!-- 可选：深色面板打破节奏 -->
-  <section class="section" style="background: var(--dark-panel); color: #e2e8f0;">
+  <section class="section" style="background: var(--dark-panel); color: var(--on-dark);">
     <div class="container">
       <div class="reveal">
         <!-- 重点内容/引用 -->

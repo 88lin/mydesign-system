@@ -74,7 +74,7 @@
 }
 .magazine-card .card-aux {
   font-size: 0.7rem;
-  color: var(--blue);
+  color: var(--brand-text);
   margin-top: 8px;
   font-weight: 500;
 }
@@ -98,7 +98,7 @@
 .number-card {
   position: relative;
   padding: 28px 24px;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -110,7 +110,7 @@
   font-family: 'Fraunces', serif;
   font-size: 5.5rem;
   font-weight: 900;
-  color: rgba(43, 127, 216, 0.08);
+  color: rgba(var(--brand-rgb), .08);
   line-height: 1;
   pointer-events: none;
 }
@@ -131,9 +131,9 @@
 
 **变体**: 编号颜色按品牌三色轮换（蓝/黄/红）
 ```css
-.number-card:nth-child(3n+1) .card-number { color: rgba(43, 127, 216, 0.08); }
-.number-card:nth-child(3n+2) .card-number { color: rgba(244, 215, 88, 0.15); }
-.number-card:nth-child(3n) .card-number { color: rgba(232, 74, 95, 0.1); }
+.number-card:nth-child(3n+1) .card-number { color: rgba(var(--brand-rgb), .08); }
+.number-card:nth-child(3n+2) .card-number { color: rgba(var(--highlight-rgb), .15); }
+.number-card:nth-child(3n) .card-number { color: rgba(var(--pop-rgb), .1); }
 ```
 
 ---
@@ -152,7 +152,7 @@
 
 ```css
 .tag-card {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -166,9 +166,9 @@
   margin-bottom: 14px;
 }
 /* pill颜色变体 */
-.tag-card .card-pill--blue { background: rgba(43,127,216,0.1); color: var(--blue); }
-.tag-card .card-pill--yellow { background: rgba(244,215,88,0.25); color: #9a8100; }
-.tag-card .card-pill--red { background: rgba(232,74,95,0.1); color: var(--red); }
+.tag-card .card-pill--blue { background: rgba(var(--brand-rgb), .1); color: var(--brand-text); }
+.tag-card .card-pill--yellow { background: rgba(var(--highlight-rgb), .25); color: var(--warning); }
+.tag-card .card-pill--red { background: rgba(var(--pop-rgb), .1); color: var(--pop-text); }
 .tag-card .card-title {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.05rem;
@@ -201,7 +201,7 @@
 .icon-card {
   display: flex;
   align-items: stretch;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
@@ -215,9 +215,9 @@
   font-size: 2.8rem;
 }
 /* icon区颜色变体 */
-.icon-card .card-icon-area--blue { background: rgba(43,127,216,0.06); }
-.icon-card .card-icon-area--yellow { background: rgba(244,215,88,0.12); }
-.icon-card .card-icon-area--red { background: rgba(232,74,95,0.06); }
+.icon-card .card-icon-area--blue { background: rgba(var(--brand-rgb), .06); }
+.icon-card .card-icon-area--yellow { background: rgba(var(--highlight-rgb), .12); }
+.icon-card .card-icon-area--red { background: rgba(var(--pop-rgb), .06); }
 .icon-card .card-content {
   flex: 1;
   padding: 18px 16px;
@@ -275,7 +275,7 @@
   font-family: 'Fraunces', serif;
   font-size: 5rem;
   line-height: 1;
-  color: var(--yellow);
+  color: var(--highlight);
   opacity: 0.8;
 }
 .quote-editorial .quote-title {
@@ -317,7 +317,7 @@
 .quote-handwrite {
   position: relative;
   padding: 28px 24px;
-  border: 2px dashed rgba(43,127,216,0.25);
+  border: 2px dashed rgba(var(--brand-rgb), .25);
   border-radius: 12px;
   background: white;
 }
@@ -328,7 +328,7 @@
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--brand-text);
   background: var(--cream);
   padding: 0 10px;
 }
@@ -373,7 +373,7 @@
   font-weight: 900;
   margin-bottom: 12px;
   display: inline;
-  background: linear-gradient(to top, rgba(244,215,88,0.5) 45%, transparent 45%);
+  background: linear-gradient(to top, rgba(var(--highlight-rgb), .5) 45%, transparent 45%);
   line-height: 1.8;
   padding: 2px 4px;
 }
@@ -422,9 +422,9 @@
   height: 10px;
   border-radius: 50%;
 }
-.quote-terminal .dot:nth-child(1) { background: var(--red); }
-.quote-terminal .dot:nth-child(2) { background: var(--yellow); }
-.quote-terminal .dot:nth-child(3) { background: #4ade80; }
+.quote-terminal .dot:nth-child(1) { background: #ff5f56; }
+.quote-terminal .dot:nth-child(2) { background: #ffbd2e; }
+.quote-terminal .dot:nth-child(3) { background: #27c93f; }
 .quote-terminal .quote-body {
   padding: 20px 24px;
 }
@@ -468,7 +468,7 @@
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -477,7 +477,7 @@
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
 }
 ```
 
@@ -510,24 +510,24 @@
   font-weight: 700;
   font-size: 1.1rem;
   line-height: 2;
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
   margin-bottom: 2rem;
 }
 .quote-minimal .quote-body .hl {
-  background: linear-gradient(transparent 60%, rgba(244,215,88,0.3) 60%);
+  background: linear-gradient(transparent 60%, rgba(var(--highlight-rgb), .3) 60%);
   padding: 0 4px;
 }
 .quote-minimal .quote-rule {
   width: 60px;
   height: 3px;
-  background: var(--yellow, #F4D758);
+  background: var(--highlight);
   margin-bottom: 2rem;
 }
 .quote-minimal .quote-conclusion {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.2rem;
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--brand-text);
   line-height: 1.7;
 }
 ```
@@ -549,7 +549,7 @@
   padding: 24px 28px;
   background: white;
   border-radius: 10px;
-  border: 1.5px dashed rgba(43, 127, 216, 0.3);
+  border: 1.5px dashed rgba(var(--brand-rgb), .3);
 }
 .quote-note-tag {
   position: absolute;
@@ -557,15 +557,15 @@
   left: 20px;
   font-family: 'Caveat', cursive;
   font-size: 1rem;
-  color: var(--blue, #2B7FD8);
-  background: var(--cream, #fefcf6);
+  color: var(--brand-text);
+  background: var(--cream);
   padding: 0 8px;
   font-weight: 700;
 }
 .quote-note p {
   font-size: 0.93rem;
   line-height: 1.85;
-  color: var(--ink-light, #4A4A5A);
+  color: var(--ink-light);
 }
 ```
 
@@ -594,13 +594,13 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60%;
-  background: var(--yellow, #F4D758);
+  background: var(--highlight);
   border-radius: 2px;
 }
 .quote-typo p {
   font-size: 1rem;
   line-height: 1.85;
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
   font-weight: 500;
   font-style: italic;
 }
@@ -754,14 +754,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   top: 0;
   bottom: 0;
   width: 1px;
-  background: rgba(232,74,95,0.2);
+  background: rgba(var(--pop-rgb), .2);
 }
 .code-notebook .code-tab {
   padding: 8px 16px 8px 48px;
   border-bottom: 1px solid #e8e4d9;
   font-family: 'Caveat', cursive;
   font-size: 1rem;
-  color: var(--blue);
+  color: var(--brand-text);
   font-weight: 700;
 }
 .code-notebook pre {
@@ -772,12 +772,12 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   margin: 0;
   padding: 16px 20px 16px 48px;
   background-image: repeating-linear-gradient(
-    transparent, transparent 31px, rgba(43,127,216,0.05) 31px, rgba(43,127,216,0.05) 32px
+    transparent, transparent 31px, rgba(var(--brand-rgb), .05) 31px, rgba(var(--brand-rgb), .05) 32px
   );
 }
 ```
 
-**语法高亮色**: `.kw { color: var(--blue); font-weight: 700; }` `.str { color: var(--red); }` `.cm { color: var(--ink-faint); }`
+**语法高亮色**: `.kw { color: var(--brand-text); font-weight: 700; }` `.str { color: var(--pop-text); }` `.cm { color: var(--ink-faint); }`
 
 ---
 
@@ -819,8 +819,8 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   margin: 0;
   letter-spacing: 0.5px;
 }
-.code-typewriter .kw { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
-.code-typewriter .str { color: var(--red); }
+.code-typewriter .kw { color: var(--brand-text); text-decoration: underline; text-underline-offset: 3px; }
+.code-typewriter .str { color: var(--pop-text); }
 .code-typewriter .cm { color: var(--ink-faint); font-style: italic; }
 .code-typewriter .cursor {
   display: inline-block;
@@ -872,15 +872,15 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   color: var(--ink);
   margin: 0;
 }
-.code-clean .kw { color: var(--blue); font-weight: 600; }
+.code-clean .kw { color: var(--brand-text); font-weight: 600; }
 .code-clean .fn { color: #7c3aed; }
-.code-clean .str { color: var(--red); }
+.code-clean .str { color: var(--pop-text); }
 .code-clean .cm { color: #94a3b8; }
 .code-clean .highlight-line {
-  background: rgba(43,127,216,0.06);
+  background: rgba(var(--brand-rgb), .06);
   margin: 0 -32px;
   padding: 0 32px;
-  border-left: 3px solid var(--blue);
+  border-left: 3px solid var(--brand);
 }
 ```
 
@@ -903,16 +903,16 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 ```css
 .viral-pullquote {
   padding: 36px 40px;
-  background: var(--cream, #fefcf6);
+  background: var(--cream);
   border-radius: 16px;
-  border: 2px solid var(--yellow, #F4D758);
+  border: 2px solid var(--highlight);
   position: relative;
 }
 .viral-pullquote::before {
   content: '"';
   font-family: 'Fraunces', serif;
   font-size: 5rem;
-  color: var(--yellow, #F4D758);
+  color: var(--highlight);
   position: absolute;
   top: -10px; left: 20px;
   opacity: 0.5;
@@ -958,14 +958,14 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   line-height: 1.6;
 }
 .chat-bubble.user {
-  background: var(--yellow, #F4D758);
-  color: var(--ink, #1A1A2E);
+  background: var(--highlight);
+  color: var(--ink);
   align-self: flex-end;
   border-bottom-right-radius: 4px;
 }
 .chat-bubble.ai {
-  background: var(--blue, #2B7FD8);
-  color: #fefcf6;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   align-self: flex-start;
   border-bottom-left-radius: 4px;
 }
@@ -993,7 +993,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   font-family: 'Fraunces', serif;
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   opacity: 0.15;
   line-height: 0.85;
   display: block;
@@ -1048,7 +1048,7 @@ nav.scrolled {
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
   font-size: 0.85rem;
   position: relative;
 }
@@ -1057,7 +1057,7 @@ nav.scrolled {
   position: absolute;
   bottom: -4px; left: 0; right: 0;
   height: 2px;
-  background: var(--yellow, #F4D758);
+  background: var(--highlight);
   transform: scaleX(0);
   transition: transform .25s ease-out;
 }
@@ -1122,9 +1122,9 @@ nav.scrolled {
   line-height: 1;
   pointer-events: none;
 }
-.chair-number-card:nth-child(1) .chair-big-num { color: rgba(43,127,216,0.08); }
-.chair-number-card:nth-child(2) .chair-big-num { color: rgba(244,215,88,0.15); }
-.chair-number-card:nth-child(3) .chair-big-num { color: rgba(232,74,95,0.08); }
+.chair-number-card:nth-child(1) .chair-big-num { color: rgba(var(--brand-rgb), .08); }
+.chair-number-card:nth-child(2) .chair-big-num { color: rgba(var(--highlight-rgb), .15); }
+.chair-number-card:nth-child(3) .chair-big-num { color: rgba(var(--pop-rgb), .08); }
 .chair-number-card h3 {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.1rem;
@@ -1207,7 +1207,7 @@ nav.scrolled {
   margin-top: 16px;
   font-family: 'Fira Code', monospace;
   font-size: 0.65rem;
-  color: var(--blue);
+  color: var(--brand-text);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1248,9 +1248,9 @@ nav.scrolled {
   position: relative;
   background: white;
 }
-.chair-dashed-card:nth-child(1) { border-color: rgba(43,127,216,0.3); }
-.chair-dashed-card:nth-child(2) { border-color: rgba(244,215,88,0.5); }
-.chair-dashed-card:nth-child(3) { border-color: rgba(232,74,95,0.3); }
+.chair-dashed-card:nth-child(1) { border-color: rgba(var(--brand-rgb), .3); }
+.chair-dashed-card:nth-child(2) { border-color: rgba(var(--highlight-rgb), .5); }
+.chair-dashed-card:nth-child(3) { border-color: rgba(var(--pop-rgb), .3); }
 .chair-dashed-card .chair-label {
   position: absolute;
   top: -10px;
@@ -1261,9 +1261,9 @@ nav.scrolled {
   background: var(--cream);
   padding: 0 8px;
 }
-.chair-dashed-card:nth-child(1) .chair-label { color: var(--blue); }
-.chair-dashed-card:nth-child(2) .chair-label { color: #9a8100; }
-.chair-dashed-card:nth-child(3) .chair-label { color: var(--red); }
+.chair-dashed-card:nth-child(1) .chair-label { color: var(--brand-text); }
+.chair-dashed-card:nth-child(2) .chair-label { color: var(--warning); }
+.chair-dashed-card:nth-child(3) .chair-label { color: var(--pop-text); }
 .chair-dashed-card h3 {
   font-family: 'Noto Serif SC', serif;
   font-size: 1.05rem;
@@ -1312,9 +1312,9 @@ nav.scrolled {
   position: relative;
   overflow: hidden;
 }
-.chair-gradient-card:nth-child(1) { background: linear-gradient(145deg, rgba(43,127,216,0.08), rgba(43,127,216,0.02)); }
-.chair-gradient-card:nth-child(2) { background: linear-gradient(145deg, rgba(244,215,88,0.15), rgba(244,215,88,0.03)); }
-.chair-gradient-card:nth-child(3) { background: linear-gradient(145deg, rgba(232,74,95,0.08), rgba(232,74,95,0.02)); }
+.chair-gradient-card:nth-child(1) { background: linear-gradient(145deg, rgba(var(--brand-rgb), .08), rgba(var(--brand-rgb), .02)); }
+.chair-gradient-card:nth-child(2) { background: linear-gradient(145deg, rgba(var(--highlight-rgb), .15), rgba(var(--highlight-rgb), .03)); }
+.chair-gradient-card:nth-child(3) { background: linear-gradient(145deg, rgba(var(--pop-rgb), .08), rgba(var(--pop-rgb), .02)); }
 .chair-gradient-card .chair-emoji {
   font-size: 2rem;
   margin-bottom: 16px;
@@ -1368,9 +1368,9 @@ nav.scrolled {
   height: 3px;
   margin-bottom: 20px;
 }
-.chair-typo-card:nth-child(1) .chair-divider { background: var(--blue); }
-.chair-typo-card:nth-child(2) .chair-divider { background: var(--yellow); }
-.chair-typo-card:nth-child(3) .chair-divider { background: var(--red); }
+.chair-typo-card:nth-child(1) .chair-divider { background: var(--brand); }
+.chair-typo-card:nth-child(2) .chair-divider { background: var(--highlight); }
+.chair-typo-card:nth-child(3) .chair-divider { background: var(--pop); }
 .chair-typo-card h3 {
   font-family: 'Fraunces', serif;
   font-size: 1.3rem;
@@ -1424,19 +1424,19 @@ nav.scrolled {
   align-items: center;
   gap: 12px;
   padding: 24px 32px;
-  background: var(--cream, #fefcf6);
+  background: var(--cream);
   border-radius: 14px;
-  border: 1px solid rgba(43, 127, 216, 0.1);
+  border: 1px solid rgba(var(--brand-rgb), .1);
 }
 .system-flow span {
   font-size: 0.9rem;
   padding: 6px 14px;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
 .flow-arrow {
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   font-size: 1.2rem;
   background: transparent !important;
   box-shadow: none !important;
@@ -1505,16 +1505,16 @@ nav.scrolled {
   padding-bottom: 12px;
   border-bottom: 2px solid;
 }
-.compare-block--dont .compare-header { border-color: var(--red); }
-.compare-block--do .compare-header { border-color: var(--blue); }
+.compare-block--dont .compare-header { border-color: var(--danger-strong); }
+.compare-block--do .compare-header { border-color: var(--success); }
 .compare-header .compare-icon { font-size: 1.3rem; }
 .compare-header .compare-label {
   font-family: 'Fraunces', serif;
   font-size: 1rem;
   font-weight: 700;
 }
-.compare-block--dont .compare-label { color: var(--red); }
-.compare-block--do .compare-label { color: var(--blue); }
+.compare-block--dont .compare-label { color: var(--danger-strong); }
+.compare-block--do .compare-label { color: var(--success); }
 .compare-block ul {
   list-style: none;
   padding: 0;
@@ -1529,8 +1529,8 @@ nav.scrolled {
   position: relative;
   line-height: 1.6;
 }
-.compare-block--dont li::before { content: '×'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
-.compare-block--do li::before { content: '✓'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
+.compare-block--dont li::before { content: '×'; position: absolute; left: 0; color: var(--danger-strong); font-weight: 700; }
+.compare-block--do li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 700; }
 ```
 
 ---
@@ -1584,8 +1584,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 1.4rem;
   font-weight: 700;
 }
-.compare-col-title--dont { color: var(--red); }
-.compare-col-title--do { color: var(--blue); }
+.compare-col-title--dont { color: var(--danger-strong); }
+.compare-col-title--do { color: var(--success); }
 .compare-handwrite .compare-items {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1700,8 +1700,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   position: relative;
   border-radius: 4px;
 }
-.compare-stamp-col--dont { border-color: var(--red); }
-.compare-stamp-col--do { border-color: var(--blue); }
+.compare-stamp-col--dont { border-color: var(--danger-strong); }
+.compare-stamp-col--do { border-color: var(--success); }
 .compare-stamp-col .compare-stamp-label {
   position: absolute;
   top: -14px;
@@ -1715,8 +1715,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   padding: 2px 16px;
   background: var(--cream);
 }
-.compare-stamp-col--dont .compare-stamp-label { color: var(--red); }
-.compare-stamp-col--do .compare-stamp-label { color: var(--blue); }
+.compare-stamp-col--dont .compare-stamp-label { color: var(--danger-strong); }
+.compare-stamp-col--do .compare-stamp-label { color: var(--success); }
 .compare-stamp-col ul {
   list-style: none;
   padding: 0;
@@ -1738,7 +1738,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   left: 0;
   font-weight: 700;
   font-size: 0.8rem;
-  color: var(--red);
+  color: var(--danger-strong);
 }
 .compare-stamp-col--do li::before {
   content: '◆';
@@ -1746,7 +1746,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   left: 0;
   font-size: 0.6rem;
   top: 4px;
-  color: var(--blue);
+  color: var(--success);
 }
 ```
 
@@ -1779,7 +1779,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ring {
   position: absolute;
   inset: -12px;
-  border: 2px dashed rgba(43,127,216,0.25);
+  border: 2px dashed rgba(var(--brand-rgb), .25);
   border-radius: 50%;
   animation: heroSpin 20s linear infinite;
 }
@@ -1837,8 +1837,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   transition: all .2s;
 }
 .filter-tag.active {
-  color: #fff;
-  background: var(--blue, #2B7FD8);
+  color: var(--on-brand);
+  background: var(--brand-surface);
 }
 .filter-tag:hover:not(.active) {
   background: rgba(0,0,0,.1);
@@ -1868,7 +1868,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 
 ```css
 .book-card {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 28px 24px 22px;
   box-shadow: 0 8px 40px rgba(0,0,0,.1);
@@ -1884,15 +1884,15 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   padding: 3px 10px;
   border-radius: 12px;
   font-size: 0.7rem;
-  background: rgba(43,127,216,0.1);
-  color: var(--blue, #2B7FD8);
+  background: rgba(var(--brand-rgb), .1);
+  color: var(--brand-text);
   margin-bottom: 0.75rem;
 }
 .verdict {
-  border-left: 3px solid var(--blue, #2B7FD8);
-  padding-left: 12px;
+  border-top: 3px solid var(--brand);
+  padding-top: 12px;
   font-size: 0.85rem;
-  color: var(--ink-light, #4A4A5A);
+  color: var(--ink-light);
   margin: 0.75rem 0;
 }
 .tag {
@@ -1900,7 +1900,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   padding: 2px 8px;
   border-radius: 8px;
   font-size: 0.7rem;
-  background: var(--cream-dark, #faf6eb);
+  background: var(--cream-dark);
 }
 ```
 
@@ -1941,7 +1941,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   top: 1.5rem; right: 1.5rem;
   width: 40px; height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1954,7 +1954,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   margin: 0 auto;
 }
 .book-section {
-  background: var(--cream, #fefcf6);
+  background: var(--cream);
   padding: 48px 44px;
   margin-bottom: 2px;
   border-radius: 16px;
@@ -1988,7 +1988,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .cal-cell {
   aspect-ratio: 1;
   border-radius: 6px;
-  background: #fff;
+  background: var(--card-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1997,7 +1997,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .day-num {
   font-size: 0.7rem;
-  color: var(--ink-light, #4A4A5A);
+  color: var(--ink-light);
 }
 .mood-emoji {
   font-size: 1.2rem;
@@ -2022,8 +2022,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: var(--blue, #2B7FD8);
-  color: #fff;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
@@ -2032,11 +2032,11 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(43,127,216,0.3);
+  box-shadow: 0 8px 24px rgba(var(--brand-rgb), .3);
 }
 ```
 
-**变体**: 黄色CTA — `background: var(--yellow); color: var(--ink);`
+**变体**: 黄色CTA — `background: var(--highlight); color: var(--ink);`
 
 ---
 
@@ -2081,14 +2081,14 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 ```css
 /* 杂志Editorial对比 */
 .section-editorial {
-  background: #faf6eb;
+  background: var(--cream-dark);
   padding: clamp(80px, 12vh, 160px) 0;
 }
 .section-editorial .section-number {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   opacity: 0.3;
   display: block;
   margin-bottom: 0.25rem;
@@ -2097,7 +2097,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
 }
 .editorial-layout {
   display: grid;
@@ -2113,14 +2113,14 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   opacity: 0.1;
   line-height: 0.85;
   display: block;
 }
 .editorial-side .editorial-subtitle {
   font-size: 0.9rem;
-  color: var(--ink-light, #4A4A5A);
+  color: var(--ink-light);
   margin-top: 1rem;
   line-height: 1.7;
 }
@@ -2141,24 +2141,24 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--yellow, #F4D758);
+  color: var(--highlight);
   line-height: 1;
 }
 .editorial-col h4 {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint);
   margin-bottom: 4px;
 }
 .editorial-col p {
   font-size: 0.95rem;
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
 }
 .editorial-dim {
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint);
   margin-top: 8px;
 }
 
@@ -2218,7 +2218,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .dot-dim {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--ink-faint, #8A8A9A);
+  color: var(--ink-faint);
   position: relative;
   padding-left: 16px;
 }
@@ -2231,13 +2231,13 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--yellow, #F4D758);
+  background: var(--highlight);
 }
-.dot-row:nth-child(2n) .dot-dim::before { background: var(--blue, #2B7FD8); }
-.dot-row:nth-child(3n) .dot-dim::before { background: var(--red, #E84A5F); }
+.dot-row:nth-child(2n) .dot-dim::before { background: var(--brand); }
+.dot-row:nth-child(3n) .dot-dim::before { background: var(--pop); }
 .dot-val {
   font-size: 0.9rem;
-  color: var(--ink, #1A1A2E);
+  color: var(--ink);
 }
 
 @media (max-width: 640px) {
@@ -2299,7 +2299,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 
 ```css
 .ticket-vintage {
-  background: #faf6eb;
+  background: var(--cream-dark);
   border: 2px dashed #c4b89a;
   border-radius: 4px;
   padding: 0;
@@ -2341,11 +2341,11 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #4A4A5A;
+  color: var(--ink-light);
 }
 .ticket-vintage .airline-row .badge {
-  background: var(--blue, #2B7FD8);
-  color: #fefcf6;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   padding: 2px 8px;
   font-size: 0.65rem;
   font-weight: 600;
@@ -2359,7 +2359,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fira Code', monospace;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 600;
-  color: #1A1A2E;
+  color: var(--ink);
 }
 .ticket-vintage .city-name {
   font-size: 0.7rem;
@@ -2380,7 +2380,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   position: absolute;
 }
 .ticket-vintage .route-arrow span {
-  background: #faf6eb;
+  background: var(--cream-dark);
   padding: 0 8px;
   position: relative;
   font-family: 'Fira Code', monospace;
@@ -2390,7 +2390,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-vintage .time-row {
   font-family: 'Fira Code', monospace;
   font-size: 0.72rem;
-  color: #4A4A5A;
+  color: var(--ink-light);
 }
 .ticket-vintage .details-row {
   display: flex;
@@ -2407,7 +2407,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-vintage .detail-item span {
   font-family: 'Fira Code', monospace;
   font-size: 0.78rem;
-  color: #1A1A2E;
+  color: var(--ink);
 }
 .ticket-vintage .stub-section .stub-date {
   font-family: 'Fira Code', monospace;
@@ -2418,7 +2418,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fira Code', monospace;
   font-size: 1.4rem;
   font-weight: 600;
-  color: var(--red, #E84A5F);
+  color: var(--pop-text);
 }
 ```
 
@@ -2455,8 +2455,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 
 ```css
 .ticket-editorial {
-  background: #fefcf6;
-  border-top: 3px solid #1A1A2E;
+  background: var(--cream);
+  border-top: 3px solid var(--ink);
   border-bottom: 1px solid #e8e4dc;
   padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 36px);
 }
@@ -2471,7 +2471,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #4A4A5A;
+  color: var(--ink-light);
 }
 .ticket-editorial .date-display {
   font-family: 'Fraunces', serif;
@@ -2490,12 +2490,12 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: clamp(3.5rem, 10vw, 6rem);
   font-weight: 900;
   line-height: 0.9;
-  color: #1A1A2E;
+  color: var(--ink);
 }
 .ticket-editorial .time-divider {
   font-family: 'Fraunces', serif;
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--yellow, #F4D758);
+  color: var(--highlight);
   font-weight: 300;
 }
 .ticket-editorial .cities-line {
@@ -2508,7 +2508,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Noto Serif SC', serif;
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 700;
-  color: #1A1A2E;
+  color: var(--ink);
 }
 .ticket-editorial .city-editorial .airport {
   font-family: 'Noto Sans SC', sans-serif;
@@ -2518,7 +2518,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   margin-left: 6px;
 }
 .ticket-editorial .arrow-editorial {
-  color: var(--blue, #2B7FD8);
+  color: var(--brand);
   font-size: 1.2rem;
 }
 .ticket-editorial .meta-strip {
@@ -2543,7 +2543,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #1A1A2E;
+  color: var(--ink);
 }
 ```
 
@@ -2583,9 +2583,9 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 
 ```css
 .ticket-minimal {
-  background: #fefcf6;
+  background: var(--cream);
   border: 1px solid #e8e4dc;
-  border-left: 4px solid #1A1A2E;
+  border-left: 4px solid var(--ink);
   padding: clamp(20px, 3vw, 32px);
 }
 .ticket-minimal .min-header {
@@ -2597,13 +2597,13 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-minimal .min-airline {
   font-size: 0.72rem;
   font-weight: 500;
-  color: #4A4A5A;
+  color: var(--ink-light);
 }
 .ticket-minimal .min-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--red, #E84A5F);
+  background: var(--pop);
 }
 .ticket-minimal .min-route {
   display: flex;
@@ -2614,7 +2614,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-minimal .min-point .time {
   font-size: clamp(1.4rem, 3.5vw, 1.8rem);
   font-weight: 700;
-  color: #1A1A2E;
+  color: var(--ink);
   line-height: 1;
 }
 .ticket-minimal .min-point .code {
@@ -2631,7 +2631,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .ticket-minimal .min-connector .line {
   width: 100%;
   height: 1px;
-  background: #1A1A2E;
+  background: var(--ink);
   position: relative;
 }
 .ticket-minimal .min-connector .line::after {
@@ -2640,7 +2640,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   right: -1px;
   top: -3px;
   width: 0; height: 0;
-  border-left: 5px solid #1A1A2E;
+  border-left: 5px solid var(--ink);
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
 }
@@ -2653,7 +2653,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   gap: clamp(16px, 3vw, 32px);
   flex-wrap: wrap;
   font-size: 0.72rem;
-  color: #4A4A5A;
+  color: var(--ink-light);
 }
 .ticket-minimal .min-footer span::before {
   content: '';
@@ -2721,7 +2721,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 0.85rem;
-  color: var(--sub);
+  color: var(--ink-light);
   margin-bottom: clamp(20px, 3vw, 32px);
 }
 .hotel-editorial .detail-row {
@@ -2743,7 +2743,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: var(--ink-faint);
   margin-bottom: 2px;
 }
 .hotel-editorial .detail-value {
@@ -2753,7 +2753,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 .hotel-editorial .note {
   margin-top: 16px;
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--ink-faint);
   padding-top: 12px;
   border-top: 1px solid #e0ddd4;
 }
@@ -2807,8 +2807,8 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--blue);
-  border-bottom: 1.5px solid var(--yellow);
+  color: var(--brand-text);
+  border-bottom: 1.5px solid var(--highlight);
   padding-bottom: 2px;
   margin-bottom: 16px;
 }
@@ -2824,7 +2824,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--sub);
+  color: var(--ink-light);
   margin-top: 12px;
 }
 .hotel-postcard .postcard-meta {
@@ -2835,11 +2835,11 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   flex-wrap: wrap;
   gap: 16px;
   font-size: 0.8rem;
-  color: var(--sub);
+  color: var(--ink-light);
 }
 .hotel-postcard .postcard-meta span::before {
   content: '✦ ';
-  color: var(--yellow);
+  color: var(--highlight);
 }
 ```
 
@@ -2906,7 +2906,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 0.75rem;
-  color: var(--sub);
+  color: var(--ink-light);
   margin-top: 4px;
 }
 .hotel-grid .eg-col-left {
@@ -2923,7 +2923,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--muted);
+  color: var(--ink-faint);
   margin-bottom: 2px;
 }
 .hotel-grid .eg-field-value {
@@ -2935,14 +2935,14 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   padding: 12px clamp(16px, 2.5vw, 28px);
   border-top: 2px solid var(--ink);
   font-size: 0.72rem;
-  color: var(--muted);
-  background: var(--bg-deep);
+  color: var(--ink-faint);
+  background: var(--cream-dark);
 }
 .hotel-grid .eg-date-highlight {
   font-family: 'Fraunces', serif;
   font-size: 1.8rem;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--brand);
   line-height: 1;
   margin-bottom: 4px;
 }
@@ -3022,7 +3022,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
 }
 .news-handwrite {
   font-family: 'Caveat', cursive;
-  color: var(--red, #E84A5F);
+  color: var(--pop-text);
   font-size: 1.3rem;
   transform: rotate(-2deg);
   margin-top: 12px;
@@ -3088,7 +3088,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   font-family: 'Playfair Display', 'Fraunces', 'Noto Serif SC', serif;
   font-size: clamp(3rem, 9vw, 6rem);
   font-weight: 900;
-  color: #fff;
+  color: var(--cream);
   line-height: 1.05;
 }
 .mag-sub {
@@ -3167,7 +3167,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   height: 1.2em;
 }
 .type-warn {
-  color: var(--red, #E84A5F);
+  color: var(--danger-strong);
   font-weight: 700;
 }
 .type-cursor {
@@ -3224,15 +3224,15 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   padding: 20px 0; -webkit-overflow-scrolling: touch;
 }
 .hscroll-track::-webkit-scrollbar { height: 4px; }
-.hscroll-track::-webkit-scrollbar-thumb { background: var(--accent-light, #d4a06a); border-radius: 2px; }
+.hscroll-track::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 2px; }
 .hscroll-card {
   min-width: 340px; max-width: 380px; flex-shrink: 0; scroll-snap-align: center;
-  background: #fff; border-radius: 16px; padding: 32px 28px;
+  background: var(--card-bg); border-radius: 16px; padding: 32px 28px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06); position: relative;
 }
 .hscroll-card .hscroll-num {
   position: absolute; top: 16px; right: 20px; font-family: 'Caveat', cursive;
-  font-size: 2rem; color: var(--accent-light, #d4a06a); opacity: 0.4;
+  font-size: 2rem; color: var(--brand); opacity: 0.4;
 }
 .hscroll-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; }
 .hscroll-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
@@ -3290,20 +3290,20 @@ function switchTab(el, idx) {
 ```
 
 ```css
-.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid var(--accent-light, #d4a06a); }
+.tab-bar { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid rgba(var(--brand-rgb), .2); }
 .tab-item {
   padding: 10px 20px; font-size: 0.82rem; font-weight: 500; cursor: pointer;
   border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s;
   color: var(--ink-faint, #8a7e6d);
 }
-.tab-item.active { border-bottom-color: var(--accent, #8b4513); color: var(--ink, #2c2416); font-weight: 700; }
+.tab-item.active { border-bottom-color: var(--brand); color: var(--ink, #2c2416); font-weight: 700; }
 .tab-item:hover { color: var(--ink-light, #5a4f3f); }
 .tab-panels { position: relative; }
 .tab-panel { display: none; animation: tabFadeIn 0.3s; }
 .tab-panel.active { display: block; }
 .tab-panel h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
 .tab-panel p { font-size: 0.88rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 550px; }
-.tab-example { margin-top: 1rem; background: #fff; border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--accent, #8b4513); border-left: 3px solid var(--accent-light, #d4a06a); }
+.tab-example { margin-top: 1rem; background: var(--card-bg); border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: var(--brand-text); border-bottom: 3px solid var(--brand); }
 @keyframes tabFadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 ```
 
@@ -3361,8 +3361,8 @@ function toggleAccordion(header) {
 }
 .accordion-header:hover { padding-left: 8px; }
 .accordion-step {
-  width: 32px; height: 32px; border-radius: 50%; background: var(--accent, #8b4513);
-  color: #fff; font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 32px; height: 32px; border-radius: 50%; background: var(--brand-surface);
+  color: var(--on-brand); font-size: 0.8rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .accordion-header h4 { font-size: 0.95rem; font-weight: 700; }
 .accordion-arrow { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); transition: transform 0.2s; }
@@ -3430,13 +3430,13 @@ function moveSlide(dir) {
 .carousel-slide p { font-size: 0.85rem; color: var(--ink-light, #5a4f3f); line-height: 2; max-width: 450px; margin: 0 auto; }
 .carousel-arrows { display: flex; justify-content: center; gap: 16px; margin-top: 2rem; }
 .carousel-arrow {
-  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--accent-light, #d4a06a);
-  background: transparent; cursor: pointer; font-size: 1rem; color: var(--accent, #8b4513); transition: all 0.2s;
+  width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--brand-border);
+  background: transparent; cursor: pointer; font-size: 1rem; color: var(--brand-text); transition: all 0.2s;
 }
-.carousel-arrow:hover { background: var(--accent, #8b4513); color: #fff; }
+.carousel-arrow:hover { background: var(--brand-surface); color: var(--on-brand); }
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1rem; }
-.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light, #d4a06a); opacity: 0.4; transition: all 0.2s; }
-.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--accent, #8b4513); }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); opacity: 0.4; transition: all 0.2s; }
+.carousel-dot.active { opacity: 1; transform: scale(1.3); background: var(--brand); }
 ```
 
 **使用原则**：
@@ -3497,7 +3497,7 @@ function flipStack() {
 ```css
 .stack-container { position: relative; width: 380px; height: 280px; perspective: 1000px; margin: 1.5rem auto; }
 .stack-card {
-  position: absolute; inset: 0; background: #fff; border-radius: 16px;
+  position: absolute; inset: 0; background: var(--card-bg); border-radius: 16px;
   padding: 32px; box-shadow: 0 6px 24px rgba(0,0,0,0.08);
   transition: all 0.4s ease; cursor: pointer;
 }
@@ -3507,7 +3507,7 @@ function flipStack() {
 .stack-card:nth-child(4) { z-index: 1; transform: translateY(36px) scale(0.88); opacity: 0.4; }
 .stack-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
 .stack-card p { font-size: 0.82rem; color: var(--ink-light, #5a4f3f); line-height: 1.9; }
-.stack-tag { display: inline-block; background: var(--accent, #8b4513); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
+.stack-tag { display: inline-block; background: var(--brand-surface); color: var(--on-brand); font-size: 0.7rem; padding: 2px 8px; border-radius: 3px; margin-bottom: 10px; }
 .stack-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); text-align: center; margin-top: 3.5rem; font-family: 'Caveat', cursive; }
 ```
 
@@ -3550,11 +3550,11 @@ function flipStack() {
   border-radius: 20px; display: flex; flex-direction: column;
   justify-content: center; align-items: center; padding: 40px;
 }
-.flip-front { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+.flip-front { background: var(--card-bg); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
 .flip-front h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.6; text-align: center; }
 .flip-front .flip-hint { font-size: 0.75rem; color: var(--ink-faint, #8a7e6d); margin-top: 2rem; }
 .flip-back {
-  background: var(--accent, #8b4513); color: #fff;
+  background: var(--brand-surface); color: var(--on-brand);
   transform: rotateY(180deg); text-align: center;
 }
 .flip-back h3 { font-size: 1rem; font-weight: 400; opacity: 0.8; margin-bottom: 1rem; }
@@ -3588,7 +3588,7 @@ function flipStack() {
 ```css
 .reveal-card {
   position: relative; width: 550px; max-width: 90vw;
-  text-align: center; padding: 48px 40px; background: #fff;
+  text-align: center; padding: 48px 40px; background: var(--card-bg);
   border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); overflow: hidden;
 }
 .reveal-text {
@@ -3597,7 +3597,7 @@ function flipStack() {
 }
 .reveal-sub { font-size: 0.8rem; color: var(--ink-faint, #8a7e6d); margin-top: 0.5rem; letter-spacing: 0.1em; position: relative; z-index: 2; }
 .reveal-overlay {
-  position: absolute; inset: 0; background: var(--accent, #8b4513); color: #fff;
+  position: absolute; inset: 0; background: var(--brand-surface); color: var(--on-brand);
   display: flex; flex-direction: column; justify-content: center; align-items: center;
   padding: 40px; opacity: 0; transition: opacity 0.4s ease; z-index: 3; border-radius: 20px;
 }
@@ -3642,20 +3642,20 @@ function flipStack() {
 }
 .dark-reveal-content { position: relative; z-index: 1; text-align: center; max-width: 550px; }
 .dark-reveal-content h2 {
-  font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.6; color: #fff; margin-bottom: 2rem;
+  font-size: clamp(2.5rem, 7vw, 4rem); line-height: 1.6; color: var(--cream); margin-bottom: 2rem;
 }
-.dark-reveal-divider { width: 40px; height: 2px; background: var(--accent-light, #d4a06a); margin: 0 auto 2rem; }
+.dark-reveal-divider { width: 40px; height: 2px; background: var(--brand-on-dark); margin: 0 auto 2rem; }
 .dark-reveal-trans {
   font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2;
   opacity: 0; transition: opacity 0.5s;
 }
 .dark-reveal-trans.show { opacity: 1; }
 .dark-reveal-btn {
-  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--accent-light, #d4a06a);
-  background: transparent; color: var(--accent-light, #d4a06a); border-radius: 20px;
+  margin-top: 2rem; padding: 8px 20px; border: 1px solid var(--brand-on-dark);
+  background: transparent; color: var(--brand-on-dark); border-radius: 20px;
   font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
 }
-.dark-reveal-btn:hover { background: var(--accent-light, #d4a06a); color: #1a1510; }
+.dark-reveal-btn:hover { background: var(--brand-on-dark); color: var(--dark-panel); }
 ```
 
 **使用原则**：
@@ -3690,15 +3690,15 @@ function flipStack() {
 ```css
 .numgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; }
 .numgrid-card {
-  background: #fff; border-radius: 14px; padding: 24px 20px;
+  background: var(--card-bg); border-radius: 14px; padding: 24px 20px;
   position: relative; overflow: hidden; transition: transform 0.2s;
 }
 .numgrid-card:hover { transform: translateY(-3px); }
 .numgrid-card::before {
   content: attr(data-num); position: absolute; top: -8px; right: 12px;
-  font-family: 'Caveat', cursive; font-size: 3rem; color: var(--accent-light, #d4a06a); opacity: 0.2;
+  font-family: 'Caveat', cursive; font-size: 3rem; color: var(--brand); opacity: 0.2;
 }
-.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--accent, #8b4513); }
+.numgrid-card h4 { font-size: 0.82rem; font-weight: 700; margin-bottom: 6px; color: var(--brand-text); }
 .numgrid-card p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.8; }
 .numgrid-card.full { grid-column: 1 / -1; }
 @media (max-width: 768px) { .numgrid { grid-template-columns: 1fr; } }
@@ -3744,12 +3744,12 @@ function flipStack() {
   border-bottom: 1px solid rgba(139,69,19,0.1);
 }
 .checklist-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--accent-light, #d4a06a);
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--brand-border);
   flex-shrink: 0; margin-top: 2px; cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; justify-content: center;
 }
-.checklist-check.checked { background: var(--accent, #8b4513); border-color: var(--accent, #8b4513); }
-.checklist-check.checked::after { content: '✓'; color: #fff; font-size: 0.7rem; }
+.checklist-check.checked { background: var(--brand-surface); border-color: var(--brand-surface); }
+.checklist-check.checked::after { content: '✓'; color: var(--on-brand); font-size: 0.7rem; }
 .checklist-content h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
 .checklist-content p { font-size: 0.78rem; color: var(--ink-light, #5a4f3f); line-height: 1.7; }
 .checklist-tag { display: inline-block; font-size: 0.65rem; background: var(--cream-dark, #f0e9dc); color: var(--ink-faint, #8a7e6d); padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
@@ -3781,7 +3781,7 @@ function flipStack() {
     <img src="[full-2]" style="...opacity: 0; transition: opacity 0.4s;">
   </div>
   <!-- Side panel -->
-  <div style="width: 280px; background: #fff; padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #EFE8D8;">
+  <div style="width: 280px; background: var(--card-bg); padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #EFE8D8;">
     <h3 style="font-size: 1rem; font-weight: 800;">Title</h3>
     <p style="font-size: 0.72rem; color: #B87333; font-weight: 600;">Year · Location</p>
     <p style="font-size: 0.78rem; color: #5A5650; line-height: 1.8;">Description text...</p>
@@ -3808,10 +3808,10 @@ function flipStack() {
       <!-- Front -->
       <div style="position: absolute; inset: 0; backface-visibility: hidden; border-radius: 12px; overflow: hidden;">
         <img src="[image]" style="width: 100%; height: 100%; object-fit: cover;">
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: #fff; font-size: 0.72rem; font-weight: 600;">Label</div>
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: var(--cream); font-size: 0.72rem; font-weight: 600;">Label</div>
       </div>
       <!-- Back -->
-      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #2C2A26; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: #fff;">
+      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #2C2A26; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: var(--cream);">
         <h4 style="font-size: 0.85rem; font-weight: 700;">Title</h4>
         <span style="font-size: 0.68rem; color: #D4A574;">Year</span>
         <p style="font-size: 0.72rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 8px;">Description</p>
@@ -3901,10 +3901,10 @@ function flipStack() {
 ```css
 .tl-v1 .tc .num { font-family: 'Caveat', cursive; font-size: 1rem; color: var(--ink-faint); margin-bottom: 4px; }
 .tl-v1 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 900; margin-bottom: 8px; }
-.tl-v1 .tc:nth-child(1) h3 { color: var(--blue); }
-.tl-v1 .tc:nth-child(2) h3 { color: var(--red); }
-.tl-v1 .tc:nth-child(3) h3 { color: #805AD5; }
-.tl-v1 .tc:nth-child(4) h3 { color: var(--blue-deep); }
+.tl-v1 .tc:nth-child(1) h3 { color: var(--brand-text); }
+.tl-v1 .tc:nth-child(2) h3 { color: var(--pop-text); }
+.tl-v1 .tc:nth-child(3) h3 { color: var(--ink); }
+.tl-v1 .tc:nth-child(4) h3 { color: var(--brand-deep); }
 .tl-v1 .tc p { font-size: .9rem; color: var(--ink-light); line-height: 1.6; }
 ```
 
@@ -3915,10 +3915,10 @@ function flipStack() {
 ```css
 .tl-v2 .tc { text-align: center; padding: 28px 18px; }
 .tl-v2 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 900; display: inline; }
-.tl-v2 .tc:nth-child(1) h3 { background: linear-gradient(180deg, transparent 55%, rgba(43,127,216,.15) 55%); }
-.tl-v2 .tc:nth-child(2) h3 { background: linear-gradient(180deg, transparent 55%, rgba(244,215,88,.3) 55%); }
-.tl-v2 .tc:nth-child(3) h3 { background: linear-gradient(180deg, transparent 55%, rgba(232,74,95,.15) 55%); }
-.tl-v2 .tc:nth-child(4) h3 { background: linear-gradient(180deg, transparent 55%, rgba(128,90,213,.15) 55%); }
+.tl-v2 .tc:nth-child(1) h3 { background: linear-gradient(180deg, transparent 55%, rgba(var(--brand-rgb), .15) 55%); }
+.tl-v2 .tc:nth-child(2) h3 { background: linear-gradient(180deg, transparent 55%, rgba(var(--highlight-rgb), .3) 55%); }
+.tl-v2 .tc:nth-child(3) h3 { background: linear-gradient(180deg, transparent 55%, rgba(var(--pop-rgb), .15) 55%); }
+.tl-v2 .tc:nth-child(4) h3 { background: linear-gradient(180deg, transparent 55%, rgba(var(--ink-rgb), .08) 55%); }
 .tl-v2 .tc p { font-size: .88rem; color: var(--ink-light); line-height: 1.6; margin-top: 10px; }
 ```
 
@@ -3930,10 +3930,10 @@ function flipStack() {
 .tl-v3 .tc { padding: 26px 20px; }
 .tl-v3 .tc .emoji { font-size: 2rem; margin-bottom: 10px; }
 .tl-v3 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.35rem; font-weight: 900; margin-bottom: 8px; }
-.tl-v3 .tc:nth-child(1) h3 { color: var(--blue); }
-.tl-v3 .tc:nth-child(2) h3 { color: #d4930a; }
-.tl-v3 .tc:nth-child(3) h3 { color: var(--red); }
-.tl-v3 .tc:nth-child(4) h3 { color: #805AD5; }
+.tl-v3 .tc:nth-child(1) h3 { color: var(--brand-text); }
+.tl-v3 .tc:nth-child(2) h3 { color: var(--ink); }
+.tl-v3 .tc:nth-child(3) h3 { color: var(--pop-text); }
+.tl-v3 .tc:nth-child(4) h3 { color: var(--brand-deep); }
 .tl-v3 .tc p { font-size: .9rem; color: var(--ink-light); line-height: 1.6; }
 ```
 
@@ -3945,10 +3945,10 @@ function flipStack() {
 .tl-v5 .tc { padding: 28px 20px; position: relative; overflow: hidden; }
 .tl-v5 .tc .bg-char { position: absolute; top: -10px; right: -5px; font-family: 'Fraunces', serif; font-size: 5rem; font-weight: 900; opacity: .04; line-height: 1; pointer-events: none; }
 .tl-v5 .tc h3 { font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 900; margin-bottom: 8px; position: relative; }
-.tl-v5 .tc:nth-child(1) h3 { color: var(--blue); }
-.tl-v5 .tc:nth-child(2) h3 { color: var(--red); }
-.tl-v5 .tc:nth-child(3) h3 { color: #805AD5; }
-.tl-v5 .tc:nth-child(4) h3 { color: var(--blue-deep); }
+.tl-v5 .tc:nth-child(1) h3 { color: var(--brand-text); }
+.tl-v5 .tc:nth-child(2) h3 { color: var(--pop-text); }
+.tl-v5 .tc:nth-child(3) h3 { color: var(--ink); }
+.tl-v5 .tc:nth-child(4) h3 { color: var(--brand-deep); }
 .tl-v5 .tc p { font-size: .95rem; color: var(--ink-light); line-height: 1.6; position: relative; font-weight: 500; }
 ```
 
@@ -3960,12 +3960,12 @@ function flipStack() {
 
 ```css
 .ring-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 800px; margin: 0 auto; }
-.ring-step { background: white; border-radius: 50%; width: 140px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.04); position: relative; text-align: center; }
+.ring-step { background: var(--card-bg); border-radius: 50%; width: 140px; height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.04); position: relative; text-align: center; }
 .ring-step .emoji { font-size: 1.5rem; margin-bottom: 4px; }
 .ring-step h4 { font-size: .9rem; font-weight: 700; }
 .ring-step .sub { font-size: .72rem; color: var(--ink-faint); }
-.ring-step::after { content: '›'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; color: var(--yellow); font-weight: 900; }
-.ring-step:last-child::after { content: '⟳'; right: auto; left: 50%; top: auto; bottom: -18px; transform: translateX(-50%); font-size: 1.1rem; color: var(--blue); }
+.ring-step::after { content: '›'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; color: var(--highlight); font-weight: 900; }
+.ring-step:last-child::after { content: '⟳'; right: auto; left: 50%; top: auto; bottom: -18px; transform: translateX(-50%); font-size: 1.1rem; color: var(--brand); }
 ```
 
 ⚠️ 注意：移动端变竖排，去掉箭头。3-6个步骤最佳。底部加一句大字总结效果更好。
@@ -4004,7 +4004,7 @@ Your second line — keep it short
 
 ```html
 <!-- data-sparkle-colors 为品牌色硬编码，品牌色如有修改需同步替换 -->
-<div class="sparkles-wrap" data-sparkle-colors="#F4D758,#F4D758,#E84A5F">
+<div class="sparkles-wrap" data-sparkle-colors="var(--highlight),var(--highlight),var(--pop)">
   <span class="sparkles-text">Build</span>
 </div>
 ```
@@ -4019,7 +4019,7 @@ Your second line — keep it short
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: clamp(3rem, 8vw, 5.5rem);
-  color: var(--blue); /* 或var(--ink)，与星光互斥 */
+  color: var(--brand); /* 或var(--ink)，与星光互斥 */
   position: relative;
   z-index: 1;
 }
@@ -4173,14 +4173,14 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   padding: 16px 32px; border-radius: 12px;
   border: none; transition: all 0.2s;
 }
-.cool-btn-blue { background: var(--blue); color: #fff; }
-.cool-btn-blue:hover { background: #1E5BA8; transform: translateY(-2px); }
-.cool-btn-yellow { background: var(--yellow); color: var(--ink); }
+.cool-btn-blue { background: var(--brand-surface); color: var(--on-brand); }
+.cool-btn-blue:hover { background: var(--brand-deep); transform: translateY(-2px); }
+.cool-btn-yellow { background: var(--highlight); color: var(--ink); }
 .cool-btn-yellow:hover { background: #e6c840; transform: translateY(-2px); }
 .cool-btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
 .cool-btn-outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
-.cool-btn-pill { background: var(--cream-dark); color: var(--blue); border: 1.5px solid var(--blue); border-radius: 999px; padding: 14px 28px; }
-.cool-btn-pill:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
+.cool-btn-pill { background: var(--cream-dark); color: var(--brand-text); border: 1.5px solid var(--brand-border); border-radius: 999px; padding: 14px 28px; }
+.cool-btn-pill:hover { background: var(--brand-surface); color: var(--on-brand); transform: translateY(-2px); }
 
 /* 粒子容器（自动创建） */
 #_coolMode_effect { overflow:hidden; position:fixed; inset:0; pointer-events:none; z-index:2147483647; }
@@ -4190,7 +4190,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 // Cool Mode粒子效果
 (function() {
   // 粒子颜色为品牌色硬编码，品牌色如有修改需同步替换
-  const colors = ['#2B7FD8','#2B7FD8','#F4D758','#F4D758','#F4D758','#E84A5F'];
+  const colors = ['var(--brand)','var(--brand)','var(--highlight)','var(--highlight)','var(--highlight)','var(--pop)'];
   const sizes = [12,16,20,28,36];
   let particles = [], container, animating = false;
   function getContainer() {
@@ -4265,7 +4265,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   display: inline-block;
   width: 3px;
   height: 1.1em;
-  background: var(--blue);
+  background: var(--brand);
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s steps(1) infinite;
@@ -4297,7 +4297,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 })();
 ```
 
-⚠️ 光标颜色用品牌蓝。打字速度100ms/字，删除50ms/字。多词循环时停顿1.5s。
+⚠️ 光标颜色用当前主题主色。打字速度100ms/字，删除50ms/字。多词循环时停顿1.5s。
 
 ---
 
@@ -4330,8 +4330,8 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 .kinetic-text span:hover {
   font-weight: 900;
   padding-inline: 0.08em;
-  -webkit-text-stroke-color: var(--blue);
-  color: var(--blue);
+  -webkit-text-stroke-color: var(--brand);
+  color: var(--brand);
 }
 ```
 
@@ -4358,7 +4358,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 })();
 ```
 
-⚠️ hover颜色用品牌蓝。字体用衬线体（Noto Serif SC）效果最好。
+⚠️ hover 颜色用当前主题主色。字体用衬线体（Noto Serif SC）效果最好。
 
 ---
 
@@ -4445,16 +4445,16 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 
 ```css
 .hl-yellow {
-  background: linear-gradient(180deg, transparent 60%, rgba(244,215,88,0.4) 60%);
+  background: linear-gradient(180deg, transparent 60%, rgba(var(--highlight-rgb), .4) 60%);
   padding: 0 4px;
   border-radius: 2px;
 }
 .hl-blue-underline {
-  text-decoration: underline wavy var(--blue);
+  text-decoration: underline wavy var(--brand);
   text-underline-offset: 4px;
 }
 .hl-red-circle {
-  border: 2.5px solid var(--red);
+  border: 2.5px solid var(--pop);
   border-radius: 50% 45% 55% 40% / 50% 45% 55% 40%;
   padding: 2px 8px;
   display: inline-block;
@@ -4462,7 +4462,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 }
 @keyframes hl-wiggle { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
 .hl-box {
-  border: 2.5px solid var(--blue);
+  border: 2.5px solid var(--brand);
   border-radius: 4px;
   padding: 2px 6px;
   display: inline-block;
@@ -4491,9 +4491,9 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   -webkit-text-stroke: 2px #000;
   transform: skewX(-8deg);
   text-transform: uppercase;
-  filter: drop-shadow(4px 4px 0px #000) drop-shadow(2px 2px 0px var(--red));
-  background-color: var(--yellow);
-  background-image: radial-gradient(circle at 1px 1px, var(--red) 1px, transparent 0);
+  filter: drop-shadow(4px 4px 0px #000) drop-shadow(2px 2px 0px var(--pop));
+  background-color: var(--highlight);
+  background-image: radial-gradient(circle at 1px 1px, var(--pop) 1px, transparent 0);
   background-size: 7px 7px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -4538,7 +4538,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--brand-text);
   transform-origin: center;
 }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -4550,7 +4550,7 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--yellow);
+  background: var(--highlight);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4576,4 +4576,4 @@ document.querySelectorAll('[data-sparkle-colors]').forEach(el => {
 })();
 ```
 
-⚠️ 旋转速度12s一圈。文字颜色用品牌蓝。中心圆用品牌黄。文字末尾加空格或符号分隔。
+⚠️ 旋转速度12s一圈。文字用当前主题品牌色，中心圆用强调色。文字末尾加空格或符号分隔。

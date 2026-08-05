@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="A">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title><!-- 活动标题 --></title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- 配色：改 <html data-palette="A"~"J"> 即可整站换色，见 palettes.css -->
+  <link rel="stylesheet" href="palettes.css">
   <style>
-    /* === CSS变量 === */
-    :root {
-      --blue: #2B7FD8;
-      --blue-deep: #1E5BA8;
-      --yellow: #F4D758;
-      --yellow-soft: #FFF3CD;
-      --red: #E84A5F;
-      --cream: #fefcf6;
-      --cream-dark: #faf6eb;
-      --ink: #1A1A2E;
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --dark-panel: #151821;
-      /* 合作品牌色（按需启用） */
-      /* --partner: #F1752D; */
-    }
+    /* 合作品牌色（按需启用） */
+    /* :root { --partner: #F1752D; } */
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -36,7 +25,7 @@
     }
 
     ::selection {
-      background: var(--yellow);
+      background: var(--highlight);
       color: var(--ink);
     }
 
@@ -93,7 +82,7 @@
       font-family: 'Fraunces', serif;
       font-style: italic;
       font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--blue);
+      color: var(--brand);
       opacity: 0.3;
       display: block;
       margin-bottom: 0.25rem;
@@ -112,7 +101,7 @@
     }
 
     .chair-card {
-      background: #fff;
+      background: var(--card-bg);
       border-radius: 16px;
       padding: clamp(24px, 3vw, 36px);
       position: relative;
@@ -125,14 +114,14 @@
       top: 0; left: 0; right: 0;
       height: 4px;
     }
-    .chair-card:nth-child(1)::before { background: var(--blue); }
-    .chair-card:nth-child(2)::before { background: var(--yellow); }
-    .chair-card:nth-child(3)::before { background: var(--red); }
+    .chair-card:nth-child(1)::before { background: var(--brand); }
+    .chair-card:nth-child(2)::before { background: var(--highlight); }
+    .chair-card:nth-child(3)::before { background: var(--pop); }
 
     /* === 深色面板 === */
     .dark-section {
       background: var(--dark-panel);
-      color: #e2e8f0;
+      color: var(--on-dark);
       padding: clamp(80px, 12vh, 160px) 0;
     }
 
@@ -146,7 +135,7 @@
       text-align: center;
     }
     .dark-section .quote-text em {
-      color: var(--yellow);
+      color: var(--highlight);
       font-style: normal;
     }
 
@@ -155,7 +144,7 @@
       padding: 36px 40px;
       background: var(--cream);
       border-radius: 16px;
-      border: 2px solid var(--yellow);
+      border: 2px solid var(--highlight);
       position: relative;
       max-width: 720px;
       margin: 0 auto;
@@ -164,7 +153,7 @@
       content: '"';
       font-family: 'Fraunces', serif;
       font-size: 5rem;
-      color: var(--yellow);
+      color: var(--highlight);
       position: absolute;
       top: -10px; left: 20px;
       opacity: 0.5;
@@ -197,8 +186,8 @@
       align-items: center;
       gap: 8px;
       padding: 16px 36px;
-      background: var(--blue);
-      color: #fff;
+      background: var(--brand-surface);
+      color: var(--on-brand);
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
@@ -207,7 +196,7 @@
     }
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(43,127,216,0.3);
+      box-shadow: 0 8px 24px rgba(var(--brand-rgb), .3);
     }
 
     /* === Scroll Reveal === */
@@ -251,7 +240,7 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-number">01</span>
+        <span class="section-number" aria-hidden="true">01</span>
         <h2 class="section-title"><!-- 亮点/嘉宾/核心价值 --></h2>
       </div>
       <div class="three-col">

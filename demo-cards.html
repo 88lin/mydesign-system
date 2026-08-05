@@ -1,39 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-palette="A">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <title>我是怎么做出自己的Design Skill的 - 脆皮</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Fraunces:ital,wght@0,700;0,900;1,400;1,700;1,900&family=Fira+Code:wght@400;500;600&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
-<script src="html2canvas.min.js" onerror="console.error('html2canvas failed to load')"></script>
+<script src="assets/html2canvas.min.js" onerror="console.error('html2canvas failed to load')"></script>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<link rel="stylesheet" href="assets/palettes.css">
 <style>
-@font-face {
-  font-family: 'Huiwen Mincho';
-  src: url('HuiwenMincho.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --yellow: #F4D758;
-  --yellow-soft: #FFF3CD;
-  --blue: #2B7FD8;
-  --blue-deep: #1E5BA8;
-  --red: #E84A5F;
-  --cream: #fefcf6;
-  --cream-dark: #faf6eb;
-  --ink: #1A1A2E;
-  --ink-light: #4A4A5A;
-  --ink-faint: #8A8A9A;
+  --card-preview-scale: 0.45;
+  --card-preview-offset: -792px;
 }
 
+
 body {
-  background: #e8e4de;
+  background: var(--cream-dark);
   font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', sans-serif;
   color: var(--ink);
   padding: 40px 20px;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ========== 导出栏 ========== */
@@ -43,7 +34,7 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
-  background: var(--ink);
+  background: var(--dark-panel);
   padding: 14px 24px;
   display: flex;
   align-items: center;
@@ -52,8 +43,8 @@ body {
 }
 
 .export-bar button {
-  background: var(--blue);
-  color: #fff;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   border: none;
   padding: 10px 28px;
   border-radius: 8px;
@@ -63,10 +54,10 @@ body {
   font-family: 'Noto Sans SC', sans-serif;
 }
 
-.export-bar button:hover { background: #1a6abf; }
+.export-bar button:hover { background: var(--brand-deep); }
 
 .export-bar .hint {
-  color: #aaa;
+  color: var(--on-dark-dim);
   font-size: 13px;
 }
 
@@ -84,11 +75,34 @@ body {
   height: 1440px;
   position: relative;
   overflow: hidden;
-  transform: scale(0.45);
+  transform: scale(var(--card-preview-scale));
   transform-origin: top center;
-  margin-bottom: -792px;
+  margin-bottom: var(--card-preview-offset);
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 560px) {
+  body { padding: 32px 12px; }
+
+  .export-bar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .export-bar button {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .export-bar .hint { display: none; }
+
+  .cards-container {
+    gap: 24px;
+    margin-top: 68px;
+  }
 }
 
 /* ========== 通用元素 ========== */
@@ -96,14 +110,14 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 60%, var(--highlight) 80%, var(--pop) 100%);
 }
 
 .deco-bottom {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 8px;
-  background: linear-gradient(90deg, var(--blue) 60%, var(--yellow) 80%, var(--red) 100%);
+  background: linear-gradient(90deg, var(--brand) 60%, var(--highlight) 80%, var(--pop) 100%);
 }
 
 .page-num {
@@ -122,7 +136,7 @@ body {
 /* ========== P1 封面 ========== */
 .p-cover {
   background: var(--cream);
-  border: 28px solid var(--yellow);
+  border: 28px solid var(--highlight);
   background-image:
     linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
@@ -136,7 +150,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   color: var(--ink);
-  background: var(--yellow);
+  background: var(--highlight);
   display: inline-block;
   padding: 14px 32px;
   border-radius: 8px;
@@ -154,8 +168,8 @@ body {
 }
 
 .p-cover h1 em {
-  background: var(--blue);
-  color: #fff;
+  background: var(--brand-surface);
+  color: var(--on-brand);
   font-style: normal;
   padding: 4px 16px;
   border-radius: 6px;
@@ -163,7 +177,7 @@ body {
 
 .p-cover .subtitle {
   font-size: 44px;
-  color: #333;
+  color: var(--ink);
   font-weight: 500;
   line-height: 1.6;
   white-space: nowrap;
@@ -181,7 +195,7 @@ body {
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--yellow);
+  border: 4px solid var(--highlight);
 }
 
 .p-cover .author-name {
@@ -192,30 +206,30 @@ body {
 
 .p-cover .author-desc {
   font-size: 34px;
-  color: #555;
+  color: var(--ink-light);
   margin-top: 6px;
 }
 
 /* ========== P2 问题页(深色) ========== */
 .p-problem {
-  background: var(--ink);
+  background: var(--dark-panel);
   display: flex;
   flex-direction: column;
   padding: 100px 90px;
 }
 
-.p-problem .page-num { color: var(--yellow); }
+.p-problem .page-num { color: var(--highlight); }
 
 .p-problem h2 {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: 56px;
-  color: var(--cream);
+  color: var(--on-dark);
   margin-bottom: 60px;
 }
 
 .p-problem h2 em {
-  color: var(--yellow);
+  color: var(--highlight);
   font-style: normal;
 }
 
@@ -240,12 +254,12 @@ body {
 
 .p-problem .pain-text {
   font-size: 38px;
-  color: #ccc;
+  color: var(--on-dark-dim);
   line-height: 1.5;
 }
 
 .p-problem .pain-text strong {
-  color: #fff;
+  color: var(--on-dark);
   font-weight: 700;
 }
 
@@ -255,7 +269,7 @@ body {
   left: 90px;
   right: 90px;
   height: 4px;
-  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  background: linear-gradient(90deg, var(--brand), var(--highlight));
   border-radius: 2px;
   opacity: 0.5;
 }
@@ -286,10 +300,10 @@ body {
 }
 
 .p-turning h2 em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
   text-decoration: underline;
-  text-decoration-color: var(--yellow);
+  text-decoration-color: var(--highlight);
   text-underline-offset: 12px;
   text-decoration-thickness: 6px;
 }
@@ -309,7 +323,7 @@ body {
   padding: 90px 90px;
 }
 
-.p-v1 .page-num { color: var(--blue); }
+.p-v1 .page-num { color: var(--brand); }
 
 .p-v1 h2 {
   font-family: 'Noto Serif SC', serif;
@@ -322,7 +336,7 @@ body {
 .p-v1 .label {
   font-family: 'Fira Code', monospace;
   font-size: 24px;
-  color: var(--blue);
+  color: var(--brand);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 48px;
@@ -349,7 +363,7 @@ body {
 }
 
 .p-v1 .file-row:nth-child(even) {
-  background: #fff;
+  background: var(--card-bg);
 }
 
 .p-v1 .file-name {
@@ -371,23 +385,23 @@ body {
   color: var(--ink-faint);
   padding: 24px 32px;
   border-radius: 12px;
-  background: rgba(43,127,216,0.06);
+  background: rgba(var(--brand-rgb), .06);
 }
 
 /* ========== P5 方法论(深色) ========== */
 .p-method {
-  background: #151821;
+  background: var(--dark-panel);
   display: flex;
   flex-direction: column;
   padding: 90px 90px;
 }
 
-.p-method .page-num { color: var(--yellow); }
+.p-method .page-num { color: var(--highlight); }
 
 .p-method .tag-line {
   font-family: 'Caveat', cursive;
   font-size: 32px;
-  color: var(--yellow);
+  color: var(--highlight);
   margin-bottom: 16px;
 }
 
@@ -395,7 +409,7 @@ body {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: 48px;
-  color: var(--cream);
+  color: var(--on-dark);
   margin-bottom: 56px;
   line-height: 1.4;
 }
@@ -424,13 +438,13 @@ body {
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 32px;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-dark);
   margin-bottom: 12px;
 }
 
 .p-method .principle-card p {
   font-size: 28px;
-  color: #94a3b8;
+  color: var(--on-dark-dim);
   line-height: 1.5;
 }
 
@@ -448,7 +462,7 @@ body {
 .p-quote-big .oversized-mark {
   font-family: 'Fraunces', serif;
   font-size: 280px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.1;
   line-height: 0.5;
   margin-bottom: 20px;
@@ -464,7 +478,7 @@ body {
 }
 
 .p-quote-big .quote-text em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
 }
 
@@ -484,7 +498,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-upgrade .page-num { color: var(--blue); }
+.p-upgrade .page-num { color: var(--brand); }
 
 .p-upgrade h2 {
   font-family: 'Noto Serif SC', serif;
@@ -507,7 +521,7 @@ body {
   align-items: center;
   gap: 28px;
   padding: 28px 36px;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
@@ -516,7 +530,7 @@ body {
   font-family: 'Fraunces', serif;
   font-size: 56px;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.25;
   flex-shrink: 0;
   width: 72px;
@@ -531,7 +545,7 @@ body {
 }
 
 .p-upgrade .step-text strong {
-  color: var(--blue);
+  color: var(--brand);
 }
 
 .p-upgrade .flow-arrow {
@@ -541,7 +555,7 @@ body {
 
 .p-upgrade .flow-arrow span {
   font-size: 40px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.5;
 }
 
@@ -553,7 +567,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-components .page-num { color: var(--blue); }
+.p-components .page-num { color: var(--brand); }
 
 .p-components h2 {
   font-family: 'Noto Serif SC', serif;
@@ -587,7 +601,7 @@ body {
 }
 
 .p-components .data-row:nth-child(odd) {
-  background: #fff;
+  background: var(--card-bg);
 }
 
 .p-components .data-row:nth-child(even) {
@@ -604,7 +618,7 @@ body {
   font-family: 'Fraunces', serif;
   font-size: 52px;
   font-weight: 900;
-  color: var(--blue);
+  color: var(--brand);
 }
 
 .p-components .data-detail {
@@ -616,29 +630,30 @@ body {
 .p-components .bottom-insight {
   margin-top: 48px;
   padding: 28px 36px;
-  background: rgba(43,127,216,0.06);
+  background: rgba(var(--brand-rgb), .06);
   border-radius: 14px;
   font-size: 32px;
   color: var(--ink-light);
   line-height: 1.5;
-  border-left: 5px solid var(--blue);
+  border: 1px solid rgba(var(--brand-rgb), .16);
+  border-top: 3px solid var(--brand);
 }
 
 /* ========== P9 文件树(代码面板) ========== */
 .p-filetree {
-  background: var(--ink);
+  background: var(--dark-panel);
   display: flex;
   flex-direction: column;
   padding: 80px 70px;
 }
 
-.p-filetree .page-num { color: var(--yellow); }
+.p-filetree .page-num { color: var(--highlight); }
 
 .p-filetree h2 {
   font-family: 'Noto Serif SC', serif;
   font-weight: 900;
   font-size: 48px;
-  color: var(--cream);
+  color: var(--on-dark);
   margin-bottom: 40px;
 }
 
@@ -664,9 +679,9 @@ body {
   height: 14px;
   border-radius: 50%;
 }
-.p-filetree .dot:nth-child(1) { background: var(--red); }
-.p-filetree .dot:nth-child(2) { background: var(--yellow); }
-.p-filetree .dot:nth-child(3) { background: #4ade80; }
+.p-filetree .dot:nth-child(1) { background: var(--pop); }
+.p-filetree .dot:nth-child(2) { background: var(--highlight); }
+.p-filetree .dot:nth-child(3) { background: var(--success); }
 
 .p-filetree .code-titlebar .filename {
   flex: 1;
@@ -691,7 +706,7 @@ body {
 .p-filetree .code-body .folder { color: #79c0ff; font-weight: 600; }
 .p-filetree .code-body .file { color: #c9d1d9; }
 .p-filetree .code-body .comment { color: #8b949e; }
-.p-filetree .code-body .highlight-file { color: var(--yellow); }
+.p-filetree .code-body .highlight-file { color: var(--highlight); }
 
 /* ========== P10 核心认知(大字) ========== */
 .p-insights {
@@ -701,7 +716,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-insights .page-num { color: var(--blue); }
+.p-insights .page-num { color: var(--brand); }
 
 .p-insights h2 {
   font-family: 'Noto Serif SC', serif;
@@ -737,7 +752,7 @@ body {
 }
 
 .p-insights .insight-item .text em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
 }
 
@@ -749,7 +764,7 @@ body {
   padding: 90px 80px;
 }
 
-.p-action .page-num { color: var(--red); opacity: 0.2; }
+.p-action .page-num { color: var(--pop); opacity: 0.2; }
 
 .p-action h2 {
   font-family: 'Noto Serif SC', serif;
@@ -771,7 +786,7 @@ body {
   display: flex;
   gap: 24px;
   padding: 32px;
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.04);
   align-items: flex-start;
@@ -786,11 +801,11 @@ body {
   width: 64px;
 }
 
-.p-action .action-item:nth-child(1) .action-num { color: rgba(43,127,216,0.2); }
-.p-action .action-item:nth-child(2) .action-num { color: rgba(244,215,88,0.4); }
-.p-action .action-item:nth-child(3) .action-num { color: rgba(232,74,95,0.2); }
-.p-action .action-item:nth-child(4) .action-num { color: rgba(43,127,216,0.2); }
-.p-action .action-item:nth-child(5) .action-num { color: rgba(244,215,88,0.4); }
+.p-action .action-item:nth-child(1) .action-num { color: rgba(var(--brand-rgb), .2); }
+.p-action .action-item:nth-child(2) .action-num { color: rgba(var(--highlight-rgb), .4); }
+.p-action .action-item:nth-child(3) .action-num { color: rgba(var(--pop-rgb), .2); }
+.p-action .action-item:nth-child(4) .action-num { color: rgba(var(--brand-rgb), .2); }
+.p-action .action-item:nth-child(5) .action-num { color: rgba(var(--highlight-rgb), .4); }
 
 .p-action .action-content h3 {
   font-size: 34px;
@@ -820,7 +835,7 @@ body {
   font-family: 'Fraunces', serif;
   font-style: italic;
   font-size: 200px;
-  color: var(--blue);
+  color: var(--brand);
   opacity: 0.15;
   line-height: 0.6;
   margin-bottom: -20px;
@@ -837,10 +852,10 @@ body {
 }
 
 .p-end .quote em {
-  color: var(--blue);
+  color: var(--brand);
   font-style: normal;
   text-decoration: underline;
-  text-decoration-color: var(--yellow);
+  text-decoration-color: var(--highlight);
   text-underline-offset: 8px;
   text-decoration-thickness: 4px;
 }
@@ -850,7 +865,7 @@ body {
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--yellow);
+  border: 3px solid var(--highlight);
   margin-bottom: 20px;
 }
 
@@ -863,7 +878,7 @@ body {
 
 .p-end .cta {
   font-size: 32px;
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
   margin-bottom: 48px;
 }
@@ -935,7 +950,7 @@ body {
 
 <!-- ===== P4 第一版(色块交替行) ===== -->
 <div class="card p-v1" data-card="4">
-  <span class="page-num" style="color: var(--blue);">04</span>
+  <span class="page-num" style="color: var(--brand);">04</span>
   <h2>第一版内容(很薄但有用)</h2>
   <p class="label">Phase 1 · Initial Version</p>
   <div class="file-list">
@@ -1155,6 +1170,22 @@ body {
 </div><!-- cards-container -->
 
 <script>
+const CARD_WIDTH = 1080;
+const CARD_HEIGHT = 1440;
+const MAX_PREVIEW_SCALE = 0.45;
+
+function syncCardPreviewScale() {
+  const viewportWidth = document.documentElement.clientWidth;
+  const sideGutter = viewportWidth <= 560 ? 32 : 48;
+  const availableWidth = Math.max(0, viewportWidth - sideGutter);
+  const scale = Math.max(0.05, Math.min(MAX_PREVIEW_SCALE, availableWidth / CARD_WIDTH));
+  document.documentElement.style.setProperty('--card-preview-scale', scale.toFixed(4));
+  document.documentElement.style.setProperty('--card-preview-offset', `${(-CARD_HEIGHT * (1 - scale)).toFixed(2)}px`);
+}
+
+syncCardPreviewScale();
+window.addEventListener('resize', syncCardPreviewScale, { passive: true });
+
 async function exportAll() {
   if (typeof html2canvas === 'undefined') {
     alert('⏳ html2canvas 正在加载，请稍等几秒后重试。');
@@ -1174,6 +1205,12 @@ async function exportAll() {
 
   for (let i = 0; i < cards.length; i++) {
     const card = cards[i];
+    const previewStyle = {
+      transform: card.style.transform,
+      marginBottom: card.style.marginBottom,
+      borderRadius: card.style.borderRadius,
+      boxShadow: card.style.boxShadow
+    };
     card.style.transform = 'none';
     card.style.marginBottom = '0';
     card.style.borderRadius = '0';
@@ -1200,10 +1237,10 @@ async function exportAll() {
     } catch(e) {
       console.error('Export error on card ' + (i+1), e);
     } finally {
-      card.style.transform = 'scale(0.45)';
-      card.style.marginBottom = '-792px';
-      card.style.borderRadius = '4px';
-      card.style.boxShadow = '0 8px 40px rgba(0,0,0,0.12)';
+      card.style.transform = previewStyle.transform;
+      card.style.marginBottom = previewStyle.marginBottom;
+      card.style.borderRadius = previewStyle.borderRadius;
+      card.style.boxShadow = previewStyle.boxShadow;
     }
   }
 

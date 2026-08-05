@@ -65,9 +65,19 @@ body (background:#f5f5f5)
 ```
 
 ### 大标题（可选，用于长文叙事）
+
+#### 标题断行协议（P0）
+
+- **不允许浏览器自动决定标题在哪断行。** 中文标题若超过一行，必须在生成 HTML 时用 `<br>` 按完整语义单元显式断句，优先在标点、转折或短语边界断开。
+- **英文单词、数字、产品名、专有名词不可拆。** 例如 `Expression`、`Qwen3.7`、`PostHog` 必须以整词呈现；禁止出现 `Expressio / n` 这类断词。
+- 空间不足时按此顺序处理：调整标题结构或装饰词位置 → 缩小标题字号 → 在中文语义边界手动换行；**不能压缩字距、硬拆英文，或留下一个孤字/单字符独占一行。**
+- 主标题默认两行以内。两行必须在视觉重量和句意上均衡；短引子可单独成行，例如 `AI 时代，<br>学文科/艺术的人到底有什么优势？`。
+- 英文装饰词必须独占一行，用 `white-space:nowrap; word-break:keep-all; overflow-wrap:normal;` 防止断词。字号按词长收缩：10 个字母以内用 56–68px；11–14 个字母用 48–56px；15–18 个字母用 38–48px。超过 18 个字母时，优先换成更短的同义装饰词；绝不换行、断词或用压缩字距硬塞。
+
 ```html
 <section style="text-align:center; margin-bottom:40px; padding:50px 0 40px;">
-  <p style="margin:0 0 12px; font-family:Georgia,'Songti SC',serif; font-size:32px; font-weight:900; color:#1A1A2E; line-height:1.5;">主标题</p>
+  <!-- 中文标题按语义手动断行；英文、数字、专有名词使用 nowrap span 保持完整 -->
+  <p style="margin:0 0 12px; font-family:Georgia,'Songti SC',serif; font-size:32px; font-weight:900; color:#1A1A2E; line-height:1.5; word-break:normal; overflow-wrap:normal;">AI 时代，<br>学文科/艺术的人到底有什么优势？</p>
   <p style="margin:0 0 24px; font-size:17px; color:#4A4A5A; line-height:1.8;">副标题</p>
 </section>
 ```
@@ -104,8 +114,8 @@ body (background:#f5f5f5)
 ```html
 <section style="margin-bottom:52px;">
   <!-- 大淡色英文装饰词 -->
-  <section style="margin-bottom:6px;">
-    <span style="font-family:Georgia,'Songti SC',serif; font-style:italic; font-size:68px; font-weight:bold; color:rgba(43,127,216,0.14); line-height:1;">EnglishWord</span>
+  <section style="margin-bottom:6px; overflow:visible;">
+    <span style="display:inline-block; font-family:Georgia,'Songti SC',serif; font-style:italic; font-size:68px; font-weight:bold; color:rgba(43,127,216,0.14); line-height:1; white-space:nowrap; word-break:keep-all; overflow-wrap:normal;">EnglishWord</span>
   </section>
   <!-- 衬线标题 -->
   <section style="margin-bottom:10px;">
@@ -123,8 +133,8 @@ body (background:#f5f5f5)
 **教程/步骤类（四件套）：**
 ```html
 <section style="margin-bottom:52px;">
-  <section style="margin-bottom:6px;">
-    <span style="font-family:Georgia,'Songti SC',serif; font-style:italic; font-size:68px; font-weight:bold; color:rgba(43,127,216,0.14); line-height:1;">01</span>
+  <section style="margin-bottom:6px; overflow:visible;">
+    <span style="display:inline-block; font-family:Georgia,'Songti SC',serif; font-style:italic; font-size:68px; font-weight:bold; color:rgba(43,127,216,0.14); line-height:1; white-space:nowrap; word-break:keep-all; overflow-wrap:normal;">01</span>
   </section>
   <section style="margin-bottom:4px;">
     <span style="font-size:13px; font-weight:bold; letter-spacing:4px; color:#2B7FD8;">STEP 1</span>
@@ -259,6 +269,9 @@ def img_to_base64(path, max_width=1080, quality=72):
 - [ ] 有结尾金句 + 签名档
 - [ ] base64 版已生成，图片内嵌可粘贴
 - [ ] 文字 100% 原文未改写
+- [ ] 主标题两行以内；若换行，已用 `<br>` 在中文语义边界显式断句
+- [ ] 英文单词、数字、产品名和专有名词没有被断开；无孤字、单字符独占一行
+- [ ] 英文装饰词完整独占一行；字号已按词长收缩，未强行挤压、换行或断词
 
 ---
 
