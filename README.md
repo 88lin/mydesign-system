@@ -4,7 +4,7 @@
 
 把审美写成操作手册，AI 每次帮你做页面时必须翻这本手册，不能自由发挥。**限制 AI 的自由度 = 保证输出质量。**
 
-> ⚠️ **使用前请先完成 `brand-dna.md` 的配置：** 默认品牌色可直接使用，如需替换成你自己的请同步修改模板变量；并放入你自己的头像。
+> ⚠️ **使用前请先阅读 `brand-dna.md`：** 默认 A 主题可直接使用，普通 HTML 模板会通过 `assets/palettes.css` 自动换色；只有公众号模板因为需要复制到第三方编辑器，才需要手动维护内联色值。头像请替换为你自己的素材。
 
 ---
 
@@ -24,7 +24,7 @@
 
 把审美写成操作手册——从纠正AI到做出自己的Design Skill的完整过程。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/demo-readme-tutorial.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-readme-tutorial.html)
 
 ---
 
@@ -32,7 +32,7 @@
 
 视觉冲击、深浅面板交替、强节奏感的活动邀请页。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/demo-landing.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-landing.html)
 
 ---
 
@@ -40,7 +40,7 @@
 
 功能优先、交互感、信息密度高的应用型页面。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/demo-app.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-app.html)
 
 ---
 
@@ -48,7 +48,7 @@
 
 3:4 比例、字大、手机可读、一键导出 PNG 的图文卡片。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/demo-cards.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-cards.html)
 
 ---
 
@@ -56,7 +56,7 @@
 
 杂志编号风：全内联样式 + section 标签，复制粘贴进微信公众号编辑器即可。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/assets/demo-wechat.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/assets/demo-wechat.html)
 
 ---
 
@@ -64,7 +64,7 @@
 
 16种经过验证的布局模式一览。
 
-🔗 [在线预览](https://88lin.github.io/esther-design-system/demo-layouts.html)
+🔗 [在线预览](https://88lin.github.io/mydesign-system/demo-layouts.html)
 
 ---
 
@@ -72,7 +72,7 @@
 
 51个经过验证的可复用组件。
 
-🔗 [组件库预览](https://88lin.github.io/esther-design-system/components-preview.html)
+🔗 [组件库预览](https://88lin.github.io/mydesign-system/components-preview.html)
 
 ---
 
@@ -96,7 +96,7 @@ assets/template-*.html(起点 - 从模板改,不从零写)
 ## 文件结构
 
 ```
-esther-design-system/
+mydesign-system/
 ├── SKILL.md                    ← 7步工作流(大脑)
 ├── brand-dna.md                ← 品牌基因:颜色/字体/气质/禁忌(需配置)
 ├── palettes-preview.html       ← 配色选择器(点色卡实时预览10套)
@@ -106,9 +106,11 @@ esther-design-system/
 │   ├── template-landing.html       活动页模板
 │   ├── template-app.html           App型模板
 │   ├── template-cards.html         小红书卡片模板
+│   ├── template-wechat.html        公众号内联模板
+│   ├── favicon.svg                 页面 favicon
 │   ├── html2canvas.min.js          卡片导出依赖
 │   ├── avatar-placeholder.svg      占位头像(可替换为你自己的 avatar.jpg)
-│   └── avatar.jpg                  ← 你的头像(需自行放入,仓库未附带)
+│   └── avatar.jpg                  ← 头像素材(可替换为你自己的)
 ├── scripts/
 │   └── validate-palettes.mjs       ← 校验主题 token、RGB 通道和对比度
 └── references/                 ← 规则和零件(知识库)
@@ -158,8 +160,8 @@ AI 每次做设计必须按这个顺序走：
 
 👉 **打开 `palettes-preview.html` 点色卡实时预览**，挑好再写进 `data-palette`。
 
-每套都按主色 60% · 强调色 30% · 点缀色 10%组织，并通过自动化的
-token 完整性、RGB 通道同步和对比度校验。校验项会随语义角色增加而变化，
+每套都按主色 60% · 强调色 30% · 点缀色 10% 组织，并通过自动化的
+token 完整性、RGB 通道同步和对比度校验。当前校验覆盖 10 套主题、190 项对比度检查，
 以 `node scripts/validate-palettes.mjs` 的实时结果为准。
 
 配色定义集中在 `assets/palettes.css`，组件只用语义 token
@@ -191,11 +193,29 @@ token 完整性、RGB 通道同步和对比度校验。校验项会随语义角�
 
 ---
 
+## 公众号模式边界
+
+公众号模板与普通 HTML 模板不是同一套运行环境：
+
+- `assets/template-wechat.html` 和 `assets/demo-wechat.html` 使用全内联样式，方便复制进微信公众号编辑器。
+- 公众号编辑器会剥离 `<style>` 和 CSS 变量，换主题时必须同步替换整份模板中的内联色值。
+- 中文长标题必须按语义边界使用 `<br>`；英文单词、数字、产品名和专有名词必须用 `nowrap` 保持完整。
+- 主标题默认不超过两行，禁止出现孤字、单字符独占一行或英文断词。完整规则见 `references/scene-wechat.md`。
+
+---
+
 ## 质量检查
 
 **P0(必须全过)**
 
-品牌三色比例 · 无禁忌元素 · 无 HTML 默认样式 · 暖底背景 · 衬线+无衬线混搭 · 响应式 · 每 section 布局不同 · clamp() fluid sizing · 截图发社交媒体不会被说"又是 AI 做的"
+- 品牌三色比例、主题色和状态色全部使用语义 token
+- 运行 `node scripts/validate-palettes.mjs`，token、RGB 通道和对比度全部通过
+- 至少切换 A → D → I 检查主题色没有掉色或写死
+- 无 HTML 默认样式、无禁忌元素、暖底背景、衬线+无衬线混搭
+- 响应式、`clamp()` fluid sizing、每个 section 使用不同布局
+- 交互控件有可见焦点环，装饰编号和引号不污染阅读顺序
+- 公众号标题按语义断行，英文和数字没有断词
+- 截图发社交媒体不会被说“又是 AI 做的”
 
 **P1(应过)**
 
@@ -211,12 +231,17 @@ token 完整性、RGB 通道同步和对比度校验。校验项会随语义角�
 
 1. Fork 或克隆本仓库
 2. 放入你的头像 `assets/avatar.jpg`
-3. **挑配色**：打开 `palettes-preview.html` 点色卡预览，选好后把字母写进模板的 `<html data-palette="X">`。
-   想用自己的品牌色，就改 `assets/palettes.css` 里某一套的色值 —— 只改这一个文件，全站生效。
-   ⚠️ 手改色值可能打破对比度保证，改完运行 `node scripts/validate-palettes.mjs`。
-   注意：公众号模板（`template-wechat.html`）因为要粘进公众号编辑器，全部是内联样式、不能用 CSS 变量，需要手动搜索替换色值
+3. **挑配色**：打开 `palettes-preview.html` 点色卡预览，选好后把字母写进模板的 `<html data-palette="X">`；普通模板要保留 `<link rel="stylesheet" href="palettes.css">`。
+   想用自己的品牌色，只改 `assets/palettes.css` 里对应主题的色值，再运行校验命令。
+   ⚠️ 公众号模板（`template-wechat.html`）不能依赖 CSS 变量，需要手动搜索替换整份内联色值。
 4. 把 `assets/template-cards.html` 中的作者名替换成你自己的
-5. 把仓库链接发给你的 AI Agent，跟它说：
+5. 交付前运行：
+
+   ```bash
+   node scripts/validate-palettes.mjs
+   ```
+
+6. 把仓库链接发给你的 AI Agent，跟它说：
 
 > 帮我读这个设计系统，以后做页面按这个规范来。
 
