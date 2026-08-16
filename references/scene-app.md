@@ -128,7 +128,6 @@ App型页面色彩更简洁：
   inset: 0;
   z-index: 1000;
   background: rgba(0,0,0,.6);
-  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -70,7 +70,7 @@
 
 ### 🧩 组件库全览
 
-51个经过验证的可复用组件。
+52个经过验证的可复用组件。
 
 🔗 [组件库预览](https://88lin.github.io/mydesign-system/components-preview.html)
 
@@ -115,7 +115,7 @@ mydesign-system/
 │   └── validate-palettes.mjs       ← 校验主题 token、RGB 通道和对比度
 └── references/                 ← 规则和零件(知识库)
     ├── layouts.md                  16种布局模式(附完整代码)
-    ├── components.md               组件库(51组件,完整HTML+CSS)
+    ├── components.md               组件库(52组件,完整HTML+CSS)
     ├── checklist.md                质量检查清单(P0/P1/P2)
     ├── scene-tutorial.md           教程场景规范
     ├── scene-landing.md            活动页场景规范

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<title>Design System · 51组件预览</title>
+<title>Design System · 52组件预览</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700;900&family=Caveat:wght@400;700&family=Fira+Code:wght@400;500&family=Bangers&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/palettes.css">
 <style>
@@ -12,16 +12,24 @@
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans SC',-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
-.site-nav{position:sticky;top:0;z-index:1000;background:var(--cream);backdrop-filter:blur(14px);border-bottom:1px solid var(--hairline);padding:0 clamp(16px,3vw,48px);display:flex;align-items:center;gap:20px;height:56px;overflow-x:auto}
+.site-nav{position:sticky;top:0;z-index:1000;background:var(--cream);border-bottom:1px solid var(--hairline);padding:0 clamp(16px,3vw,48px);display:flex;align-items:center;gap:20px;height:56px;overflow-x:auto}
 .site-nav::-webkit-scrollbar{display:none}
 .nav-brand{font-family:'Fraunces',serif;font-weight:900;font-size:.88rem;white-space:nowrap;flex-shrink:0}
 .nav-tabs{display:flex;gap:4px;flex-shrink:0}
 .nav-tab{padding:6px 12px;border-radius:20px;font-size:.7rem;font-weight:500;white-space:nowrap;cursor:pointer;background:transparent;border:none;color:var(--ink-light);transition:all .2s}
 .nav-tab:hover{background:rgba(var(--brand-rgb), .06)}
 .nav-tab.active{background:var(--brand-surface);color:var(--on-brand)}
-.sec{padding:clamp(60px,8vh,100px) clamp(24px,5vw,80px)}
+.sec{padding:clamp(60px,8vh,100px) clamp(24px,5vw,80px);scroll-margin-top:64px}
 .sec-alt{background:var(--cream-dark)}
 .sec-heading{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;margin-bottom:48px}
+.hero-intro{max-width:1300px;margin:0 auto;padding:clamp(56px,9vh,104px) clamp(24px,5vw,80px) clamp(28px,4vh,44px);display:grid;grid-template-columns:1fr .8fr;gap:clamp(24px,4vw,64px);align-items:end}
+.hero-intro .hi-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;font-weight:500;color:var(--ink-faint);display:block;margin-bottom:.75rem}
+.hero-intro h1{font-family:'Noto Serif SC',serif;font-weight:900;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.12}
+.hero-intro h1 em{font-style:normal;color:var(--brand);background:linear-gradient(transparent 62%,var(--highlight) 62%)}
+.hero-intro .hi-note{font-size:.95rem;color:var(--ink-light);max-width:42ch}
+.hero-intro .hi-note .hand{display:block;margin-top:10px;font:1.2rem 'Caveat',cursive;color:var(--pop-text)}
+.site-foot{padding:clamp(36px,5vh,56px) clamp(24px,5vw,80px);text-align:center;font-size:.78rem;color:var(--ink-faint);border-top:1px solid var(--hairline)}
+@media(max-width:900px){.hero-intro{grid-template-columns:1fr;gap:18px;align-items:start}}
 .cb{margin-bottom:56px}.cb:last-child{margin-bottom:0}
 .cb-h{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
 .cb-id{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--brand-text);font-weight:500}
@@ -85,7 +93,7 @@ img{display:block;max-width:100%}
 .chair-mag h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:900;line-height:1.2;margin-bottom:10px}
 .chair-mag p{font-size:.82rem;color:var(--ink-light);line-height:1.8}
 .chair-mag .tg{display:inline-block;margin-top:14px;font-family:'Fira Code',monospace;font-size:.62rem;color:var(--brand-text);text-transform:uppercase;letter-spacing:1px}
-.chair-dash{border:2px dashed;border-radius:14px;padding:26px 20px;position:relative;background:white}
+.chair-dash{border:2px dashed;border-radius:14px;padding:26px 20px;position:relative;background:var(--card-bg)}
 .chair-dash .lb{position:absolute;top:-10px;left:14px;font-family:'Caveat',cursive;font-size:.92rem;font-weight:700;background:var(--cream);padding:0 7px}
 .chair-dash h3{font-family:'Noto Serif SC',serif;font-size:1rem;font-weight:700;margin-bottom:6px;margin-top:4px}
 .chair-dash p{font-size:.82rem;color:var(--ink-light);line-height:1.7}
@@ -169,7 +177,7 @@ img{display:block;max-width:100%}
 .code-mac .dots i:nth-child(1){background:#ff5f56}
 .code-mac .dots i:nth-child(2){background:#ffbd2e}
 .code-mac .dots i:nth-child(3){background:#27c93f}
-.code-mac .fn{flex:1;text-align:center;font-family:'Fira Code',monospace;font-size:.68rem;color: var(--ink-faint)}
+.code-mac .fn{flex:1;text-align:center;font-family:'Fira Code',monospace;font-size:.68rem;color:rgba(255,255,255,.45)}
 .code-mac .bd{background:#1a1b26;padding:22px}
 .code-mac pre{font-family:'Fira Code',monospace;font-size:.8rem;line-height:1.9;color:#a9b1d6;margin:0;white-space:pre-wrap}
 .kw{color:#bb9af7}.fnc{color:#7aa2f7}.str{color:#9ece6a}.cmt{color:#565f89}.nm{color:#ff9e64}
@@ -189,7 +197,7 @@ img{display:block;max-width:100%}
 .bubble.u{background:var(--highlight);color:var(--ink);align-self:flex-end;border-bottom-right-radius:4px}
 .bubble.a{background:var(--brand-surface);color:var(--on-brand);align-self:flex-start;border-bottom-left-radius:4px}
 .tw-sec{background:#faf8f5;padding:36px;border-radius:12px}
-.tw-sec .hd{font-family:'Fira Code',monospace;font-size:1.3rem;border-bottom:2px solid #333;display:inline-block;padding-bottom:3px;margin-bottom:1.2rem}
+.tw-sec .hd{font-family:'Fira Code',monospace;font-size:1.3rem;border-bottom:2px solid var(--ink);display:inline-block;padding-bottom:3px;margin-bottom:1.2rem}
 .tw-sec .ct{font-family:'Fira Code',monospace;font-size:.82rem;line-height:2.2;max-width:580px}
 .tw-sec .ct p{margin:0}.tw-sec .warn{color:var(--danger-strong);font-weight:700}
 .sh-demo .sn{font-family:'Fraunces',serif;font-style:italic;font-size:1.8rem;color:var(--brand);opacity:.3;display:block;margin-bottom:.2rem}
@@ -197,11 +205,11 @@ img{display:block;max-width:100%}
 .th-demo .tn{font-family:'Fraunces',serif;font-size:5.5rem;font-weight:900;color:var(--brand);opacity:.15;line-height:.85;display:block}
 .th-demo .tt{font-family:'Noto Serif SC',serif;font-weight:900;font-size:1.8rem;margin-top:-.4rem}
 .newspaper{background:#f5f0e8;padding:36px;border-radius:12px}
-.newspaper .mh{font-family:'Fraunces','Noto Serif SC',serif;font-size:2rem;font-weight:900;text-align:center;border-bottom:3px solid #000;border-top:1px solid #000;padding:10px 0;margin-bottom:22px}
+.newspaper .mh{font-family:'Fraunces','Noto Serif SC',serif;font-size:2rem;font-weight:900;text-align:center;border-bottom:3px solid var(--ink);border-top:1px solid var(--ink);padding:10px 0;margin-bottom:22px}
 .newspaper .ng{display:grid;grid-template-columns:2fr 1px 1fr 1px 1fr;gap:18px}
-.newspaper .nd{background:#333}
+.newspaper .nd{background:var(--ink)}
 .newspaper .nh{font-family:'Fraunces','Noto Serif SC',serif;font-size:1.1rem;font-weight:900;margin-bottom:7px;line-height:1.3}
-.newspaper .nb{font-size:.8rem;color:#333;line-height:1.85}
+.newspaper .nb{font-size:.8rem;color:var(--ink);line-height:1.85;opacity:.85}
 .newspaper .hw{font-family:'Caveat',cursive;color:var(--pop-text);font-size:1.1rem;transform:rotate(-2deg);margin-top:8px;display:inline-block}
 .mag-hero{position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;padding:36px;overflow:hidden;border-radius:14px}
 .mag-hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -272,7 +280,7 @@ img{display:block;max-width:100%}
 .flip-b{background:var(--brand-surface);color:var(--on-brand);transform:rotateY(180deg);text-align:center}
 .flip-b h3{font-size:.95rem;font-weight:400;opacity:.8;margin-bottom:.8rem}
 .flip-b p{font-size:.88rem;line-height:2}
-.dark-reveal{position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;background:#1a1a2e;border-radius:14px;overflow:hidden;padding:50px 36px}
+.dark-reveal{position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;background:var(--dark-panel);border-radius:14px;overflow:hidden;padding:50px 36px}
 .dark-reveal .bgc{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Noto Serif SC',serif;font-size:14rem;color:rgba(255,255,255,.03);pointer-events:none;line-height:1}
 .dark-reveal .drc{position:relative;z-index:1;text-align:center;max-width:460px}
 .dark-reveal .drc h2{font-family:'Noto Serif SC',serif;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.6;color: var(--on-dark);margin-bottom:1.2rem;font-weight:900}
@@ -289,7 +297,7 @@ img{display:block;max-width:100%}
 .cl-content h4{font-size:.82rem;font-weight:600;margin-bottom:2px}
 .cl-content p{font-size:.75rem;color:var(--ink-light);line-height:1.7}
 .gallery{display:flex;gap:0;max-width:760px;height:340px;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.08)}
-.gallery .rail{width:72px;background:#1A1A2E;display:flex;flex-direction:column;gap:2px;flex-shrink:0;overflow-y:auto}
+.gallery .rail{width:72px;background:var(--dark-panel);display:flex;flex-direction:column;gap:2px;flex-shrink:0;overflow-y:auto}
 .gallery .rail img{width:100%;aspect-ratio:1;object-fit:cover;cursor:pointer;opacity:.5;transition:opacity .3s}
 .gallery .rail img.active{opacity:1}
 .gallery .main{flex:1;position:relative;overflow:hidden}
@@ -372,7 +380,7 @@ img{display:block;max-width:100%}
 .cal-cell{aspect-ratio:1;border-radius:5px;background: var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3px}
 .cal-cell .dy{font-size:.62rem;color:var(--ink-light)}
 .cal-cell .em{font-size:.9rem}
-.modal-ov{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-ov{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px}
 .modal-ov.active{display:flex}
 .modal-box{background:var(--cream);padding:40px;border-radius:14px;max-width:560px;width:100%;position:relative}
 .modal-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background: var(--card-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;border:none;box-shadow:0 2px 6px rgba(0,0,0,.1)}
@@ -392,7 +400,7 @@ img{display:block;max-width:100%}
 .ring-step .sub{font-size:.62rem;color:var(--ink-faint)}
 .ring-step::after{content:'\203A';position:absolute;right:-7px;top:50%;transform:translateY(-50%);font-size:1.5rem;color:var(--highlight);font-weight:900}
 .ring-step:last-child::after{content:'\27F3';right:auto;left:50%;top:auto;bottom:-14px;transform:translateX(-50%);font-size:.95rem;color:var(--brand)}
-.nav-demo{padding:.8rem 1.5rem;background:var(--cream);backdrop-filter:blur(12px);border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;border-radius:10px}
+.nav-demo{padding:.8rem 1.5rem;background:var(--cream);border-bottom:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;border-radius:10px}
 .nav-demo .logo{font-family:'Fraunces',serif;font-weight:900;font-size:.9rem}
 .nav-demo .lnks{display:flex;gap:1.5rem}
 .nav-demo .lnks a{text-decoration:none;color:var(--ink);font-size:.82rem;position:relative}
@@ -406,7 +414,15 @@ img{display:block;max-width:100%}
 </head>
 <body>
 <svg style="height:0;width:0;position:fixed"><defs><filter id="threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"/></filter></defs></svg>
-<nav class="site-nav"><span class="nav-brand">Design System · 51组件</span><div class="nav-tabs"><button class="nav-tab active" data-target="sec-text">🔤 文字动效</button><button class="nav-tab" data-target="sec-cards">🃏 卡片</button><button class="nav-tab" data-target="sec-quotes">💬 引用</button><button class="nav-tab" data-target="sec-code">🖥️ 代码</button><button class="nav-tab" data-target="sec-layout">📐 布局</button><button class="nav-tab" data-target="sec-interact">🎛️ 交互</button><button class="nav-tab" data-target="sec-compare">📊 对比</button><button class="nav-tab" data-target="sec-other">🧩 其他</button></div></nav>
+<nav class="site-nav"><span class="nav-brand">Design System · 52组件</span><div class="nav-tabs"><button class="nav-tab active" data-target="sec-text">🔤 文字动效</button><button class="nav-tab" data-target="sec-cards">🃏 卡片</button><button class="nav-tab" data-target="sec-quotes">💬 引用</button><button class="nav-tab" data-target="sec-code">🖥️ 代码</button><button class="nav-tab" data-target="sec-layout">📐 布局</button><button class="nav-tab" data-target="sec-interact">🎛️ 交互</button><button class="nav-tab" data-target="sec-compare">📊 对比</button><button class="nav-tab" data-target="sec-other">🧩 其他</button></div></nav>
+
+<header class="hero-intro">
+  <div>
+    <span class="hi-label">Component Library —</span>
+    <h1>52 个<em>零件</em>，拼出任何页面</h1>
+  </div>
+  <div class="hi-note">文字动效、卡片、引用、代码面板、交互组件——全部通过语义 token 取色，换主题时整页跟随。<span class="hand">组件是积木，审美是图纸 ↓</span></div>
+</header>
 
 <div class="sec" id="sec-text"><h1 class="sec-heading">🔤 文字动效</h1>
 <div class="cb"><div class="cb-h"><span class="cb-id">#44</span><span class="cb-name">Sparkles Text 星光文字</span></div><div class="pills"><span class="pill">hero大标题</span><span class="pill">品牌名</span></div><div class="demo" style="text-align:center;padding:60px 40px"><div class="sparkles-wrap" data-sparkle-colors="theme" style="margin:0 auto"><span class="sparkles-text">创造力</span></div></div></div>
@@ -439,9 +455,9 @@ img{display:block;max-width:100%}
 <div class="sec" id="sec-quotes"><h1 class="sec-heading">💬 引用 / 金句</h1>
 <div class="cb"><div class="cb-h"><span class="cb-id">#3</span><span class="cb-name">Key Insight 手写批注风</span></div><div class="pills"><span class="pill">引用</span><span class="pill">洞察</span></div><div class="demo"><div class="key-note"><span class="kt">Key Insight ✦</span><p>真正的创造力不是从无到有，而是把已有的东西用全新的方式连接起来。每一个「灵感乍现」的背后，都是大量的阅读、观察和思考的积累。</p></div></div></div>
 <div class="cb"><div class="cb-h"><span class="cb-id">#6</span><span class="cb-name">Pull Quote 大字引用</span></div><div class="pills"><span class="pill">金句</span><span class="pill">单句强调</span></div><div class="demo"><div class="pullquote"><p>好的设计是尽量少的设计。少即是多——不是做减法的借口，而是每一个元素都必须证明自己存在的价值。</p></div></div></div>
-<div class="cb"><div class="cb-h"><span class="cb-id">#38</span><span class="cb-name">巨大引号居中</span></div><div class="pills"><span class="pill">金句页</span></div><div class="demo" style="background:#EFE8D8;min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px"><div><p style="font-family:'Fraunces','Noto Serif SC',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.7rem);line-height:1.8;max-width:580px;color: var(--ink)">"世界上最有力量的人，是那些能用简单的话说清楚复杂事情的人。"</p><p style="font-size:.72rem;color: var(--ink-faint);margin-top:20px;letter-spacing:.15em">— 理查德·费曼</p></div></div></div>
+<div class="cb"><div class="cb-h"><span class="cb-id">#38</span><span class="cb-name">巨大引号居中</span></div><div class="pills"><span class="pill">金句页</span></div><div class="demo" style="background:var(--cream-dark);min-height:260px;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px"><div><p style="font-family:'Fraunces','Noto Serif SC',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.7rem);line-height:1.8;max-width:580px;color: var(--ink)">"世界上最有力量的人，是那些能用简单的话说清楚复杂事情的人。"</p><p style="font-size:.72rem;color: var(--ink-faint);margin-top:20px;letter-spacing:.15em">— 理查德·费曼</p></div></div></div>
 <div class="cb"><div class="cb-h"><span class="cb-id">#39</span><span class="cb-name">肖像分割引号</span></div><div class="pills"><span class="pill">结尾页</span></div><div class="demo" style="padding:0;overflow:hidden"><div style="display:flex;align-items:center;min-height:280px"><div style="width:38%;height:280px;overflow:hidden;flex-shrink:0"><img src="placeholder.jpg" style="width:100%;height:100%;object-fit:cover" alt=""></div><div style="width:62%;padding:32px 36px"><p style="font-family:'Fraunces','Noto Serif SC',serif;font-style:italic;font-size:1.1rem;line-height:2">"我从不追求完美——完美是一个不存在的终点。"</p><p style="font-size:.7rem;color:var(--brand-text);margin-top:14px;font-weight:600;letter-spacing:.1em">YOUR NAME</p><p style="font-size:.75rem;color:var(--ink-faint);margin-top:6px">你的一句话介绍</p></div></div></div></div>
-<div class="cb"><div class="cb-h"><span class="cb-id">#40</span><span class="cb-name">极简留白引号</span></div><div class="pills"><span class="pill">极简</span></div><div class="demo" style="background:#F5F5F0;min-height:220px;display:flex;align-items:center;padding:50px"><div style="max-width:460px"><p style="font-family:'Fraunces','Noto Serif SC',serif;font-size:1.05rem;line-height:2.2">"做一件事情最好的时间是十年前，其次是现在。"</p><div style="display:flex;align-items:center;gap:10px;margin-top:24px"><div style="width:30px;height:1px;background:var(--highlight)"></div><span style="font-size:.65rem;color:var(--ink-faint);letter-spacing:.12em">中国谚语</span></div></div></div></div>
+<div class="cb"><div class="cb-h"><span class="cb-id">#40</span><span class="cb-name">极简留白引号</span></div><div class="pills"><span class="pill">极简</span></div><div class="demo" style="background:var(--cream-dark);min-height:220px;display:flex;align-items:center;padding:50px"><div style="max-width:460px"><p style="font-family:'Fraunces','Noto Serif SC',serif;font-size:1.05rem;line-height:2.2">"做一件事情最好的时间是十年前，其次是现在。"</p><div style="display:flex;align-items:center;gap:10px;margin-top:24px"><div style="width:30px;height:1px;background:var(--highlight)"></div><span style="font-size:.65rem;color:var(--ink-faint);letter-spacing:.12em">中国谚语</span></div></div></div></div>
 <div class="cb"><div class="cb-h"><span class="cb-id">#50</span><span class="cb-name">Text Highlighter 手绘标注</span></div><div class="pills"><span class="pill">正文重点</span></div><div class="demo" style="padding:44px"><p style="font-size:1.05rem;line-height:2.4">在设计系统中，<span class="hl-yellow">一致性比创新更重要</span>。每个组件都要证明价值——如果一个元素<span class="hl-wave">无法提升用户体验</span>就该删掉。记住：<span class="hl-circle">少即是多</span>，这不是口号，是<span class="hl-box">设计原则</span>。</p></div></div>
 </div>
 
@@ -477,8 +493,8 @@ img{display:block;max-width:100%}
     .<span class="fnc">map</span>(c => c.<span class="fnc">render</span>())
     .<span class="fnc">join</span>(<span class="str">'\\n'</span>)
 }</pre></div></div></div>
-<div class="cb"><div class="cb-h"><span class="cb-id">#7</span><span class="cb-name">对话气泡 Chat Bubbles</span></div><div class="pills"><span class="pill">对话展示</span><span class="pill">AI聊天</span></div><div class="demo"><div class="chat"><div class="bubble u">帮我做一个设计系统的预览页</div><div class="bubble a">好的！需要包含哪些组件分类？文字动效、卡片、引用都要吗？</div><div class="bubble u">全部都要，51个一个不落</div><div class="bubble a">收到，每个组件配真实中文Demo，给我几分钟 ✨</div></div></div></div>
-<div class="cb"><div class="cb-h"><span class="cb-id">#25</span><span class="cb-name">打字机终端风</span></div><div class="pills"><span class="pill">技术向</span><span class="pill">CLI</span></div><div class="demo"><div class="tw-sec"><div class="hd">design_system.md</div><div class="ct"><p>> 系统：Design System</p><p>> 组件：51个</p><p>> 品牌色：主色 / 强调 / 点缀</p><p style="height:1em"></p><p>## 字体系统</p><p>- 标题：Fraunces / Noto Serif SC</p><p>- 正文：Noto Sans SC</p><p>- 代码：Fira Code</p><p>- 手写：Caveat</p><p style="height:1em"></p><p class="warn">⚠️ 禁止使用默认blockquote样式</p></div></div></div></div>
+<div class="cb"><div class="cb-h"><span class="cb-id">#7</span><span class="cb-name">对话气泡 Chat Bubbles</span></div><div class="pills"><span class="pill">对话展示</span><span class="pill">AI聊天</span></div><div class="demo"><div class="chat"><div class="bubble u">帮我做一个设计系统的预览页</div><div class="bubble a">好的！需要包含哪些组件分类？文字动效、卡片、引用都要吗？</div><div class="bubble u">全部都要，52个一个不落</div><div class="bubble a">收到，每个组件配真实中文Demo，给我几分钟 ✨</div></div></div></div>
+<div class="cb"><div class="cb-h"><span class="cb-id">#25</span><span class="cb-name">打字机终端风</span></div><div class="pills"><span class="pill">技术向</span><span class="pill">CLI</span></div><div class="demo"><div class="tw-sec"><div class="hd">design_system.md</div><div class="ct"><p>&gt; 系统：Design System</p><p>&gt; 组件：52个</p><p>> 品牌色：主色 / 强调 / 点缀</p><p style="height:1em"></p><p>## 字体系统</p><p>- 标题：Fraunces / Noto Serif SC</p><p>- 正文：Noto Sans SC</p><p>- 代码：Fira Code</p><p>- 手写：Caveat</p><p style="height:1em"></p><p class="warn">⚠️ 禁止使用默认blockquote样式</p></div></div></div></div>
 </div>
 
 <div class="sec" id="sec-layout"><h1 class="sec-heading">📐 布局 / 排版</h1>
@@ -523,6 +539,8 @@ img{display:block;max-width:100%}
 <div class="cb"><div class="cb-h"><span class="cb-id">#42</span><span class="cb-name">圆形步骤</span></div><div class="pills"><span class="pill">循环流程</span></div><div class="demo"><div class="ring-steps"><div class="ring-step"><span class="emo">💡</span><h4>想法</h4><span class="sub">Ideate</span></div><div class="ring-step"><span class="emo">📐</span><h4>设计</h4><span class="sub">Design</span></div><div class="ring-step"><span class="emo">⚙️</span><h4>开发</h4><span class="sub">Build</span></div><div class="ring-step"><span class="emo">🚀</span><h4>发布</h4><span class="sub">Ship</span></div><div class="ring-step"><span class="emo">📊</span><h4>复盘</h4><span class="sub">Learn</span></div></div></div></div>
 <div class="cb"><div class="cb-h"><span class="cb-id">#43</span><span class="cb-name">用户签名档</span></div><div class="pills"><span class="pill">页尾</span><span class="pill">个人签名</span></div><div class="demo"><div class="user-sig"><div class="name">你的名字</div><div class="line">▪️你的一句话介绍<br>▪️你的第二行签名</div></div></div></div>
 </div>
+
+<footer class="site-foot">Design System · 52 组件 · 语义 token 驱动 · <a href="palettes-preview.html" style="color:var(--brand-text)">配色选择器 →</a></footer>
 
 <!-- Modal -->
 <div class="modal-ov" id="demoModal" onclick="if(event.target===this)this.classList.remove('active')"><div class="modal-box"><button class="modal-x" onclick="document.getElementById('demoModal').classList.remove('active')">×</button><h2 style="font-family:'Noto Serif SC',serif;font-size:1.4rem;font-weight:700;margin-bottom:16px">Modal 详情面板</h2><p style="font-size:.88rem;color:var(--ink-light);line-height:2">这是一个模态窗口组件。用户可以在不离开当前页面的情况下，查看详细内容。点击背景或关闭按钮即可关闭。适合用于书籍详情、文章全文阅读、表单填写等场景。</p></div></div>

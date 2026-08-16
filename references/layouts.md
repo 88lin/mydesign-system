@@ -678,7 +678,7 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 3px 16px rgba(0,0,0,0.05);
-  background: white;
+  background: var(--card-bg);
 }
 .step-item img {
   width: 100%;

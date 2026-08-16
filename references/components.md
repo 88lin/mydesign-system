@@ -1,6 +1,6 @@
 # 组件库
 
-> 51个经过验证的可复用组件。直接复制代码使用。
+> 52个经过验证的可复用组件。直接复制代码使用。
 
 ## 📌 场景索引（先查这里，再去找具体代码）
 
@@ -263,7 +263,7 @@
 .quote-editorial {
   position: relative;
   padding: 48px 32px 28px 72px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.04);
 }
@@ -319,7 +319,7 @@
   padding: 28px 24px;
   border: 2px dashed rgba(var(--brand-rgb), .25);
   border-radius: 12px;
-  background: white;
+  background: var(--card-bg);
 }
 .quote-handwrite .quote-badge {
   position: absolute;
@@ -547,7 +547,7 @@
 .quote-note {
   position: relative;
   padding: 24px 28px;
-  background: white;
+  background: var(--card-bg);
   border-radius: 10px;
   border: 1.5px dashed rgba(var(--brand-rgb), .3);
 }
@@ -848,7 +848,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 ```css
 .code-clean {
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 32px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -1008,11 +1008,11 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 ---
 
-## 9. 导航栏（Fixed + Backdrop Blur）
+## 9. 导航栏（Fixed 吸顶导航）
 
 适用场景：`顶部导航` `页面头部` `品牌标识`
 
-固定在顶部的毛玻璃导航。
+固定在顶部的实底导航（暖底 + 细分割线，不用毛玻璃）。
 
 ```html
 <nav>
@@ -1032,9 +1032,8 @@ nav {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 1rem 2rem;
-  background: rgba(254,252,246,.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(26,26,26,.06);
+  background: var(--cream);
+  border-bottom: 1px solid rgba(var(--ink-rgb),.06);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1106,7 +1105,7 @@ nav.scrolled {
 .chair-number-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .chair-number-card {
   position: relative;
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 40px 24px 28px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.05);
@@ -1246,7 +1245,7 @@ nav.scrolled {
   border-radius: 16px;
   padding: 28px 22px;
   position: relative;
-  background: white;
+  background: var(--card-bg);
 }
 .chair-dashed-card:nth-child(1) { border-color: rgba(var(--brand-rgb), .3); }
 .chair-dashed-card:nth-child(2) { border-color: rgba(var(--highlight-rgb), .5); }
@@ -1492,7 +1491,7 @@ nav.scrolled {
   gap: 24px;
 }
 .compare-block {
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.04);
@@ -1557,7 +1556,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 ```css
 .compare-handwrite {
   position: relative;
-  background: white;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 32px;
   border: 1.5px dashed rgba(0,0,0,0.12);
@@ -1647,7 +1646,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   display: grid;
   grid-template-columns: 1fr 80px 80px;
   padding: 14px 20px;
-  background: white;
+  background: var(--card-bg);
   border-bottom: 1px solid rgba(0,0,0,0.04);
   align-items: center;
 }
@@ -1694,7 +1693,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   gap: 24px;
 }
 .compare-stamp-col {
-  background: white;
+  background: var(--card-bg);
   border: 2px solid;
   padding: 28px 24px;
   position: relative;
@@ -1792,7 +1791,7 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
 }
 .orbit-item {
   position: absolute;
-  background: white;
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 4px 12px;
   font-size: 0.7rem;
@@ -1931,7 +1930,6 @@ Caveat字体标题 + 虚线边框，适合轻松/教程类内容。
   z-index: 1000;
   overflow-y: auto;
   background: rgba(0,0,0,.6);
-  backdrop-filter: blur(4px);
   display: none;
   padding: 5vh 0;
 }
@@ -2989,12 +2987,12 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   padding: clamp(40px, 6vh, 80px) clamp(24px, 4vw, 60px);
 }
 .masthead {
-  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 900;
   text-align: center;
-  border-bottom: 3px solid #000;
-  border-top: 1px solid #000;
+  border-bottom: 3px solid var(--ink);
+  border-top: 1px solid var(--ink);
   padding: 12px 0;
   margin-bottom: clamp(20px, 3vh, 36px);
 }
@@ -3004,21 +3002,22 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   gap: clamp(16px, 2vw, 28px);
 }
 .news-divider {
-  background: #333;
+  background: var(--ink);
 }
 .news-col {
   font-size: 0.85rem;
   line-height: 1.85;
 }
 .news-headline {
-  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
   font-size: 1.3rem;
   font-weight: 900;
   margin-bottom: 10px;
   line-height: 1.3;
 }
 .news-body {
-  color: #333;
+  color: var(--ink);
+  opacity: .85;
 }
 .news-handwrite {
   font-family: 'Caveat', cursive;
@@ -3085,7 +3084,7 @@ CSS Grid两栏布局、2px粗边框系统、酒店名跨列、日期蓝色大字
   z-index: 2;
 }
 .mag-title {
-  font-family: 'Playfair Display', 'Fraunces', 'Noto Serif SC', serif;
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
   font-size: clamp(3rem, 9vw, 6rem);
   font-weight: 900;
   color: var(--cream);
@@ -3770,7 +3769,7 @@ function flipStack() {
 ```html
 <div style="display: flex; gap: 0; max-width: 850px; height: 420px; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08);">
   <!-- Thumbnail rail -->
-  <div style="width: 100px; background: #2C2A26; display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
+  <div style="width: 100px; background: var(--dark-panel); display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; overflow-y: auto;">
     <img src="[thumb-1]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 1;" onclick="switchPanel(0)">
     <img src="[thumb-2]" style="width: 100%; aspect-ratio: 1; object-fit: cover; cursor: pointer; opacity: 0.5;" onclick="switchPanel(1)">
     <img src="[thumb-3]" style="...opacity: 0.5;" onclick="switchPanel(2)">
@@ -3781,10 +3780,10 @@ function flipStack() {
     <img src="[full-2]" style="...opacity: 0; transition: opacity 0.4s;">
   </div>
   <!-- Side panel -->
-  <div style="width: 280px; background: var(--card-bg); padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid #EFE8D8;">
+  <div style="width: 280px; background: var(--card-bg); padding: 28px 20px; overflow-y: auto; flex-shrink: 0; border-left: 1px solid var(--border);">
     <h3 style="font-size: 1rem; font-weight: 800;">Title</h3>
-    <p style="font-size: 0.72rem; color: #B87333; font-weight: 600;">Year · Location</p>
-    <p style="font-size: 0.78rem; color: #5A5650; line-height: 1.8;">Description text...</p>
+    <p style="font-size: 0.72rem; color: var(--brand-text); font-weight: 600;">Year · Location</p>
+    <p style="font-size: 0.78rem; color: var(--ink-light); line-height: 1.8;">Description text...</p>
   </div>
 </div>
 ```
@@ -3811,9 +3810,9 @@ function flipStack() {
         <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 12px; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); color: var(--cream); font-size: 0.72rem; font-weight: 600;">Label</div>
       </div>
       <!-- Back -->
-      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: #2C2A26; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: var(--cream);">
+      <div style="position: absolute; inset: 0; backface-visibility: hidden; transform: rotateY(180deg); background: var(--dark-panel); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; color: var(--on-dark);">
         <h4 style="font-size: 0.85rem; font-weight: 700;">Title</h4>
-        <span style="font-size: 0.68rem; color: #D4A574;">Year</span>
+        <span style="font-size: 0.68rem; color: var(--brand-on-dark);">Year</span>
         <p style="font-size: 0.72rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-top: 8px;">Description</p>
       </div>
     </div>
@@ -3831,20 +3830,20 @@ function flipStack() {
 - transform-style: preserve-3d 保持子元素3D空间
 - backface-visibility: hidden 隐藏背面
 - 正面底部gradient标签提示内容
-- 背面深色底+木色accent统一风格
+- 背面深色面板（`var(--dark-panel)`）+ 品牌色 accent 统一风格
 - 3:4竖向比例适合人像/建筑
 
 ---
 
 ## 38. 巨大引号居中（Giant Quote Centered）
 
-**用途**：结尾页/金句页。奶油底色+大字号引号居中，极简但有力。
+**用途**：结尾页/金句页。次级暖底+大字号引号居中，极简但有力。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #EFE8D8; text-align: center; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--cream-dark); text-align: center; padding: 60px;">
   <div>
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: #2C2A26;">"Quote text here."</p>
-    <p style="font-size: 0.75rem; color: #8E8880; margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
+    <p style="font-family: 'Fraunces', 'Noto Serif SC', serif; font-style: italic; font-size: clamp(1.5rem, 3.5vw, 2.5rem); line-height: 1.8; max-width: 750px; color: var(--ink);">"Quote text here."</p>
+    <p style="font-size: 0.75rem; color: var(--ink-faint); margin-top: 24px; letter-spacing: 0.15em; text-transform: uppercase;">— Attribution</p>
   </div>
 </section>
 ```
@@ -3863,9 +3862,9 @@ function flipStack() {
     <img src="[portrait]" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
   <div style="width: 55%; padding: 60px 80px;">
-    <p style="font-family: 'Libre Baskerville', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 2;">"Quote"</p>
-    <p style="font-size: 0.72rem; color: #B87333; margin-top: 20px; font-weight: 600; letter-spacing: 0.1em;">ATTRIBUTION</p>
-    <p style="font-size: 0.78rem; color: #8E8880; margin-top: 16px; line-height: 1.8;">Summary text.</p>
+    <p style="font-family: 'Fraunces', 'Noto Serif SC', serif; font-style: italic; font-size: clamp(1.1rem, 2.2vw, 1.5rem); line-height: 2;">"Quote"</p>
+    <p style="font-size: 0.72rem; color: var(--brand-text); margin-top: 20px; font-weight: 600; letter-spacing: 0.1em;">ATTRIBUTION</p>
+    <p style="font-size: 0.78rem; color: var(--ink-faint); margin-top: 16px; line-height: 1.8;">Summary text.</p>
   </div>
 </section>
 ```
@@ -3874,15 +3873,15 @@ function flipStack() {
 
 ## 40. 极简留白引号（Ultra-Minimal Quote）
 
-**用途**：纯白底+左对齐引号+巨大留白。最克制的结尾方式。
+**用途**：次级暖底+左对齐引号+巨大留白。最克制的结尾方式。
 
 ```html
-<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #F5F5F0; padding: 60px;">
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--cream-dark); padding: 60px;">
   <div style="max-width: 500px; text-align: left;">
-    <p style="font-family: 'Libre Baskerville', serif; font-size: 1.1rem; line-height: 2.2; color: #2C2A26;">"Quote text here."</p>
+    <p style="font-family: 'Fraunces', 'Noto Serif SC', serif; font-size: 1.1rem; line-height: 2.2; color: var(--ink);">"Quote text here."</p>
     <div style="display: flex; align-items: center; gap: 12px; margin-top: 32px;">
-      <div style="width: 32px; height: 1px; background: #D4A574;"></div>
-      <span style="font-size: 0.68rem; color: #8E8880; letter-spacing: 0.12em; text-transform: uppercase;">Attribution</span>
+      <div style="width: 32px; height: 1px; background: var(--highlight);"></div>
+      <span style="font-size: 0.68rem; color: var(--ink-faint); letter-spacing: 0.12em; text-transform: uppercase;">Attribution</span>
     </div>
   </div>
 </section>
